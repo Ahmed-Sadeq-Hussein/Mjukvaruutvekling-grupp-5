@@ -24,19 +24,9 @@ Username: RamaTech03
 - Julius\
 Username: Baesar
 
+
+
 ---
-
-### För att pusha: 
-git init \
-git add . \
-git status      Checka om allt ser bra ut\
-git commit -m "message" \
-git push origin main \
-
-### För att pulla:
-git pull origin main 
-
-#
 
 ## Roles and how to execute task 
 ##  Calculator through c#  
@@ -51,3 +41,16 @@ git pull origin main
 
 
 ## kanban https://miro.com/app/board/uXjVKbCJa-M=/
+
+
+---
+
+### För att pusha: 
+git init \
+git add . \
+git status      Checka om allt ser bra ut\
+git commit -m "message" \
+git push origin main 
+
+### För att pulla:
+git pull origin main 
