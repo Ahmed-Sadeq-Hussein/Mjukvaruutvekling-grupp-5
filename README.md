@@ -37,7 +37,7 @@ The languages we are going to use are:
 - xaml
 
 ### Features:
-- Euler's number and pi included
+- Euler's number and pi are included
 - Ans button (to enter the most recent answer)
 
 ---
