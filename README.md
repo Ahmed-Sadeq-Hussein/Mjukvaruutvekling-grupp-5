@@ -9,7 +9,7 @@ I, Julius Norén, declare that I am the sole author of the content I add to this
 
 
 ### Contributors: 
-- Ahmed - Ahmed-Sadeq-Hussein
+- Ahmed | Username: Ahmed-Sadeq-Hussein
 - Sana 
 - Hannan
 - Rama 
