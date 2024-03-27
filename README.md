@@ -28,16 +28,17 @@ Username: Baesar
 
 ---
 
-## Roles and how to execute task 
-Desktop calculator implemented using C# \
-You will be able to enter numbers and operations using keyboard input or by clicking on buttons in the GUI using the cursor. If you have entered a legitimate expression to be calculated, its answer will show up.
-
+## What we will implement:
+A desktop calculator implemented using C# \
+You will be able to enter numbers and operations using keyboard input or by clicking on buttons in the GUI using the cursor. If you have entered a legitimate expression to be calculated, its answer will show up. \
+We will design it using the model-view-controller pattern. \
+The languages we are going to use ara:
+- C# 
+- xaml
 
 ### Features:
-- BIDMAS
 - Euler's number and pi included
 - Ans button (to enter the most recent answer)
-## View Control Model build 
 
 ## project manager
 ## GUI/View Lead
