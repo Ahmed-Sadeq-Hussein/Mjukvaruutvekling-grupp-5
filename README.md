@@ -40,12 +40,15 @@ The languages we are going to use are:
 - Euler's number and pi included
 - Ans button (to enter the most recent answer)
 
+---
+
 ## project manager
 ## GUI/View Lead
 ## Controller Lead
 ## Controller co-lead
 ## Model Lead
 
+---
 
 ## kanban https://miro.com/app/board/uXjVKbCJa-M=/
 
