@@ -1,6 +1,6 @@
 # Mjukvaruutvekling-grupp5-project
 
-## Declarations
+## Declarations:
 I, Ahmed Hussein, declare that I am the sole author of the content I add to this repository.\
 I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository.\
 I, Hannan Khalil, declare that I am the sole author of the content I add to this repository.\
@@ -8,7 +8,7 @@ I, Rama Muharam, declare that I am the sole author of the content I add to this 
 I, Julius Norén, declare that I am the sole author of the content I add to this repository.
 
 
-### Contributors: 
+## Contributors: 
 - Ahmed \
 Username: Ahmed-Sadeq-Hussein
 
@@ -24,6 +24,8 @@ Username: RamaTech03
 - Julius\
 Username: Baesar
 
+---
+
 ### För att pusha: 
 git init 
 git add . 
@@ -31,11 +33,10 @@ git status      Checka om allt ser bra ut
 git commit -m "message" 
 git push origin main 
 
-## detta är för att pulla / updatera nya
+### För att pulla:
+git pull origin main 
 
-# git pull origin main 
-
-###
+#
 
 ## Roles and how to execute task 
 ##  Calculator through c#  
