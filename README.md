@@ -4,16 +4,23 @@
 I, Ahmed Hussein, declare that I am the sole author of the content I add to this repository. 
 I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository.
 I, Hannan Khalil, declare that I am the sole author of the content I add to this repository.
+I, Rama Muharam, declare that I am the sole author of the content I add to this repository.
+I, Julius Norén, declare that I am the sole author of the content I add to this repository.
 
 
- Ahmed , Julius , Rama , Sana , hannan 
+### Contributors: 
+- Ahmed 
+- Julius 
+- Rama 
+- Sana 
+- Hannan 
 
 ### För att pusha: 
 git init 
-# git add . 
-# git status       Checka om allt ser bra ut 
-# git commit -m "message" 
-# git push origin main 
+git add . 
+git status      Checka om allt ser bra ut
+git commit -m "message" 
+git push origin main 
 
 ## detta är för att pulla / updatera nya
 
