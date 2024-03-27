@@ -29,8 +29,14 @@ Username: Baesar
 ---
 
 ## Roles and how to execute task 
-##  Calculator through c#  
-##  BIDMAS  , e and pi included . Awns knapp.
+Desktop calculator implemented using C# \
+You will be able to enter numbers and operations using keyboard input or by clicking on buttons in the GUI using the cursor. If you have entered a legitimate expression to be calculated, its answer will show up.
+
+
+### Features:
+- BIDMAS
+- Euler's number and pi included
+- Ans button (to enter the most recent answer)
 ## View Control Model build 
 
 ## project manager
