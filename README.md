@@ -10,15 +10,19 @@ I, Julius Norén, declare that I am the sole author of the content I add to this
 
 ### Contributors: 
 - Ahmed \
-Username: Ahmed-Sadeq-Hussein\
+Username: Ahmed-Sadeq-Hussein
+
 - Sana\
-Username: SanaSu1\
+Username: SanaSu1
+
 - Hannan\
-Username: hannankhalil\
+Username: hannankhalil
+
 - Rama\
-Username: RamaTech03\
+Username: RamaTech03
+
 - Julius\
-Username: Baesar\
+Username: Baesar
 
 ### För att pusha: 
 git init 
