@@ -9,11 +9,11 @@ I, Julius Norén, declare that I am the sole author of the content I add to this
 
 
 ### Contributors: 
-- Ahmed 
-- Julius 
-- Rama 
+- Ahmed
 - Sana 
-- Hannan 
+- Hannan
+- Rama 
+- Julius
 
 ### För att pusha: 
 git init 
