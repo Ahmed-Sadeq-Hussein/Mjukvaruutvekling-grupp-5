@@ -27,11 +27,11 @@ Username: Baesar
 ---
 
 ### För att pusha: 
-git init 
-git add . 
-git status      Checka om allt ser bra ut
-git commit -m "message" 
-git push origin main 
+git init \
+git add . \
+git status      Checka om allt ser bra ut\
+git commit -m "message" \
+git push origin main \
 
 ### För att pulla:
 git pull origin main 
