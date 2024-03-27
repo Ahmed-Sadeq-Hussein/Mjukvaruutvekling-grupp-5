@@ -1,6 +1,8 @@
 # Mjukvaruutvekling-grupp5-project
- I, Ahmed Hussein declare that I am the sole author of the content I add to this repository.
- I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository.
+
+## Declarations
+I, Ahmed Hussein, declare that I am the sole author of the content I add to this repository.
+I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository.
 
  Ahmed , Julius , Rama , Sana , hannan 
 
