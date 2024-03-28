@@ -37,7 +37,8 @@ The languages we are going to use are:
 - xaml
 
 ### Features:
-- Euler's number and pi are included
+- Addition, subtraction, multiplication, division and exponentiation operations
+- Euler's number and pi
 - Ans button (to enter the most recent answer)
 
 ---
