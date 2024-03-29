@@ -1,11 +1,9 @@
 # Mjukvaruutvekling-grupp5-project
 
 ## Declarations:
-I, Ahmed Hussein, declare that I am the sole author of the content I add to this repository.\
-I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository.\
-I, Hannan Khalil, declare that I am the sole author of the content I add to this repository.\
-I, Rama Muharam, declare that I am the sole author of the content I add to this repository.\
-I, Julius Norén, declare that I am the sole author of the content I add to this repository.
+I, Julius Norén, declare that I am the sole author of the content I add to this repository. \
+I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository. \
+I, Rama Muharam, declare that I am the sole author of the content I add to this repository. \
 
 
 ## Contributors: 
@@ -37,7 +35,8 @@ The languages we are going to use are:
 - xaml
 
 ### Features:
-- Euler's number and pi are included
+- Addition, subtraction, multiplication, division and exponentiation operations
+- Euler's number and pi
 - Ans button (to enter the most recent answer)
 
 ---
