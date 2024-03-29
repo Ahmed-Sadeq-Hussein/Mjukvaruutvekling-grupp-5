@@ -55,7 +55,6 @@ The languages we are going to use are:
 ---
 
 ### För att pusha: 
-git init \
 git add . \
 git status      Checka om allt ser bra ut\
 git commit -m "message" \
