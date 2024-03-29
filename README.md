@@ -34,7 +34,7 @@ You will be able to enter numbers and operations using keyboard input or by clic
 We will design it using the model-view-controller pattern. \
 The languages we are going to use are:
 - C# 
-- xaml
+- XAML
 
 ### Features:
 - Addition, subtraction, multiplication, division and exponentiation operations
