@@ -2,6 +2,7 @@
 
 ## Declarations:
 I, Julius Norén, declare that I am the sole author of the content I add to this repository. \
+I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository. \
 
 
 ## Contributors: 
