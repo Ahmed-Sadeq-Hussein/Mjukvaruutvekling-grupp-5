@@ -4,6 +4,8 @@
 I, Julius Norén, declare that I am the sole author of the content I add to this repository. \
 I, Sana Subhiyeh, declare that I am the sole author of the content I add to this repository. \
 I, Rama Muharam, declare that I am the sole author of the content I add to this repository. \
+I, Hannan Khalil, declare that I am the sole author of the content I add to this repository. \
+I, Ahmed Hussein, declare that I am the sole author of the content I add to this repository.
 
 
 ## Contributors: 
