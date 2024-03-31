@@ -121,6 +121,7 @@ namespace Calculator_project
                     output += ",";
                     OutputTextBlock.Text = output;
                 }
+                decimalAvailable = false;
             }
         }
 
@@ -131,6 +132,7 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Plus";
+                decimalAvailable = true;
             }
         }
 
@@ -141,6 +143,7 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Minus";
+                decimalAvailable = true;
             }
         }
 
@@ -151,6 +154,7 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Product";
+                decimalAvailable = true;
             }
         }
 
@@ -161,6 +165,7 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Divide";
+                decimalAvailable = true;
             }
         }
 
@@ -202,13 +207,21 @@ namespace Calculator_project
                     }
                     break;
             }
+            if (output.Contains(','))
+            {
+                decimalAvailable = false;
+            }
+            else
+            {
+                decimalAvailable = true;
+            }
         }
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             output = "";
             OutputTextBlock.Text = output;
-
+            decimalAvailable = true;
         }
 
         private void AnswerBtn_Click(object sender, RoutedEventArgs e)

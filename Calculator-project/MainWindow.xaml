@@ -131,7 +131,7 @@
             <!-- Decimal Button -->
             <Button
                 x:Name="DecimalBtn"
-                Content="."
+                Content=","
                 Grid.Row="4" Grid.Column="1"
                 Click="DecimalBtn_Click"
             />
