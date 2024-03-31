@@ -23,6 +23,8 @@ namespace Calculator_project
         double temp = 0;
         string operation = "";
 
+        bool decimalAvailable = true;
+
         String output = "";
 
         public MainWindow()
@@ -105,6 +107,33 @@ namespace Calculator_project
             
         }
 
+        private void DecimalBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (decimalAvailable)
+            {
+                if (output == "")
+                {
+                    output += "0,";
+                    OutputTextBlock.Text = output;
+                }
+                else
+                {
+                    output += ",";
+                    OutputTextBlock.Text = output;
+                }
+            }
+        }
+
+        private void PlusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Plus";
+            }
+        }
+
         private void MinusBtn_Click(object sender, RoutedEventArgs e)
         {
             if(output != "")
@@ -112,6 +141,26 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Minus";
+            }
+        }
+
+        private void TimesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Product";
+            }
+        }
+
+        private void DivideBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Divide";
             }
         }
 
@@ -151,38 +200,7 @@ namespace Calculator_project
                         // Handle divide by zero error, for example:
                         OutputTextBlock.Text = "EROR";
                     }
-                break;
-            }       
-        }
-
-        private void PlusBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Plus";
-            }
-
-        }
-
-        private void TimesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Product";
-            }
-        }
-
-        private void DivideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Divide";
+                    break;
             }
         }
 
@@ -190,6 +208,11 @@ namespace Calculator_project
         {
             output = "";
             OutputTextBlock.Text = output;
+
+        }
+
+        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
