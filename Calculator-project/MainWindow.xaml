@@ -24,7 +24,7 @@
                 x:Name="OutputTextBlock"
                 Margin="5"
                 VerticalAlignment="Bottom"
-                Foreground="White" FontSize="30" Text=""
+                Foreground="White" FontSize="30" Text="0"
                 TextAlignment="Right">
             </TextBlock>
         </Border>
