@@ -54,5 +54,5 @@ To compile and run the calculator, follow these steps:
 ---
 
 ## Kanban: 
-# Miro: https://miro.com/app/board/uXjVKbCJa-M=/
+### Miro: https://miro.com/app/board/uXjVKbCJa-M=/
 
