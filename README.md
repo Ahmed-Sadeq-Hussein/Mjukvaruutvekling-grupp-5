@@ -53,16 +53,6 @@ To compile and run the calculator, follow these steps:
 
 ---
 
-## kanban https://miro.com/app/board/uXjVKbCJa-M=/
+## Kanban: 
+# Miro: https://miro.com/app/board/uXjVKbCJa-M=/
 
-
----
-
-### För att pusha: 
-git add . \
-git status      Checka om allt ser bra ut\
-git commit -m "message" \
-git push origin main 
-
-### För att pulla:
-git pull origin main 
