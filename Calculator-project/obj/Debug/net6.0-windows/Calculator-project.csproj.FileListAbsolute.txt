@@ -41,3 +41,5 @@ D:\Plugg\Kurser\Mjukvaruutveckling\Mjukvaruutvekling-grupp-5\Calculator-project\
 D:\Plugg\Kurser\Mjukvaruutveckling\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\ref\Calculator-project.dll
 D:\Plugg\Kurser\Mjukvaruutveckling\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\ButtonStyles.baml
 D:\Plugg\Kurser\Mjukvaruutveckling\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\App.baml
+C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\Calculator-project\obj\Debug\net6.0-windows\ButtonStyles.baml
+C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\Calculator-project\obj\Debug\net6.0-windows\App.baml

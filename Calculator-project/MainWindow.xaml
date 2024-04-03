@@ -199,7 +199,25 @@
                 Click="AnswerBtn_Click"
                 Style="{StaticResource OperatorButton}"
                 FontWeight="Regular"
-            />
+             />
+            <Button
+                x:Name="PiBtn"
+                Content="&#x03C0;"
+                Grid.Row="0" Grid.Column="1"
+                Click="PiBtn_Click"
+                Style="{StaticResource OperatorButton}"
+                FontWeight="Regular"
+             />
+            <Button
+                x:Name="e_Btn"
+                Content="e"
+                Grid.Row="0" Grid.Column="2"
+                Click="e_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+                FontWeight="Regular"   
+                
+              />
+            
         </Grid>
     </Grid>
 </Window>
