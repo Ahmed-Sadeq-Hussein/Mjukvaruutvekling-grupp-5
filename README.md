@@ -43,7 +43,7 @@ The languages we are going to use are:
 
 ---
 
-## How to compile and run
+## How to compile and run:
 To compile and run the calculator, follow these steps:
 1. Download the code, this can easily be done in two ways
  - Clone the repository to your local repository on your device by typing `git clone https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5.git` in the command prompt
