@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\ramam\\repo\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project\\Calculator-project.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ramam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+        "projectName": "Calculator-project",
+        "projectPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+        "packagesPath": "C:\\Users\\sanas\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sanas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9f635a7dfa936c873db23d2073c1824a68c5bc54
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +51,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +80,11 @@
               "privateAssets": "none"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> 9f635a7dfa936c873db23d2073c1824a68c5bc54
         }
       }
     }

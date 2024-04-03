@@ -4,11 +4,16 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\Calculator-project\obj\Debug\net6.0-windows\
+=======
+C:\Users\sanas\OneDrive\Desktop\Github\myGit\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\
+>>>>>>> 9f635a7dfa936c873db23d2073c1824a68c5bc54
 Calculator_project
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+<<<<<<< HEAD
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\Calculator-project\App.xaml
 22040012619
 
@@ -17,4 +22,14 @@ C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculat
 ButtonStyles.xaml;MainWindow.xaml;
 
 False
+=======
+C:\Users\sanas\OneDrive\Desktop\Github\myGit\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\App.xaml
+22040012619
+
+5857935206
+194-2005446070
+ButtonStyles.xaml;MainWindow.xaml;
+
+True
+>>>>>>> 9f635a7dfa936c873db23d2073c1824a68c5bc54
 

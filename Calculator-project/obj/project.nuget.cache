@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "mweWo0a+2BuQPysiHuZ+Ufifgj2h+jCMEkXnNpT4fMD671Lwglc4Iwe98ywLwVhlzITsApitfn6Ufwo21Hihtg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ramam\\repo\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project\\Calculator-project.csproj",
+=======
+  "dgSpecHash": "B/3pBO0jbV09MdLiRVadvIn6GhB7upPdb+CusdYGxS2j9c//4GWW3ehiup7ltYg8yeI5bBp91RGaeK9JSizZ/w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+>>>>>>> 9f635a7dfa936c873db23d2073c1824a68c5bc54
   "expectedPackageFiles": [],
   "logs": []
 }
