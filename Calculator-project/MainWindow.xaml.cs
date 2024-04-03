@@ -105,15 +105,7 @@ namespace Calculator_project
             
         }
 
-        private void MinusBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if(output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Minus";
-            }
-        }
+        
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -153,6 +145,18 @@ namespace Calculator_project
                     }
                 break;
             }       
+        }
+
+
+
+        private void MinusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Minus";
+            }
         }
 
         private void PlusBtn_Click(object sender, RoutedEventArgs e)
