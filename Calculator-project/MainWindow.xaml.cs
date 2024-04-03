@@ -23,6 +23,8 @@ namespace Calculator_project
         double temp = 0;
         string operation = "";
 
+        bool decimalAvailable = true;
+
         String output = "";
 
         public MainWindow()
@@ -36,76 +38,86 @@ namespace Calculator_project
 
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-            String name = ((Button)sender).Name;
-
-            switch(name)
+            if (((string)((Button)sender).Content) == "0")
             {
-                case "OneBtn":
-                    output += "1";
+                if (output != "")
+                {
+                    output += ((Button)sender).Content;
                     OutputTextBlock.Text = output;
-
-                    break;
-
-                case "TwoBtn":
-                    output += "2";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ThreeBtn":
-                    output += "3";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FourBtn":
-                    output += "4";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FiveBtn":
-                    output += "5";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SixBtn":
-                    output += "6";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SevenBtn":
-                    output += "7";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "EightBtn":
-                    output += "8";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "NineBtn":
-                    output += "9";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ZeroBtn":
-                    output += "0";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-
+                }
             }
-            
+            else
+            {
+                output += ((Button)sender).Content;
+                OutputTextBlock.Text = output;
+            }
         }
 
+        private void DecimalBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (decimalAvailable)
+            {
+                if (output == "")
+                {
+                    output += "0,";
+                    OutputTextBlock.Text = output;
+                }
+                else
+                {
+                    output += ",";
+                    OutputTextBlock.Text = output;
+                }
+                decimalAvailable = false;
+            }
+        }
+
+        private void PlusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Plus";
+                decimalAvailable = true;
+            }
+        }
+
+<<<<<<< HEAD
         
+=======
+        private void MinusBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Minus";
+                decimalAvailable = true;
+            }
+        }
+
+        private void TimesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Product";
+                decimalAvailable = true;
+            }
+        }
+
+        private void DivideBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                temp = double.Parse(output);
+                output = "";
+                operation = "Divide";
+                decimalAvailable = true;
+            }
+        }
+>>>>>>> 787d964613f9733ac43d086f35d0c987e5e7346a
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -141,8 +153,9 @@ namespace Calculator_project
                     else
                     {
                         // Handle divide by zero error, for example:
-                        OutputTextBlock.Text = "EROR";
+                        OutputTextBlock.Text = "ERROR";
                     }
+<<<<<<< HEAD
                 break;
             }       
         }
@@ -166,34 +179,29 @@ namespace Calculator_project
                 temp = double.Parse(output);
                 output = "";
                 operation = "Plus";
+=======
+                    break;
+>>>>>>> 787d964613f9733ac43d086f35d0c987e5e7346a
             }
-
-        }
-
-        private void TimesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
+            if (output.Contains(','))
             {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Product";
+                decimalAvailable = false;
             }
-        }
-
-        private void DivideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
+            else
             {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Divide";
+                decimalAvailable = true;
             }
         }
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             output = "";
-            OutputTextBlock.Text = output;
+            OutputTextBlock.Text = "0";
+            decimalAvailable = true;
+        }
+
+        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }
