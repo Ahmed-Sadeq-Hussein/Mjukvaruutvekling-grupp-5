@@ -1,0 +1,90 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\github\\mygit\\mjukvaruutvekling-grupp-5\\mjukvaruutvekling-grupp-5\\calculator-project\\calculator-project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\calculator-project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\github\\mygit\\mjukvaruutvekling-grupp-5\\mjukvaruutvekling-grupp-5\\calculator-project\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\github\\mygit\\mjukvaruutvekling-grupp-5\\mjukvaruutvekling-grupp-5\\calculator-project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\github\\mygit\\mjukvaruutvekling-grupp-5\\mjukvaruutvekling-grupp-5\\calculator-project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Calculator-project",
+              "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+              "RelativeDocumentMoniker": "Calculator-project\\Calculator-project.csproj",
+              "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+              "RelativeToolTip": "Calculator-project\\Calculator-project.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-03T21:39:37.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\App.xaml.cs",
+              "RelativeDocumentMoniker": "Calculator-project\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\App.xaml.cs",
+              "RelativeToolTip": "Calculator-project\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T21:39:33.442Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Calculator-project\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\MainWindow.xaml",
+              "RelativeToolTip": "Calculator-project\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-03T21:34:56.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Calculator-project\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Calculator-project\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAmwFQAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-03T21:34:56.89Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
