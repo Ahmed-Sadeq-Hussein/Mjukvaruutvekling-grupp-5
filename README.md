@@ -53,6 +53,6 @@ To compile and run the calculator, follow these steps:
 
 ---
 
-## Kanban: 
+### Kanban: 
 ### Miro: https://miro.com/app/board/uXjVKbCJa-M=/
 
