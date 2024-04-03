@@ -149,7 +149,7 @@ namespace Calculator_project
                     else
                     {
                         // Handle divide by zero error, for example:
-                        OutputTextBlock.Text = "EROR";
+                        OutputTextBlock.Text = "ERROR";
                     }
                     break;
             }
