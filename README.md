@@ -44,7 +44,7 @@ The languages we are going to use are:
 ---
 
 ## How to compile and run:
-To compile and run the calculator, follow these steps:
+To compile and run the calculator, follow these 3 steps:
 1. Download the code, this can easily be done in two ways
  - Clone the repository to your local repository on your device by typing `git clone https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5.git` in the command prompt
  - Download the ZIP file for the calculator, by clicking "download ZIP" ![Download ZIP](https://cdn.discordapp.com/attachments/1221090555405008978/1225146693310218331/image.png?ex=662011c5&is=660d9cc5&hm=bc586b53b7c2f8bf4e19ef7874e8a20aa960a792b6949acee505761f91ca0ed7&)
