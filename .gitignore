@@ -1,6 +1,7 @@
 *.cache
 .json
-.vs/*
-Calculator-project/bin/*
-Calculator-project/obj/*
+.vs/
+Calculator-project/bin/
+Calculator-project/obj/
 *.vsidx
+*
