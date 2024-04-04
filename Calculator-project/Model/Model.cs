@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Calculator_project.Model
+﻿namespace Calculator_project.Model
 {
     internal class Model
     {
@@ -13,3 +7,4 @@ namespace Calculator_project.Model
     }
 }
 // test
+//bomba
