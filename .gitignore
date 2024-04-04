@@ -1,5 +1,5 @@
 *.cache
-.json
+*.json
 .vs/*
 Calculator-project/bin/*
 Calculator-project/obj/*
