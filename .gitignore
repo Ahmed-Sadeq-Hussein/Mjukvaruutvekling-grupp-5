@@ -4,3 +4,5 @@
 Calculator-project/bin/*
 Calculator-project/obj/*
 *.vsidx
+*.suo
+
