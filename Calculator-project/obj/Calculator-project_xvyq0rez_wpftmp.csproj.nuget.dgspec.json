@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {}
+    "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {
+    "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+        "projectUniqueName": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
         "projectName": "Calculator-project",
-        "projectPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+        "projectPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
         "packagesPath": "C:\\Users\\sanas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\obj\\",
+        "outputPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\Github\\myGit\\Mjukvaruutvekling-grupp-5\\Mjukvaruutvekling-grupp-5\\Calculator-project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sanas\\AppData\\Roaming\\NuGet\\NuGet.Config",
