@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ramam\\.nuget\\packages\\": {}
+    "C:\\Users\\juliu\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ramam\\repo\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+      "projectUniqueName": "D:\\Plugg\\Kurser\\Mjukvaruutveckling\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
       "projectName": "Calculator-project",
-      "projectPath": "C:\\Users\\ramam\\repo\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
-      "packagesPath": "C:\\Users\\ramam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ramam\\repo\\Mjukvaruutvekling-grupp-5\\Calculator-project\\obj\\",
+      "projectPath": "D:\\Plugg\\Kurser\\Mjukvaruutveckling\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Calculator-project.csproj",
+      "packagesPath": "C:\\Users\\juliu\\.nuget\\packages\\",
+      "outputPath": "D:\\Plugg\\Kurser\\Mjukvaruutveckling\\Mjukvaruutvekling-grupp-5\\Calculator-project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ramam\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\juliu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
