@@ -106,7 +106,11 @@ namespace Calculator_project
             
         }
 
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
