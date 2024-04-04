@@ -1,5 +1,5 @@
 *.cache
 .json
-bin/
-obj/*
+Calculator-project/bin/*
+Calculator-project/obj/*
 *.vsidx
