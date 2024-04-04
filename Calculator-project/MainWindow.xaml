@@ -55,8 +55,6 @@
                 Click="NumBtn_Click"
                 Content="7"
             />
-
-                <!-- bomba -->
             
                 <!-- 8 -->
             <Button

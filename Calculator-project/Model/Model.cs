@@ -2,9 +2,5 @@
 {
     internal class Model
     {
-
-        //fghghh
     }
 }
-// test
-//bomba

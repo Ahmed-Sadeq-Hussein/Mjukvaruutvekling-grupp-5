@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculator_project
 {
@@ -38,7 +27,7 @@ namespace Calculator_project
         {
             String name = ((Button)sender).Name;
 
-            switch(name)
+            switch (name)
             {
                 case "OneBtn":
                     output += "1";
@@ -100,10 +89,10 @@ namespace Calculator_project
 
                     break;
 
-                
+
 
             }
-            
+
         }
 
         /// <summary>
@@ -148,8 +137,8 @@ namespace Calculator_project
                         // Handle divide by zero error, for example:
                         OutputTextBlock.Text = "ERROR";
                     }
-                break;
-            }       
+                    break;
+            }
         }
 
 
@@ -241,7 +230,7 @@ namespace Calculator_project
                         break;
                 }
                 OutputTextBlock.Text = output;
-              
+
             }
         }
 
