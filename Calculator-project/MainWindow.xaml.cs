@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace Calculator_project
 {
-  
+
     public partial class MainWindow : Window
     {
         double temp = 0;
@@ -44,7 +44,7 @@ namespace Calculator_project
             return str == "+" || str == "-" || str == "*" || str == "/";
         }
 
-        private  string Calc()
+        private string Calc()
         {
             return "the answer";
         }
@@ -73,7 +73,7 @@ namespace Calculator_project
 
 
 
-            private void MinusBtn_Click(object sender, RoutedEventArgs e)
+        private void MinusBtn_Click(object sender, RoutedEventArgs e)
         {
             if (output != "")
             {
@@ -144,7 +144,7 @@ namespace Calculator_project
             output += Math.E.ToString();
             OutputTextBlock.Text = output;
         }
-        
+
 
 
     }
