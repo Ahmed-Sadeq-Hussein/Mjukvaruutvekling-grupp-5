@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Calculator_project.Model
+﻿namespace Calculator_project.Model
 {
     internal class Model
     {
-
-        //fghghh
     }
+<<<<<<< HEAD
 }
 // test
 //hej
 //heeej
+=======
+}
+>>>>>>> 213e666ed343192b88f374be712f5ceb4e822977

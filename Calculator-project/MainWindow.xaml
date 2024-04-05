@@ -55,7 +55,7 @@
                 Click="NumBtn_Click"
                 Content="7"
             />
-
+            
                 <!-- 8 -->
             <Button
                 x:Name="EightBtn"
