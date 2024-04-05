@@ -4,14 +4,11 @@ using System.Windows.Controls;
 
 namespace Calculator_project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+  
     public partial class MainWindow : Window
     {
         double temp = 0;
         string operation = "";
-        string answer; 
 
         String output = "";
 
@@ -19,142 +16,64 @@ namespace Calculator_project
         {
             InitializeComponent();
             this.DataContext = this;
-            // DivideBtn.Content = "\u00f7";
 
 
         }
-
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-            if (((string)((Button)sender).Content) == "0")
-=======
-            String name = ((Button)sender).Name;
+            string content = (string)((Button)sender).Content;
 
-            switch (name)
->>>>>>> 213e666ed343192b88f374be712f5ceb4e822977
+            // Check if the content is an operator
+            if (IsOperator(content))
             {
-                if (output != "")
+                // If output is empty or the last character is not an operator, append the operator
+                if (output.Length == 0 || !IsOperator(output[output.Length - 1].ToString()))
                 {
-                    output += ((Button)sender).Content;
+                    output += content;
                     OutputTextBlock.Text = output;
-<<<<<<< HEAD
                 }
             }
             else
             {
-                output += ((Button)sender).Content;
+                output += content;
                 OutputTextBlock.Text = output;
             }
-=======
-
-                    break;
-
-                case "TwoBtn":
-                    output += "2";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ThreeBtn":
-                    output += "3";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FourBtn":
-                    output += "4";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FiveBtn":
-                    output += "5";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SixBtn":
-                    output += "6";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SevenBtn":
-                    output += "7";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "EightBtn":
-                    output += "8";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "NineBtn":
-                    output += "9";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ZeroBtn":
-                    output += "0";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-
-
-            }
-
->>>>>>> 213e666ed343192b88f374be712f5ceb4e822977
         }
-       
+        private bool IsOperator(string str)
+        {
+            return str == "+" || str == "-" || str == "*" || str == "/";
+        }
+
+        private  string Calc()
+        {
+            return "the answer";
+        }
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
-            double outputTemp;
-
-            switch (operation)
+            if (output != "")
             {
-                case "Minus":
-                    outputTemp = temp - double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
+                // Call Controller.Calc function to calculate the result
+                //output = Controller.Calc(output);
+                output = Calc();
+                // Display the result
+                OutputTextBlock.Text = output;
+            }
+        }
 
-                case "Plus":
-                    outputTemp = temp + double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
 
-                case "Product":
-                    outputTemp = temp * double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
-
-                case "Divide":
-                    if (double.Parse(output) != 0)
-                    {
-                        outputTemp = temp / double.Parse(output);
-                        output = outputTemp.ToString();
-                        OutputTextBlock.Text = output;
-                    }
-                    else
-                    {
-                        // Handle divide by zero error, for example:
-                        OutputTextBlock.Text = "ERROR";
-                    }
-                    break;
+        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                output = "";
+                OutputTextBlock.Text = output;
             }
         }
 
 
 
-        private void MinusBtn_Click(object sender, RoutedEventArgs e)
+            private void MinusBtn_Click(object sender, RoutedEventArgs e)
         {
             if (output != "")
             {
@@ -214,51 +133,19 @@ namespace Calculator_project
             }
         }
 
-
-
-
-        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                double secondOperand = double.Parse(output);
-                switch (operation)
-                {
-                    case "Plus":
-                        output = (temp + secondOperand).ToString();
-                        break;
-                    case "Minus":
-                        output = (temp - secondOperand).ToString();
-                        break;
-                    case "Product":
-                        output = (temp * secondOperand).ToString();
-                        break;
-                    case "Divide":
-                        if (secondOperand != 0) // Check for division by zero
-                            output = (temp / secondOperand).ToString();
-                        else
-                            output = "Error"; // Handle division by zero error
-                        break;
-                }
-                OutputTextBlock.Text = output;
-
-            }
-        }
-
         private void PiBtn_Click(object sender, RoutedEventArgs e)
         {
             output += Math.PI.ToString();
             OutputTextBlock.Text = output;
         }
 
-        private void e_Btn_Click(object sender, RoutedEventArgs e)
+        private void E_Btn_Click(object sender, RoutedEventArgs e)
         {
             output += Math.E.ToString();
             OutputTextBlock.Text = output;
         }
-        //hmmm
+        
 
 
     }
 }
-//hej

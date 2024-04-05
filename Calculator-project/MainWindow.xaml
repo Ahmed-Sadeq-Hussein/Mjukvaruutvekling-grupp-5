@@ -209,10 +209,10 @@
                 FontWeight="Regular"
              />
             <Button
-                x:Name="e_Btn"
+                x:Name="E_Btn"
                 Content="e"
                 Grid.Row="0" Grid.Column="2"
-                Click="e_Btn_Click"
+                Click="E_Btn_Click"
                 Style="{StaticResource OperatorButton}"
                 FontWeight="Regular"   
                 

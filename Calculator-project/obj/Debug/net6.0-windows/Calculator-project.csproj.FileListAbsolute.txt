@@ -71,7 +71,6 @@ C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\bin\Debug\net6.
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\bin\Debug\net6.0-windows\Calculator-project.runtimeconfig.json
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\bin\Debug\net6.0-windows\Calculator-project.dll
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\bin\Debug\net6.0-windows\Calculator-project.pdb
-C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\ButtonStyles.baml
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\obj\Debug\net6.0-windows\Calculator-project_MarkupCompile.cache
