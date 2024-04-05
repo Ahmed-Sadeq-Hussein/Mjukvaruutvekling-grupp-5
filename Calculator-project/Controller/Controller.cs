@@ -12,12 +12,16 @@ namespace Calculator_project.Controller
             try
             {
                 List<Token> tokenList = SortToTokenList(expression); // Turn the expression string into a List of Tokens
-
             }
             catch (InvalidExpressionException e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                throw;
+                return expression;
+            }
+            catch (FormatException e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return expression;
             }
             while (tokenList.Count > 1)
             {
@@ -42,7 +46,7 @@ namespace Calculator_project.Controller
                 }
                 else if (expression[i] == '+' || expression[i] == '–' || expression[i] == '*' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
                 {
-                    doubleTempNumber = Double.Parse((string)tempNumber);
+                    doubleTempNumber = Double.Parse((string)tempNumber, System.Globalization.NumberStyles.Float);
                     tokenList.Add(new Operand(doubleTempNumber));
                     tempNumber = "";
 
@@ -76,7 +80,7 @@ namespace Calculator_project.Controller
             }
             else // Not invalidities yet detected
             {
-                doubleTempNumber = Double.Parse((string)tempNumber);
+                doubleTempNumber = Double.Parse((string)tempNumber, System.Globalization.NumberStyles.Float);
                 tokenList.Add(new Operand(doubleTempNumber));
             }
 
