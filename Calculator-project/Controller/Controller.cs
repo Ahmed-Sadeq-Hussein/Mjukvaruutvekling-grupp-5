@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿using Calculator_project.Exceptions;
+using Calculator_project.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -159,12 +158,5 @@ namespace Calculator_project.Controller
             tokenList.Insert(index - 1, new Operand(result));
             return tokenList;
         }
-=======
-﻿namespace Calculator_project.Controller
-{
-    internal class Controller
-    {
-        //Comment from main
->>>>>>> gui
     }
 }
