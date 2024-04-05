@@ -43,8 +43,7 @@ namespace Calculator_project
         }
 
         private string Calc(string input)
-        {
-            
+        {  
             return input;
         }
 
