@@ -4,9 +4,7 @@ using System.Windows.Controls;
 
 namespace Calculator_project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         double temp = 0;
@@ -18,20 +16,26 @@ namespace Calculator_project
         {
             InitializeComponent();
             this.DataContext = this;
-            // DivideBtn.Content = "\u00f7";
 
 
         }
-
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-            String name = ((Button)sender).Name;
+            string content = (string)((Button)sender).Content;
 
+<<<<<<< HEAD
             switch (name)
+=======
+            // Check if the content is an operator
+            if (IsOperator(content))
+>>>>>>> gui
             {
-                case "OneBtn":
-                    output += "1";
+                // If output is empty or the last character is not an operator, append the operator
+                if (output.Length == 0 || !IsOperator(output[output.Length - 1].ToString()))
+                {
+                    output += content;
                     OutputTextBlock.Text = output;
+<<<<<<< HEAD
 
                     break;
 
@@ -93,32 +97,40 @@ namespace Calculator_project
 
             }
 
+=======
+                }
+            }
+            else
+            {
+                output += content;
+                OutputTextBlock.Text = output;
+            }
+        }
+        private bool IsOperator(string str)
+        {
+            return str == "+" || str == "-" || str == "*" || str == "/";
+>>>>>>> gui
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        private string Calc()
+        {
+            return "the answer";
+        }
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
-            double outputTemp;
-
-            switch (operation)
+            if (output != "")
             {
-                case "Minus":
-                    outputTemp = temp - double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
+                // Call Controller.Calc function to calculate the result
+                //output = Controller.Calc(output);
+                output = Calc();
+                // Display the result
+                OutputTextBlock.Text = output;
+            }
+        }
 
-                case "Plus":
-                    outputTemp = temp + double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
 
+<<<<<<< HEAD
                 case "Product":
                     outputTemp = temp * double.Parse(output);
                     output = outputTemp.ToString();
@@ -138,6 +150,14 @@ namespace Calculator_project
                         OutputTextBlock.Text = "ERROR";
                     }
                     break;
+=======
+        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (output != "")
+            {
+                output = "";
+                OutputTextBlock.Text = output;
+>>>>>>> gui
             }
         }
 
@@ -196,13 +216,14 @@ namespace Calculator_project
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
             // Check if the output already contains a decimal point
-            if (!output.Contains('.'))
+            if (!output.Contains(','))
             {
-                output += ".";
+                output += ",";
                 OutputTextBlock.Text = output;
             }
         }
 
+<<<<<<< HEAD
 
 
 
@@ -234,13 +255,15 @@ namespace Calculator_project
             }
         }
 
+=======
+>>>>>>> gui
         private void PiBtn_Click(object sender, RoutedEventArgs e)
         {
             output += Math.PI.ToString();
             OutputTextBlock.Text = output;
         }
 
-        private void e_Btn_Click(object sender, RoutedEventArgs e)
+        private void E_Btn_Click(object sender, RoutedEventArgs e)
         {
             output += Math.E.ToString();
             OutputTextBlock.Text = output;
