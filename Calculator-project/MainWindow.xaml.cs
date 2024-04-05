@@ -22,6 +22,7 @@ namespace Calculator_project
     {
         double temp = 0;
         string operation = "";
+        string answer; 
 
         String output = "";
 
@@ -36,81 +37,21 @@ namespace Calculator_project
 
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-            String name = ((Button)sender).Name;
-
-            switch(name)
+            if (((string)((Button)sender).Content) == "0")
             {
-                case "OneBtn":
-                    output += "1";
+                if (output != "")
+                {
+                    output += ((Button)sender).Content;
                     OutputTextBlock.Text = output;
-
-                    break;
-
-                case "TwoBtn":
-                    output += "2";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ThreeBtn":
-                    output += "3";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FourBtn":
-                    output += "4";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FiveBtn":
-                    output += "5";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SixBtn":
-                    output += "6";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SevenBtn":
-                    output += "7";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "EightBtn":
-                    output += "8";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "NineBtn":
-                    output += "9";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ZeroBtn":
-                    output += "0";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                
-
+                }
             }
-            
+            else
+            {
+                output += ((Button)sender).Content;
+                OutputTextBlock.Text = output;
+            }
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+       
 
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -207,9 +148,9 @@ namespace Calculator_project
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
             // Check if the output already contains a decimal point
-            if (!output.Contains('.'))
+            if (!output.Contains(','))
             {
-                output += ".";
+                output += ",";
                 OutputTextBlock.Text = output;
             }
         }
