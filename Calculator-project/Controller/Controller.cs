@@ -6,6 +6,8 @@ namespace Calculator_project.Controller
 {
     internal class Controller
     {
+        private static Queue<Equation> equationQueue = new Queue<Equation>(10);
+
         public string CalculateExpression(string expression)
         {
 
@@ -23,10 +25,28 @@ namespace Calculator_project.Controller
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return expression;
             }
-            while (tokenList.Count > 1)
+
+            try
             {
-                tokenList = Operate(tokenList);
+                while (tokenList.Count > 1)
+                {
+                    tokenList = Operate(tokenList);
+                }
             }
+            catch (DivideByZeroException e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return expression;
+            }
+
+            // The expression had no errors! :)
+            // Now return the answer and add both the expression and its answer to the equationQueue
+            if (equationQueue.Count == 10)
+            {
+                equationQueue.Dequeue();
+            }
+            equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
+
 
             return tokenList[0].ToString();
         }
