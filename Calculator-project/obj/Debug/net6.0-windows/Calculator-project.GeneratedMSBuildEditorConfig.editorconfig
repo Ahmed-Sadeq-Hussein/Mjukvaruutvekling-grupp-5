@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Calculator_project
-build_property.ProjectDir = C:\Users\ramam\repo\Mjukvaruutvekling-grupp-5\Calculator-project\
+build_property.ProjectDir = D:\Plugg\Kurser\Mjukvaruutveckling\Mjukvaruutvekling-grupp-5\Calculator-project\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
