@@ -131,7 +131,7 @@
             <!-- Decimal Button -->
             <Button
                 x:Name="DecimalBtn"
-                Content=","
+                Content="."
                 Grid.Row="4" Grid.Column="1"
                 Click="DecimalBtn_Click"
             />
@@ -141,7 +141,7 @@
                 x:Name="PlusBtn"
                 Content="+"
                 Grid.Row="4" Grid.Column="3"
-                Click="PlusBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
@@ -150,7 +150,7 @@
                 x:Name="MinusBtn"
                 Content="–"
                 Grid.Row="3" Grid.Column="3"
-                Click="MinusBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
@@ -159,7 +159,7 @@
                 x:Name="TimesBtn"
                 Content="x"
                 Grid.Row="2" Grid.Column="3"
-                Click="TimesBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
@@ -168,7 +168,7 @@
                 x:Name="DivideBtn"
                 Content="/"
                 Grid.Row="1" Grid.Column="3"
-                Click="DivideBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 

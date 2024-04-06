@@ -45,8 +45,8 @@ namespace Calculator_project.Controller
             //}
             //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
 
-
-            return tokenList[0].ToString();
+            string answer = (tokenList[0].ToString()).Replace(",", ".");
+            return answer;
         }
 
 
@@ -55,16 +55,16 @@ namespace Calculator_project.Controller
             List<Token> tokenList = new List<Token>();
 
             string tempNumber = "";
-            double doubleTempNumber = 0.0;
+            double doubleTempNumber;
             for (int i = 0; i < expression.Length; i++) // Loop through the expression string
             {
                 if (char.IsDigit(expression[i]) || expression[i] == '.') // If the current char is a number [0-9] or a decimal [,], add it to the tempNumber
                 {
                     tempNumber += expression[i];
                 }
-                else if (expression[i] == '+' || expression[i] == '–' || expression[i] == '*' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
+                else if (expression[i] == '+' || expression[i] == '–' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
                 {
-                    doubleTempNumber = Double.Parse((string)tempNumber, System.Globalization.NumberStyles.Float);
+                    doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                     tokenList.Add(new Operand(doubleTempNumber));
                     tempNumber = "";
 
@@ -74,11 +74,11 @@ namespace Calculator_project.Controller
                             tokenList.Add(new SumOperator());
                             break;
 
-                        case '-':
+                        case '–':
                             tokenList.Add(new SubtractOperator());
                             break;
 
-                        case '*':
+                        case 'x':
                             tokenList.Add(new MultiplyOperator());
                             break;
 
@@ -98,7 +98,7 @@ namespace Calculator_project.Controller
             }
             else // Not invalidities yet detected
             {
-                doubleTempNumber = Double.Parse((string)tempNumber, System.Globalization.NumberStyles.Float);
+                doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                 tokenList.Add(new Operand(doubleTempNumber));
             }
 
@@ -109,23 +109,23 @@ namespace Calculator_project.Controller
         {
             int index = 0;
             // Handle the operators in the correct order: [^] => [/] => [*] => [+] => [-]
-            if ((index = TokenListContainsOperator(tokenList, "[ExponentiateOperator]")) != -1)
+            if (TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if ((index = TokenListContainsOperator(tokenList, "[DivideOperator]")) != -1)
+            else if (TokenListContainsOperator<DivideOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if ((index = TokenListContainsOperator(tokenList, "[MultiplyOperator]")) != -1)
+            else if (TokenListContainsOperator<MultiplyOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if ((index = TokenListContainsOperator(tokenList, "[SumOperator]")) != -1)
+            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if ((index = TokenListContainsOperator(tokenList, "[SubtractOperator]")) != -1)
+            else if (TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
             }
@@ -136,16 +136,17 @@ namespace Calculator_project.Controller
         }
 
         // Returns the index of the left-most given operator type, if none is found, return -1
-        private int TokenListContainsOperator(List<Token> tokenList, string @operator)
+        private bool TokenListContainsOperator<T>(List<Token> tokenList, ref int index)
         {
-            for (int i = tokenList.Count; i > 0; i--)
+            for (int i = tokenList.Count - 1; i > 0; i--)
             {
-                if (tokenList[i].ToString() == @operator)
+                if (tokenList[i] is T)
                 {
-                    return i;
+                    index = i;
+                    return true;
                 }
             }
-            return -1;
+            return false;
         }
 
         private List<Token> CalculateSubexpression(List<Token> tokenList, int index)
@@ -159,8 +160,9 @@ namespace Calculator_project.Controller
             double result = currentOperator.Compute(firstOperand.value, secondOperand.value);
 
             //Remove the handled tokens from the list and replace them with the result
-            tokenList.RemoveRange(index - 1, index + 1);
+            tokenList.RemoveRange(index - 1, 3);
             tokenList.Insert(index - 1, new Operand(result));
+
             return tokenList;
         }
     }
