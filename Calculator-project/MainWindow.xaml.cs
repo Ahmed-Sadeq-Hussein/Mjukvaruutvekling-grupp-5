@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
-
-namespace Calculator_project
+﻿namespace Calculator_project
 {
 
     public partial class MainWindow : Window
@@ -28,6 +24,7 @@ namespace Calculator_project
                 {
                     output += buttonText; // Append the new operator
                     OutputTextBlock.Text = output;
+
                 }
             }
             else
@@ -60,8 +57,6 @@ namespace Calculator_project
 
             }
         }
-
-
         private void AnswerBtn_Click(object sender, RoutedEventArgs e)
         {
             output = "";
@@ -124,7 +119,6 @@ namespace Calculator_project
             output += Math.E.ToString();
             OutputTextBlock.Text = output;
         }
-
 
 
     }
