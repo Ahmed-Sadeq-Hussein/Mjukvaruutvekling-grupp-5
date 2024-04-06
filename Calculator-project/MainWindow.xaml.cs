@@ -9,7 +9,7 @@ namespace Calculator_project
     {
         Controller.Controller controller = new Controller.Controller();
 
-        String output = "";
+        string output = "0";
         bool currentNumIncludesDecimal = false;
         bool zeroIsAvailable = false;
 
@@ -23,10 +23,17 @@ namespace Calculator_project
         {
             string buttonContent = (string)((Button)sender).Content;
 
-            if (buttonContent == "0" && zeroIsAvailable) // If the zero button is pressed, check to see if a zeroAvailable is true before adding
+            if (buttonContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
             {
-                output += buttonContent;
-                OutputTextBlock.Text = output;
+                if (zeroIsAvailable)
+                {
+                    if (EndsWithOperator(output))
+                    {
+                        zeroIsAvailable = false;
+                    }
+                    output += buttonContent;
+                    OutputTextBlock.Text = output;
+                }
             }
             else // If any other number button is pressed, add it
             {
@@ -40,6 +47,41 @@ namespace Calculator_project
                 }
                 OutputTextBlock.Text = output;
 
+            }
+        }
+
+        private void PiBtn_Click(object sender, RoutedEventArgs e)
+        {
+            zeroIsAvailable = false;
+            currentNumIncludesDecimal = true;
+            output += Math.PI.ToString();
+            OutputTextBlock.Text = output;
+        }
+
+        private void E_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            zeroIsAvailable = false;
+            currentNumIncludesDecimal = true;
+            output += Math.E.ToString();
+            OutputTextBlock.Text = output;
+        }
+
+        private void DecimalBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Check if the output already contains a decimal point
+            if (!currentNumIncludesDecimal)
+            {
+                if (EndsWithOperator(output))
+                {
+                    output += "0.";
+                }
+                else
+                {
+                    output += '.';
+                }
+                zeroIsAvailable = true;
+                OutputTextBlock.Text = output;
+                currentNumIncludesDecimal = true;
             }
         }
 
@@ -79,71 +121,18 @@ namespace Calculator_project
             OutputTextBlock.Text = output;
         }
 
-
-
-        private void MinusBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
-        }
-
-        private void PlusBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
-
-        }
-
-        private void TimesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
-        }
-
-        private void DivideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
-        }
-
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
+            zeroIsAvailable = false;
+            currentNumIncludesDecimal = false;
             output = "0";
             OutputTextBlock.Text = output;
 
         }
 
 
-        private void DecimalBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // Check if the output already contains a decimal point
-            if (!currentNumIncludesDecimal)
-            {
-                if (EndsWithOperator(output))
-                {
-                    output += "0.";
-                }
-                else
-                {
-                    output += '.';
 
-                }
-                OutputTextBlock.Text = output;
-                currentNumIncludesDecimal = true;
-            }
-        }
 
-        private void PiBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output += Math.PI.ToString();
-            OutputTextBlock.Text = output;
-        }
-
-        private void E_Btn_Click(object sender, RoutedEventArgs e)
-        {
-            output += Math.E.ToString();
-            OutputTextBlock.Text = output;
-        }
 
         private bool EndsWithOperator(string expression)
         {
@@ -156,7 +145,5 @@ namespace Calculator_project
                 return false;
             }
         }
-
-
     }
 }
