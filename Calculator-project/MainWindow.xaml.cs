@@ -7,8 +7,6 @@ namespace Calculator_project
 
     public partial class MainWindow : Window
     {
-        double temp = 0;
-        string operation = "";
 
         String output = "";
 
@@ -21,24 +19,24 @@ namespace Calculator_project
         }
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-            string content = (string)((Button)sender).Content;
+            string buttonText = (string)((Button)sender).Content;
 
-            // Check if the content is an operator
-            if (IsOperator(content))
-            {
-                // If output is empty or the last character is not an operator, append the operator
-                if (output.Length == 0 || !IsOperator(output[output.Length - 1].ToString()))
+            if (IsOperator(buttonText))
+            {  // Check if output is not empty and if the last character is not an operator
+
+                if (output != "" && !IsOperator(output[output.Length - 1].ToString()))
                 {
-                    output += content;
+                    output += buttonText; // Append the new operator
                     OutputTextBlock.Text = output;
                 }
             }
             else
             {
-                output += content;
+                output += buttonText;
                 OutputTextBlock.Text = output;
             }
         }
+
         private bool IsOperator(string str)
         {
             return str == "+" || str == "-" || str == "*" || str == "/";
@@ -55,71 +53,53 @@ namespace Calculator_project
             {
                 // Call Controller.Calc function to calculate the result
                 //output = Controller.Calc(output);
-                output = Calc();
+                output = Calc(output);
                 // Display the result
                 OutputTextBlock.Text = output;
+
+
             }
         }
 
 
         private void AnswerBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                output = "";
-                OutputTextBlock.Text = output;
-            }
+            output = "";
+            OutputTextBlock.Text = output;
         }
 
 
 
         private void MinusBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Minus";
-            }
+            output = "";
+            OutputTextBlock.Text = output;
         }
 
         private void PlusBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Plus";
-            }
+            output = "";
+            OutputTextBlock.Text = output;
 
         }
 
         private void TimesBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Product";
-            }
+            output = "";
+            OutputTextBlock.Text = output;
         }
 
         private void DivideBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Divide";
-            }
+            output = "";
+            OutputTextBlock.Text = output;
         }
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             output = "";
             OutputTextBlock.Text = output;
-            temp = 0; // Reset temp
-            operation = ""; // Reset operation
+
         }
 
 
