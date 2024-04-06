@@ -1,4 +1,6 @@
+using Calculator.Model;
 using Calculator_project.Exceptions;
+using Calculator_project.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -6,21 +8,17 @@ namespace Calculator_project.Controller
 {
     internal class Controller
     {
-        private static Queue<Equation> equationQueue = new Queue<Equation>(10);
+        //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
 
         public string CalculateExpression(string expression)
         {
+            List<Token> tokenList = new List<Token>();
 
             try
             {
-                List<Token> tokenList = SortToTokenList(expression); // Turn the expression string into a List of Tokens
+                tokenList = SortToTokenList(expression); // Turn the expression string into a List of Tokens
             }
-            catch (InvalidExpressionException e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return expression;
-            }
-            catch (FormatException e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return expression;
@@ -33,7 +31,7 @@ namespace Calculator_project.Controller
                     tokenList = Operate(tokenList);
                 }
             }
-            catch (DivideByZeroException e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return expression;
@@ -41,11 +39,11 @@ namespace Calculator_project.Controller
 
             // The expression had no errors! :)
             // Now return the answer and add both the expression and its answer to the equationQueue
-            if (equationQueue.Count == 10)
-            {
-                equationQueue.Dequeue();
-            }
-            equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
+            //if (equationQueue.Count == 10)
+            //{
+            //    equationQueue.Dequeue();
+            //}
+            //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
 
 
             return tokenList[0].ToString();
@@ -111,47 +109,54 @@ namespace Calculator_project.Controller
         {
             int index = 0;
             // Handle the operators in the correct order: [^] => [/] => [*] => [+] => [-]
-            if (tokenList.Contains(ExponentiateOperator))
+            if ((index = TokenListContainsOperator(tokenList, "[ExponentiateOperator]")) != -1)
             {
-                index = tokenList.LastIndexOf(ExponentiateOperator);
                 return CalculateSubexpression(tokenList, index);
-
             }
-            else if (tokenList.Contains(DivideOperator))
+            else if ((index = TokenListContainsOperator(tokenList, "[DivideOperator]")) != -1)
             {
-                index = tokenList.IndexOf(DivideOperator);
                 return CalculateSubexpression(tokenList, index);
-
             }
-            else if (tokenList.Contains(MultiplyOperator))
+            else if ((index = TokenListContainsOperator(tokenList, "[MultiplyOperator]")) != -1)
             {
-                index = tokenList.IndexOf(MultiplyOperator);
                 return CalculateSubexpression(tokenList, index);
-
             }
-            else if (tokenList.Contains(SumOperator))
+            else if ((index = TokenListContainsOperator(tokenList, "[SumOperator]")) != -1)
             {
-                index = tokenList.IndexOf(SumOperator);
                 return CalculateSubexpression(tokenList, index);
-
             }
-            else if (tokenList.Contains(SubtractOperator))
+            else if ((index = TokenListContainsOperator(tokenList, "[SubtractOperator]")) != -1)
             {
-                index = tokenList.IndexOf(SubtractOperator);
                 return CalculateSubexpression(tokenList, index);
-
             }
+            else
+            {
+                throw new InvalidExpressionException();
+            }
+        }
+
+        // Returns the index of the left-most given operator type, if none is found, return -1
+        private int TokenListContainsOperator(List<Token> tokenList, string @operator)
+        {
+            for (int i = tokenList.Count; i > 0; i--)
+            {
+                if (tokenList[i].ToString() == @operator)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         private List<Token> CalculateSubexpression(List<Token> tokenList, int index)
         {
             // Define the operator and its related operands
-            Operator currentOperator = tokenList[index];
-            Operand firstOperand = tokenList[index - 1];
-            Operand secondOperand = tokenList[index + 1];
+            Operator currentOperator = (Operator)tokenList[index];
+            Operand firstOperand = (Operand)tokenList[index - 1];
+            Operand secondOperand = (Operand)tokenList[index + 1];
 
             // Compute the result
-            double result = currentOperator.compute(firstOperand.value, secondOperand.value);
+            double result = currentOperator.Compute(firstOperand.value, secondOperand.value);
 
             //Remove the handled tokens from the list and replace them with the result
             tokenList.RemoveRange(index - 1, index + 1);

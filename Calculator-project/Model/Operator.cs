@@ -1,9 +1,4 @@
 ﻿using Calculator.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator_project.Model
 {
@@ -15,6 +10,6 @@ namespace Calculator_project.Model
         /// <param name="x"> The left operand </param>
         /// <param name="y"> The right operand </param>
         /// <returns> The value of </returns>
-        public abstract double compute(double x, double y);
+        public abstract double Compute(double x, double y);
     }
 }

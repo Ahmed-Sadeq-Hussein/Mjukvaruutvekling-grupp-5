@@ -9,7 +9,7 @@ namespace Calculator_project.Model
     // The sum operator
     internal class SumOperator : Operator
     {
-        public override double compute(double x, double y)
+        public override double Compute(double x, double y)
         {
             return x + y;
         }

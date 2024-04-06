@@ -1,14 +1,8 @@
 ﻿using Calculator.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator_project.Model
 {
-    abstract class Operand : Token
+    class Operand : Token
     {
         //The value of the operand
         public double value;
