@@ -46,6 +46,7 @@ namespace Calculator_project.Controller
             //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
 
             string answer = (tokenList[0].ToString()).Replace(",", ".");
+            answer = (tokenList[0].ToString()).Replace("-", "–");
             return answer;
         }
 
@@ -62,7 +63,7 @@ namespace Calculator_project.Controller
                 {
                     tempNumber += expression[i];
                 }
-                else if (expression[i] == '+' || expression[i] == '–' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
+                else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
                 {
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                     tokenList.Add(new Operand(doubleTempNumber));
@@ -74,7 +75,7 @@ namespace Calculator_project.Controller
                             tokenList.Add(new SumOperator());
                             break;
 
-                        case '–':
+                        case '-':
                             tokenList.Add(new SubtractOperator());
                             break;
 
@@ -90,6 +91,10 @@ namespace Calculator_project.Controller
                             tokenList.Add(new ExponentiateOperator());
                             break;
                     }
+                }
+                else if (expression[i] == '–')
+                {
+                    tempNumber += '-';
                 }
             }
             if (tempNumber.Length == 0) // We just exited the loop through the expression, and tempNumber is empty, this means that either the expression ends with an operator or the expression is empty, throw an expection
@@ -138,12 +143,30 @@ namespace Calculator_project.Controller
         // Returns the index of the left-most given operator type, if none is found, return -1
         private bool TokenListContainsOperator<T>(List<Token> tokenList, ref int index)
         {
-            for (int i = tokenList.Count - 1; i > 0; i--)
+            ExponentiateOperator comparisonOperator = new ExponentiateOperator();
+
+
+
+            if (comparisonOperator is T)
             {
-                if (tokenList[i] is T)
+                for (int i = tokenList.Count - 1; i > 0; i--)
                 {
-                    index = i;
-                    return true;
+                    if (tokenList[i] is T)
+                    {
+                        index = i;
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < tokenList.Count; i++)
+                {
+                    if (tokenList[i] is T)
+                    {
+                        index = i;
+                        return true;
+                    }
                 }
             }
             return false;

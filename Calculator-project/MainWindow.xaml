@@ -20,13 +20,14 @@
         </Grid.RowDefinitions>
 
         <Border BorderThickness="0.1" BorderBrush="White" CornerRadius="10" Margin="5,5,5,20">
-            <TextBlock
+            <TextBox
                 x:Name="OutputTextBlock"
                 Margin="5"
                 VerticalAlignment="Bottom"
-                Foreground="White" FontSize="30" Text="0"
-                TextAlignment="Right">
-            </TextBlock>
+                Background="#FF202124" Foreground="White" FontSize="30" Text="0"
+                BorderThickness="0" CaretBrush="Transparent"
+                TextAlignment="Right" PreviewTextInput="OutputTextBlock_PreviewTextInput" PreviewKeyDown="OutputTextBlock_PreviewKeyDown">
+            </TextBox>
         </Border>
 
         
@@ -148,10 +149,11 @@
                 <!-- Subtraction Button -->
             <Button
                 x:Name="MinusBtn"
-                Content="–"
+                Content="-"
                 Grid.Row="3" Grid.Column="3"
                 Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
+                FontSize="40"
             />
 
                 <!-- Multiplication Button -->

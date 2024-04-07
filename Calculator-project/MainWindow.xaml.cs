@@ -145,5 +145,79 @@ namespace Calculator_project
                 return false;
             }
         }
+
+        private void OutputTextBlock_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            string keyContent = e.Text;
+
+            if ((IsNumber(keyContent)))
+            {
+                if (keyContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
+                {
+                    if (zeroIsAvailable)
+                    {
+                        if (EndsWithOperator(output))
+                        {
+                            zeroIsAvailable = false;
+                        }
+                        output += keyContent;
+                        OutputTextBlock.Text = output;
+                    }
+                }
+                else // If any other number button is pressed, add it
+                {
+                    if (output == "0")
+                    {
+                        output = keyContent;
+                    }
+                    else
+                    {
+                        output += keyContent;
+                    }
+                    OutputTextBlock.Text = output;
+
+                }
+            }
+            else if (keyContent == "," || keyContent == ".")
+            {
+                if (!currentNumIncludesDecimal)
+                {
+                    if (EndsWithOperator(output))
+                    {
+                        output += "0.";
+                    }
+                    else
+                    {
+                        output += '.';
+                    }
+                    zeroIsAvailable = true;
+                    OutputTextBlock.Text = output;
+                    currentNumIncludesDecimal = true;
+                }
+            }
+            else if (EndsWithOperator((string)keyContent))
+            {
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                output += keyContent;
+                OutputTextBlock.Text = output;
+            }
+            e.Handled = true;
+        }
+
+
+        private bool IsNumber(string text)
+        {
+            int number;
+            return int.TryParse(text, out number);
+        }
+
+        private void OutputTextBlock_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
