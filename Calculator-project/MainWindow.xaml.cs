@@ -54,31 +54,61 @@ namespace Calculator_project
         private void PiBtn_Click(object sender, RoutedEventArgs e)
         {
             if (currentNumIncludesDecimal)
-
-            zeroIsAvailable = false;
-            currentNumIncludesDecimal = true;
-            output += "π";
+                
+            
+                zeroIsAvailable = false;
+                currentNumIncludesDecimal = true;
+            if (output == "0")
+            {
+                output = "π";
+            }
+            else
+            {
+                output += "π";
+            }
             OutputTextBlock.Text = output;
+
+
+
         }
 
         private void E_Btn_Click(object sender, RoutedEventArgs e)
-        { 
+        {
             if (currentNumIncludesDecimal)
-            
-            zeroIsAvailable = false;
+
+                zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
-            output += "e";
-            OutputTextBlock.Text = output;
-        }
+            if (output == "0")
+            {
+                output = "e";
+            }
+
+            else
+            {
+                    output += "e";
+            }
+                OutputTextBlock.Text = output;
+
+            }
+        
         private void Power_Btn_Click(object sender, RoutedEventArgs e)
         {
             if (currentNumIncludesDecimal)
 
             zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
-            output += "^";
+            if (output == "0")
+            {
+                output = "^";
+            }
+            else
+            {
+                output += "^";
+            }
             OutputTextBlock.Text = output;
+
         }
+    
 
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
