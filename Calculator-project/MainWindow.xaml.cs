@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Calculator_project
@@ -55,28 +54,19 @@ namespace Calculator_project
         {
             if (currentNumIncludesDecimal)
 
-            zeroIsAvailable = false;
+                zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
             output += "π";
             OutputTextBlock.Text = output;
         }
 
         private void E_Btn_Click(object sender, RoutedEventArgs e)
-        { 
-            if (currentNumIncludesDecimal)
-            
-            zeroIsAvailable = false;
-            currentNumIncludesDecimal = true;
-            output += "e";
-            OutputTextBlock.Text = output;
-        }
-        private void Power_Btn_Click(object sender, RoutedEventArgs e)
         {
             if (currentNumIncludesDecimal)
 
                 zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
-            output += "^";
+            output += "e";
             OutputTextBlock.Text = output;
         }
 
@@ -206,17 +196,20 @@ namespace Calculator_project
             }
             else if (EndsWithOperator((string)keyContent))
             {
-                if (keyContent == "*")
+                if (!EndsWithOperator(output))
                 {
-                    output += "x";
+                    if (keyContent == "*")
+                    {
+                        output += "x";
+                    }
+                    else
+                    {
+                        output += keyContent;
+                    }
+                    zeroIsAvailable = true;
+                    currentNumIncludesDecimal = false;
+                    OutputTextBlock.Text = output;
                 }
-                else
-                {
-                    output += keyContent;
-                }
-                zeroIsAvailable = true;
-                currentNumIncludesDecimal = false;
-                OutputTextBlock.Text = output;
             }
             else if (keyContent == "=")
             {
@@ -275,6 +268,6 @@ namespace Calculator_project
             }
         }
 
-       
+
     }
 }
