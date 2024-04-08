@@ -53,17 +53,30 @@ namespace Calculator_project
 
         private void PiBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (currentNumIncludesDecimal)
+
             zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
-            output += Math.PI.ToString();
+            output += "π";
             OutputTextBlock.Text = output;
         }
 
         private void E_Btn_Click(object sender, RoutedEventArgs e)
-        {
+        { 
+            if (currentNumIncludesDecimal)
+            
             zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
-            output += Math.E.ToString();
+            output += "e";
+            OutputTextBlock.Text = output;
+        }
+        private void Power_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentNumIncludesDecimal)
+
+                zeroIsAvailable = false;
+            currentNumIncludesDecimal = true;
+            output += "^";
             OutputTextBlock.Text = output;
         }
 
@@ -103,7 +116,6 @@ namespace Calculator_project
             if (output != "0")
             {
                 // Call Controller.Calc function to calculate the result
-                //output = Controller.Calc(output);
                 output = controller.CalculateExpression(output);
 
                 if (output.Contains('.'))
@@ -115,11 +127,6 @@ namespace Calculator_project
                 // Display the result
                 OutputTextBlock.Text = output;
             }
-        }
-        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
         }
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
@@ -216,7 +223,6 @@ namespace Calculator_project
                 if (output != "0")
                 {
                     // Call Controller.Calc function to calculate the result
-                    //output = Controller.Calc(output);
                     output = controller.CalculateExpression(output);
 
                     if (output.Contains('.'))
@@ -254,7 +260,6 @@ namespace Calculator_project
                 if (output != "0")
                 {
                     // Call Controller.Calc function to calculate the result
-                    //output = Controller.Calc(output);
                     output = controller.CalculateExpression(output);
 
                     if (output.Contains('.'))
@@ -269,5 +274,7 @@ namespace Calculator_project
                 e.Handled = true;
             }
         }
+
+       
     }
 }
