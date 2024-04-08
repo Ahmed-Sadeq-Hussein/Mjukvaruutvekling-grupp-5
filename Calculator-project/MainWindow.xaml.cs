@@ -197,10 +197,35 @@ namespace Calculator_project
             }
             else if (EndsWithOperator((string)keyContent))
             {
+                if (keyContent == "*")
+                {
+                    output += "x";
+                }
+                else
+                {
+                    output += keyContent;
+                }
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
-                output += keyContent;
                 OutputTextBlock.Text = output;
+            }
+            else if (keyContent == "=")
+            {
+                if (output != "0")
+                {
+                    // Call Controller.Calc function to calculate the result
+                    //output = Controller.Calc(output);
+                    output = controller.CalculateExpression(output);
+
+                    if (output.Contains('.'))
+                    {
+                        currentNumIncludesDecimal = true;
+                    }
+                    zeroIsAvailable = true;
+
+                    // Display the result
+                    OutputTextBlock.Text = output;
+                }
             }
             e.Handled = true;
         }
@@ -216,6 +241,29 @@ namespace Calculator_project
         {
             if (e.Key == System.Windows.Input.Key.Back)
             {
+                zeroIsAvailable = false;
+                currentNumIncludesDecimal = false;
+                output = "0";
+                OutputTextBlock.Text = output;
+                e.Handled = true;
+            }
+            else if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                if (output != "0")
+                {
+                    // Call Controller.Calc function to calculate the result
+                    //output = Controller.Calc(output);
+                    output = controller.CalculateExpression(output);
+
+                    if (output.Contains('.'))
+                    {
+                        currentNumIncludesDecimal = true;
+                    }
+                    zeroIsAvailable = true;
+
+                    // Display the result
+                    OutputTextBlock.Text = output;
+                }
                 e.Handled = true;
             }
         }
