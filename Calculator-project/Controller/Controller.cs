@@ -45,11 +45,24 @@ namespace Calculator_project.Controller
             //}
             //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
 
+
+
+
             string answer = (tokenList[0].ToString()).Replace(",", ".");
-            answer = (answer.ToString()).Replace("-", "–");
+            double doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
+
+            if (numberOfDecimals(answer) > 8)
+            {
+                answer = (doubleAnswer.ToString($"F{8}")).Replace(',', '.');
+            }
+            else
+            {
+                answer = (doubleAnswer.ToString()).Replace(',', '.');
+            }
+
+            answer = answer.Replace("-", "–");
             return answer;
         }
-
 
         private List<Token> SortToTokenList(string expression)
         {
@@ -63,8 +76,40 @@ namespace Calculator_project.Controller
                 {
                     tempNumber += expression[i];
                 }
+                else if (expression[i] == 'π') // If the current char is [π] or [e]
+                {
+                    if (i == 0 || expression[i - 1] == '+' || expression[i - 1] == '-' || expression[i - 1] == 'x' || expression[i - 1] == '/' || expression[i - 1] == '^') // Check to see if it is the first char or if an operator preceded it, if this is the case, add it to the list
+                    {
+                        tempNumber = (Math.PI.ToString()).Replace(',', '.');
+                    }
+                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
+                    {
+                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        tokenList.Add(new Operand(doubleTempNumber));
+                        tempNumber = "";
+                        tokenList.Add(new MultiplyOperator());
+                        tempNumber = (Math.PI.ToString()).Replace(',', '.');
+                    }
+                }
+                else if (expression[i] == 'e')
+                {
+                    if (i == 0 || expression[i - 1] == '+' || expression[i - 1] == '-' || expression[i - 1] == 'x' || expression[i - 1] == '/' || expression[i - 1] == '^') // Check to see if it is the first char or if an operator preceded it, if this is the case, add it to the list
+                    {
+                        tempNumber = (Math.E.ToString()).Replace(',', '.');
+                    }
+                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
+                    {
+                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        tokenList.Add(new Operand(doubleTempNumber));
+                        tempNumber = "";
+                        tokenList.Add(new MultiplyOperator());
+                        tempNumber = (Math.E.ToString()).Replace(',', '.');
+                    }
+                }
                 else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
                 {
+                    doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                     tokenList.Add(new Operand(doubleTempNumber));
                     tempNumber = "";
@@ -103,6 +148,16 @@ namespace Calculator_project.Controller
             }
             else // Not invalidities yet detected
             {
+                if (expression.EndsWith("π"))
+                {
+                    doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
+                }
+                else if (expression.EndsWith("e"))
+                {
+                    doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
+                }
                 doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                 tokenList.Add(new Operand(doubleTempNumber));
             }
@@ -187,6 +242,18 @@ namespace Calculator_project.Controller
             tokenList.Insert(index - 1, new Operand(result));
 
             return tokenList;
+        }
+
+        private int numberOfDecimals(string answer)
+        {
+            for (int i = 0; i < answer.Length; i++)
+            {
+                if (answer[i] == '.')
+                {
+                    return answer.Length - i - 1;
+                }
+            }
+            return 0;
         }
     }
 }
