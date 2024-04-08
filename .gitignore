@@ -4,12 +4,13 @@
 .vs/*
 Calculator-project/bin/*
 Calculator-project/obj/*
-*.vsidx
-*.suo
 =======
 .vs/
 bin/
 obj/
+>>>>>>> model
 *.vsidx
->>>>>>> 213e666ed343192b88f374be712f5ceb4e822977
-
+*.suo
+.vs/
+bin/
+obj/
