@@ -40,6 +40,7 @@ namespace Calculator_project
                 if (output == "0")
                 {
                     output = buttonContent;
+                    zeroIsAvailable = true;
                 }
                 else
                 {
@@ -169,6 +170,7 @@ namespace Calculator_project
                     if (output == "0")
                     {
                         output = keyContent;
+                        zeroIsAvailable = true;
                     }
                     else
                     {

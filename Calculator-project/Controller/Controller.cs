@@ -46,7 +46,7 @@ namespace Calculator_project.Controller
             //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
 
             string answer = (tokenList[0].ToString()).Replace(",", ".");
-            answer = (tokenList[0].ToString()).Replace("-", "–");
+            answer = (answer.ToString()).Replace("-", "–");
             return answer;
         }
 
