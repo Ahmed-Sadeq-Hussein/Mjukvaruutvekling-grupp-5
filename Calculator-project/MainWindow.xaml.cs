@@ -74,7 +74,7 @@ namespace Calculator_project
         {
             if (currentNumIncludesDecimal)
 
-                zeroIsAvailable = false;
+            zeroIsAvailable = false;
             currentNumIncludesDecimal = true;
             output += "^";
             OutputTextBlock.Text = output;
