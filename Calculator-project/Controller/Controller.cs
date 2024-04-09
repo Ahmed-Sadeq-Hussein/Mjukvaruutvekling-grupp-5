@@ -34,7 +34,7 @@ namespace Calculator_project.Controller
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return expression;
+                return "0";
             }
 
             // The expression had no errors! :)
