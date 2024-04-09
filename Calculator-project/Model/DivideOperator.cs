@@ -11,7 +11,14 @@ namespace Calculator_project.Model
     {
         public override double compute(double x, double y)
         {
-            return x / y;
+            if (y == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return x / y;
+            }
         }
 
         public override string ToString()

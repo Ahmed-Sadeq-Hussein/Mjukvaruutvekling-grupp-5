@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\operand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\operand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\operator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\operator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\sumoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\sumoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\multiplyoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\multiplyoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\operator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\operator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\exponentiateoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\exponentiateoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\multiplyoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\multiplyoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\sumoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\sumoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\operand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\operand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\substractoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "MultiplyOperator.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\MultiplyOperator.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\MultiplyOperator.cs",
@@ -83,7 +83,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "Operand.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\Operand.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\Operand.cs",
@@ -96,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Operator.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\Operator.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\Operator.cs",
@@ -135,20 +135,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "DivideOperator.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\DivideOperator.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\DivideOperator.cs",
               "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\DivideOperator.cs",
               "RelativeToolTip": "Calculator-project\\Model\\DivideOperator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-05T22:18:06.257Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "SumOperator.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\SumOperator.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\SumOperator.cs",
@@ -169,8 +169,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\SubstractOperator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:26:15.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:26:15.405Z"
             },
             {
               "$type": "Document",
@@ -182,8 +181,7 @@
               "RelativeToolTip": "Calculator-project\\Controller\\Controller.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T13:08:53.337Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T13:08:53.337Z"
             },
             {
               "$type": "Document",
@@ -218,8 +216,7 @@
               "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\MainWindow.xaml",
               "RelativeToolTip": "Calculator-project\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-03T21:34:56.829Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T21:34:56.829Z"
             },
             {
               "$type": "Document",
