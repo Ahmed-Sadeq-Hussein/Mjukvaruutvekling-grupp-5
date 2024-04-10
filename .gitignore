@@ -1,16 +1,6 @@
 *.cache
 *.json
-<<<<<<< HEAD
-.vs/*
-Calculator-project/bin/*
-Calculator-project/obj/*
-=======
 .vs/
 bin/
 obj/
->>>>>>> model
 *.vsidx
-*.suo
-.vs/
-bin/
-obj/
