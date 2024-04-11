@@ -37,14 +37,14 @@ namespace Calculator_project.Controller
                 return "0";
             }
 
-            // The expression had no errors! :)
-            // Now return the answer and add both the expression and its answer to the equationQueue
-            //if (equationQueue.Count == 10)
-            //{
-            //    equationQueue.Dequeue();
-            //}
-            //equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
-
+            /* The expression had no errors! :)
+             Now return the answer and add both the expression and its answer to the equationQueue
+            if (equationQueue.Count == 10)
+            {
+                equationQueue.Dequeue();
+            }
+            equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
+            */
 
 
 
