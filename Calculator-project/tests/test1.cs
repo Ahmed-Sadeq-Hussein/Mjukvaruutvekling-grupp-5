@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Calculator.Model;
+using Calculator_project.Model;
 using NUnit.Framework;
 namespace Calculator_project.tests
 {
@@ -19,9 +20,24 @@ namespace Calculator_project.tests
         [Test]
        public void cal_testing1 ()
         {
-            Assert.Pass();
-            //the following
-// 1 + 2 - 3 * 4 
+            ///
+            SumOperator add = new Model.SumOperator();
+            SubtractOperator neg = new Model.SubtractOperator();
+            ExponentiateOperator ex = new Model.ExponentiateOperator(); 
+            DivideOperator div = new Model.DivideOperator();    
+            MultiplyOperator multiply = new Model.MultiplyOperator();
+            ///
+
+            ///testing the following. Adding negatives. adding 0, adding 10 , 100 . adding digits numbers.
+            double x = add.Compute(-12 , -10);
+
+            x += add.Compute(0, 1);
+            x += add.Compute(10 , 110);
+            x += add.Compute(22.22, 1.11);
+
+            Assert.Equals(112.33 , x);
+
+
         }
     }
 }
