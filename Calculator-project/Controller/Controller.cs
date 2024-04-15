@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Windows;
 namespace Calculator_project.Controller
 {
-    internal class Controller
+    public class Controller
     {
         //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
 
