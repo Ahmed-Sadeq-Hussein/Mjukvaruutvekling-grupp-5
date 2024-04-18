@@ -51,7 +51,7 @@ namespace Calculator_project.Controller
             string answer = (tokenList[0].ToString()).Replace(",", ".");
             double doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
 
-            if (numberOfDecimals(answer) > 8)
+            if (NumberOfDecimals(answer) > 8)
             {
                 answer = (doubleAnswer.ToString($"F{8}")).Replace(',', '.');
             }
@@ -64,7 +64,7 @@ namespace Calculator_project.Controller
             return answer;
         }
 
-        private List<Token> SortToTokenList(string expression)
+        public List<Token> SortToTokenList(string expression)
         {
             List<Token> tokenList = new List<Token>();
 
@@ -165,7 +165,7 @@ namespace Calculator_project.Controller
             return tokenList;
         }
 
-        private List<Token> Operate(List<Token> tokenList)
+        public List<Token> Operate(List<Token> tokenList)
         {
             int index = 0;
             // Handle the operators in the correct order: [^] => [/] => [*] => [+] => [-]
@@ -196,7 +196,7 @@ namespace Calculator_project.Controller
         }
 
         // Returns the index of the left-most given operator type, if none is found, return -1
-        private bool TokenListContainsOperator<T>(List<Token> tokenList, ref int index)
+        public bool TokenListContainsOperator<T>(List<Token> tokenList, ref int index)
         {
             ExponentiateOperator comparisonOperator = new ExponentiateOperator();
 
@@ -227,7 +227,7 @@ namespace Calculator_project.Controller
             return false;
         }
 
-        private List<Token> CalculateSubexpression(List<Token> tokenList, int index)
+        public List<Token> CalculateSubexpression(List<Token> tokenList, int index)
         {
             // Define the operator and its related operands
             Operator currentOperator = (Operator)tokenList[index];
@@ -244,7 +244,7 @@ namespace Calculator_project.Controller
             return tokenList;
         }
 
-        private int numberOfDecimals(string answer)
+        public int NumberOfDecimals(string answer)
         {
             for (int i = 0; i < answer.Length; i++)
             {
