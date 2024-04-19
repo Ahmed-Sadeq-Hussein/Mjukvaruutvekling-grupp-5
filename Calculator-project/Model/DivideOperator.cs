@@ -3,6 +3,10 @@
 namespace Calculator_project.Model
 {
     // The division operator 
+    /// <summary>
+    /// implementation of the divide operator. Good implementations with divide error 
+    /// perfect.
+    /// </summary>
     public class DivideOperator : Operator
     {
         public override double Compute(double x, double y)
