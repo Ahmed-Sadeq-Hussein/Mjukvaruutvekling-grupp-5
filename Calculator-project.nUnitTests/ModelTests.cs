@@ -56,7 +56,7 @@ namespace Calculator_project.nUnitTests
         }
 
         [Test]
-        public void SubtractOperator_EqualTest()
+        public void SubtractOperator_EqualTest1()
         {
             // Assign
             SubtractOperator oPerator = new SubtractOperator();
