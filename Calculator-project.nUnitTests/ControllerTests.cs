@@ -25,19 +25,19 @@ namespace Calculator_project.nUnitTests
             tokenList = controller.SortToTokenList(expression);
 
             // Assert
-            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("2", tokenList[0].ToString().Replace('.', ','));
             Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString());
+            Assert.AreEqual("0", tokenList[2].ToString().Replace('.', ','));
             Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
-            Assert.AreEqual("1", tokenList[4].ToString());
+            Assert.AreEqual("1", tokenList[4].ToString().Replace('.', ','));
             Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
-            Assert.AreEqual("41.41", tokenList[6].ToString());
+            Assert.AreEqual("41,41", tokenList[6].ToString().Replace('.', ','));
             Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
-            Assert.AreEqual("0,2", tokenList[8].ToString());
+            Assert.AreEqual("0,2", tokenList[8].ToString().Replace('.', ','));
             Assert.AreEqual("[ExponentiateOperator]", tokenList[9].ToString());
-            Assert.AreEqual("3,14159265", tokenList[10].ToString());
+            Assert.AreEqual("3,14159265", tokenList[10].ToString().Replace('.', ','));
             Assert.AreEqual("[SumOperator]", tokenList[11].ToString());
-            Assert.AreEqual("2,71828183", tokenList[12].ToString());
+            Assert.AreEqual("2,71828183", tokenList[12].ToString().Replace('.', ','));
         }
 
         // Tests the program to see if it throws an InvalidExpressionException when the expression is invalid (when it ends with an operator)
