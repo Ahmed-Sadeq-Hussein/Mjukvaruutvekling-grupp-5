@@ -11,7 +11,7 @@ namespace Calculator_project.nUnitTests
     public class ModelTests
     {
         [Test]
-        public void SumOperator_EqualTest()
+        public void SumOperator_EqualTest1()
         {
             // Assign
             SumOperator oPerator = new SumOperator();
@@ -23,6 +23,36 @@ namespace Calculator_project.nUnitTests
 
             // Assert
             Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void SumOperator_EqualTest2()
+        {
+            // Assign
+            SumOperator oPerator = new SumOperator();
+            double x = -1;
+            double y = 2;
+
+            // Act
+            double result = oPerator.Compute(x, y);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void SumOperator_EqualTest3()
+        {
+            // Assign
+            SumOperator oPerator = new SumOperator();
+            double x = 1.8;
+            double y = 2.123;
+
+            // Act
+            double result = oPerator.Compute(x, y);
+
+            // Assert
+            Assert.AreEqual(3.923, result);
         }
 
         [Test]
