@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// A token class representing permitted tokens for the calculator
-    /// </summary>
+    /// </summary> 
     public abstract class Token
     {
 
