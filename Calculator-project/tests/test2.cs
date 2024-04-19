@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Calculator.Model;
+using NUnit.Framework;
 namespace Calculator_project.tests
-{
+{using NUnit.Framework;
     [TestFixture]
     internal class test2
     {
