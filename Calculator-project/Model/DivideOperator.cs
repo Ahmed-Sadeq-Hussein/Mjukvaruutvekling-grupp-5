@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator_project.Model
 {
     // The division operator 
-    internal class DivideOperator : Operator
+    public class DivideOperator : Operator
     {
         public override double Compute(double x, double y)
         {
@@ -22,7 +18,7 @@ namespace Calculator_project.Model
             }
 =======
                 throw new DivideByZeroException();
-                
+
             return x / y;
 >>>>>>> origin/main
         }
