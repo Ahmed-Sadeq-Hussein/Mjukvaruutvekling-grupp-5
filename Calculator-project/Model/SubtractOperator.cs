@@ -1,16 +1,16 @@
 ﻿namespace Calculator_project.Model
 {
-    // The sum operator
-    internal class SumOperator : Operator
+    //The substraction operator
+    internal class SubtractOperator : Operator
     {
         public override double Compute(double x, double y)
         {
-            return x + y;
+            return x - y;
         }
 
         public override string ToString()
         {
-            return ($"[SumOperator]");
+            return ($"[SubtractOperator]");
         }
     }
 }

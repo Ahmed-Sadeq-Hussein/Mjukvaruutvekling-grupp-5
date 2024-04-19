@@ -9,9 +9,10 @@ namespace Calculator_project.Model
     // The division operator 
     internal class DivideOperator : Operator
     {
-        public override double compute(double x, double y)
+        public override double Compute(double x, double y)
         {
             if (y == 0)
+<<<<<<< HEAD
             {
                 return 0;
             }
@@ -19,6 +20,11 @@ namespace Calculator_project.Model
             {
                 return x / y;
             }
+=======
+                throw new DivideByZeroException();
+                
+            return x / y;
+>>>>>>> origin/main
         }
 
         public override string ToString()
