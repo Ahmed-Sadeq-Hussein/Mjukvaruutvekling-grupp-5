@@ -31,7 +31,7 @@ namespace Calculator_project.nUnitTests
             Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
             Assert.AreEqual("1", tokenList[4].ToString());
             Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
-            Assert.AreEqual("41,41", tokenList[6].ToString());
+            Assert.AreEqual("41.41", tokenList[6].ToString());
             Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
             Assert.AreEqual("0,2", tokenList[8].ToString());
             Assert.AreEqual("[ExponentiateOperator]", tokenList[9].ToString());

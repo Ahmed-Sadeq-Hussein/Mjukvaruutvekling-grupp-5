@@ -49,8 +49,17 @@ namespace Calculator_project.Controller
 
 
             string answer = (tokenList[0].ToString()).Replace(",", ".");
-            double doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
+            double doubleAnswer = 0.0;
 
+            try
+            {
+                doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return expression;
+            }
             if (NumberOfDecimals(answer) > 8)
             {
                 answer = (doubleAnswer.ToString($"F{8}")).Replace(',', '.');
