@@ -7,7 +7,7 @@ namespace Calculator_project.Model
     {
         public override double Compute(double x, double y)
         {
-            //Error when divide with zero
+            //Error when divide with 0
 
             if (y == 0)
 
