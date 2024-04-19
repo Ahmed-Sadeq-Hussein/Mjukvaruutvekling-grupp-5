@@ -48,7 +48,7 @@ namespace Calculator_project.nUnitTests
         [TestCase("2/")]
         [TestCase("2^")]
         [TestCase("2+2-3x")]
-        public void SortToTokenList_ThrowsExceptionTest1(string expression)
+        public void SortToTokenList_ThrowsExceptionTest(string expression)
         {
             // Act, Assert
             Assert.Throws<Calculator_project.Exceptions.InvalidExpressionException>(() => controller.SortToTokenList(expression));
@@ -424,7 +424,7 @@ namespace Calculator_project.nUnitTests
         public void NumberOfDecimals_EqualsTest()
         {
             // Assign
-            string expression = "1,123456789";
+            string expression = "1.123456789";
 
             // Act
             int numberOfDecimals = controller.NumberOfDecimals(expression);
