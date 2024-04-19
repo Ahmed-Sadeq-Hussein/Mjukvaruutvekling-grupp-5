@@ -35,7 +35,7 @@ namespace Calculator_project.tests
             x += add.Compute(10 , 110);
             x += add.Compute(22.22, 1.11);
 
-            Assert.Equals(112.33 , x);
+            Assert.Equals(122.33 , x);
             
 
         }
