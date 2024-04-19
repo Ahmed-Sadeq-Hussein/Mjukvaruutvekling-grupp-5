@@ -23,7 +23,10 @@ namespace Calculator_project
             this.DataContext = this;
         }
 
+<<<<<<< HEAD
         
+=======
+>>>>>>> 2c4cfa4048bb2295843e45a438abd5fd70c2f95d
         /// <summary>
         /// A function that takes the current button content to the output string. 
         /// Smart. very creative
