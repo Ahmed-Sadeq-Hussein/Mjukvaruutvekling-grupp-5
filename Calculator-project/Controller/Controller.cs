@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Windows;
 namespace Calculator_project.Controller
 {
+    // Ash pull request update
+
     public class Controller
     {
         //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
