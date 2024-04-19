@@ -166,7 +166,7 @@
                 Style="{StaticResource OperatorButton}"
             />
 
-            <!-- Dividision Button -->
+            <!-- Division Button -->
             <Button
                 x:Name="DivideBtn"
                 Content="/"
