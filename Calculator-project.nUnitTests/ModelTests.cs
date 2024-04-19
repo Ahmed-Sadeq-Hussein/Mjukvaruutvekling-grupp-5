@@ -71,6 +71,21 @@ namespace Calculator_project.nUnitTests
         }
 
         [Test]
+        public void SubtractOperator_EqualTest2()
+        {
+            // Assign
+            SubtractOperator oPerator = new SubtractOperator();
+            double x = 10;
+            double y = 2;
+
+            // Act
+            double result = oPerator.Compute(x, y);
+
+            // Assert
+            Assert.AreEqual(8, result);
+        }
+
+        [Test]
         public void MultiplyOperator_EqualTest()
         {
             // Assign
