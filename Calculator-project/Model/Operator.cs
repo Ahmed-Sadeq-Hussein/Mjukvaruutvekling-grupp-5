@@ -2,7 +2,7 @@
 
 namespace Calculator_project.Model
 {
-    abstract class Operator : Token
+    public abstract class Operator : Token
     {
         /// <summary>
         /// Computes the value of two doubles, no specified operation 

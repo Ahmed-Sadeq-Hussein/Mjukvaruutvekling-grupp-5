@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Calculator_project.Exceptions
 {
-    internal class InvalidExpressionException : Exception
+    public class InvalidExpressionException : Exception
     {
         public InvalidExpressionException()
         {
