@@ -23,10 +23,6 @@ namespace Calculator_project
             this.DataContext = this;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
         /// <summary>
         /// A function that takes the current button content to the output string. 
         /// Smart. very creative
