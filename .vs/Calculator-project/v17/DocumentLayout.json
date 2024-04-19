@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1119F6E0-06E5-4D10-A9FE-7E9FE8D8AF59}|Calculator-project.nUnitTests\\Calculator-project.nUnitTests.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project.nunittests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1119F6E0-06E5-4D10-A9FE-7E9FE8D8AF59}|Calculator-project.nUnitTests\\Calculator-project.nUnitTests.csproj|solutionrelative:calculator-project.nunittests\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1119F6E0-06E5-4D10-A9FE-7E9FE8D8AF59}|Calculator-project.nUnitTests\\Calculator-project.nUnitTests.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project.nunittests\\controllertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1119F6E0-06E5-4D10-A9FE-7E9FE8D8AF59}|Calculator-project.nUnitTests\\Calculator-project.nUnitTests.csproj|solutionrelative:calculator-project.nunittests\\controllertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|solutionrelative:calculator-project\\model\\divideoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F0DFE99-817D-4CD2-A45E-D225DC505CFE}|Calculator-project\\Calculator-project.csproj|c:\\users\\sanas\\onedrive\\desktop\\mygit\\mjukvaruutvekling-grupp-5\\calculator-project\\model\\operand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,11 +78,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GlobalUsings.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project.nUnitTests\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "Calculator-project.nUnitTests\\GlobalUsings.cs",
@@ -103,12 +107,11 @@
               "RelativeToolTip": "Calculator-project\\Model\\SubtractOperator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T11:52:23.519Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-19T11:52:23.519Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ControllerTests.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project.nUnitTests\\ControllerTests.cs",
               "RelativeDocumentMoniker": "Calculator-project.nUnitTests\\ControllerTests.cs",
@@ -116,12 +119,7 @@
               "RelativeToolTip": "Calculator-project.nUnitTests\\ControllerTests.cs",
               "ViewState": "AQIAAHgAAAAAAAAAAAAYwKoBAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-19T11:42:01.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "WhenOpened": "2024-04-19T11:42:01.057Z"
             },
             {
               "$type": "Document",
@@ -133,8 +131,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\Operand.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:32:20.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:32:20.781Z"
             },
             {
               "$type": "Document",
@@ -146,8 +143,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\Operator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:33:47.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:33:47.397Z"
             },
             {
               "$type": "Document",
@@ -159,8 +155,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\Token.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-04T12:46:18.757Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-04T12:46:18.757Z"
             },
             {
               "$type": "Document",
@@ -172,18 +167,17 @@
               "RelativeToolTip": "Calculator-project\\Model\\ExponentiateOperator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:36:20.158Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:36:20.158Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "DivideOperator.cs",
               "DocumentMoniker": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\DivideOperator.cs",
               "RelativeDocumentMoniker": "Calculator-project\\Model\\DivideOperator.cs",
               "ToolTip": "C:\\Users\\sanas\\OneDrive\\Desktop\\myGit\\Mjukvaruutvekling-grupp-5\\Calculator-project\\Model\\DivideOperator.cs",
               "RelativeToolTip": "Calculator-project\\Model\\DivideOperator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-05T22:18:06.257Z",
               "EditorCaption": ""
@@ -198,8 +192,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\SumOperator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:29:19.01Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:29:19.01Z"
             },
             {
               "$type": "Document",
@@ -211,8 +204,7 @@
               "RelativeToolTip": "Calculator-project\\Model\\MultiplyOperator.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-05T22:24:05.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-05T22:24:05.185Z"
             },
             {
               "$type": "Document",
@@ -272,8 +264,7 @@
               "RelativeToolTip": "Calculator-project\\Calculator-project.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-04-03T21:39:37.591Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-03T21:39:37.591Z"
             },
             {
               "$type": "Document",
