@@ -2,7 +2,7 @@
 
 namespace Calculator_project.Model
 {
-    class Operand : Token
+    public class Operand : Token
     {
         //The value of the operand
         public double value;

@@ -1,7 +1,7 @@
 ﻿namespace Calculator_project.Model
 {
     //The substraction operator
-    internal class SubtractOperator : Operator
+    public class SubtractOperator : Operator
     {
         public override double Compute(double x, double y)
         {

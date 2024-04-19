@@ -240,9 +240,19 @@ namespace Calculator_project
             }
             else if (EndsWithOperator((string)keyContent))
             {
-                if (keyContent == "*")
+                if (!EndsWithOperator(output))
                 {
-                    output += "x";
+                    if (keyContent == "*")
+                    {
+                        output += "x";
+                    }
+                    else
+                    {
+                        output += keyContent;
+                    }
+                    zeroIsAvailable = true;
+                    currentNumIncludesDecimal = false;
+                    OutputTextBlock.Text = output;
                 }
                 else
                 {
