@@ -1,14 +1,18 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Calculator_project
 {
+    /// <summary>
+    /// 
+    /// </summary>
 
     public partial class MainWindow : Window
     {
         Controller.Controller controller = new Controller.Controller();
 
-        string output = "0";
+        string output = "0"; //used to keep track of the numbers
         bool currentNumIncludesDecimal = false;
         bool zeroIsAvailable = false;
         bool eOrPiIsAvailable = true;
@@ -19,6 +23,15 @@ namespace Calculator_project
             this.DataContext = this;
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// A function that takes the current button content to the output string. 
+        /// Smart. very creative
+        /// </summary>
+        
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
@@ -54,6 +67,9 @@ namespace Calculator_project
             }
         }
 
+        /// <summary>
+        /// implementation of e or pi. might be redundant considering the button press. Will ask about it .
+        /// </summary>
         private void eOrPiBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
@@ -73,7 +89,11 @@ namespace Calculator_project
                 OutputTextBlock.Text = output;
             }
         }
-
+        /// <summary>
+        /// Button specifically for decimal. 
+        /// Good. does go well with oop and grasp implementation.
+        /// </summary>
+        
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
             // Check if the output already contains a decimal point
@@ -93,6 +113,11 @@ namespace Calculator_project
             }
         }
 
+        /// <summary>
+        /// implementation of the diffrent operators, +, - ect .
+        /// Good. Identifies the issue that might occur and adresses it through a simple and compact if statement.
+        /// </summary>
+        
         private void OperatorBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
@@ -106,6 +131,9 @@ namespace Calculator_project
             }
         }
 
+        /// <summary>
+        /// Implementation of = . This is pretty self explanitory . This also takes into account decimals and waits for controller to do its job before showing awnser.
+        /// </summary>
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
             if (output != "0")
@@ -125,6 +153,11 @@ namespace Calculator_project
             }
         }
 
+        /// <summary>
+        /// implementation of Clear. Good. Resets values and readresses output and text block.
+        /// Well done.
+        /// </summary>
+        
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
             zeroIsAvailable = false;
@@ -135,6 +168,14 @@ namespace Calculator_project
 
         }
 
+        /// <summary>
+        /// A support function. Goes well with previous functions.
+        /// could have been put in model but since it is closely knit and only used here.
+        /// .......
+        /// hint. use this on the ending to delete excess operator in the end of the string to add furthure bug prevention
+        /// ......
+        /// </summary>
+        
         private bool EndsWithOperator(string expression)
         {
             if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
@@ -150,7 +191,11 @@ namespace Calculator_project
 
 
 
-
+        /// <summary>
+        /// keyboard input implementation. 
+        /// good addition to the calculator and can help with people that use calculator through kepyboard.
+        /// </summary>
+       
         private void OutputTextBlock_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             string keyContent = e.Text;
@@ -284,12 +329,23 @@ namespace Calculator_project
             e.Handled = true;
         }
 
+        /// <summary>
+        /// used in keyboard text function
+        /// ...........
+        /// -should probably be in the model instead of in gui. for cohesion and for model to contain what it is required to contain.
+        /// ............
+        /// </summary>
+        
         private bool IsNumber(string text)
         {
             int number;
             return int.TryParse(text, out number);
         }
-
+        /// <summary>
+        /// is used for pressing back or enter key. 
+        /// good.
+        /// </summary>
+        
         private void OutputTextBlock_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Back)
