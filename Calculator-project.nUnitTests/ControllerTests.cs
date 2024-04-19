@@ -255,58 +255,182 @@ namespace Calculator_project.nUnitTests
             Assert.AreEqual(1, index);
         }
 
+        [Test]
+        public void TokenListContainsOperator_SubtractOperator_EqualTest()
+        {
+            // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(4),
+                new Model.SubtractOperator(),
+                new Model.Operand(3),
+                new Model.SubtractOperator(),
+                new Model.Operand(3)
+            };
+            int index = default;
 
+            // Act
+            controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index);
+
+            // Assert
+            Assert.AreEqual(1, index);
+        }
+
+        [Test]
+        public void TokenListContainsOperator_MultiplyOperator_EqualTest()
+        {
+            // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(4),
+                new Model.MultiplyOperator(),
+                new Model.Operand(3),
+                new Model.MultiplyOperator(),
+                new Model.Operand(3)
+            };
+            int index = default;
+
+            // Act
+            controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index);
+
+            // Assert
+            Assert.AreEqual(1, index);
+        }
+
+        [Test]
+        public void TokenListContainsOperator_DivideOperator_EqualTest()
+        {
+            // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(4),
+                new Model.DivideOperator(),
+                new Model.Operand(3),
+                new Model.DivideOperator(),
+                new Model.Operand(3)
+            };
+            int index = default;
+
+            // Act
+            controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index);
+
+            // Assert
+            Assert.AreEqual(1, index);
+        }
+
+        [Test]
+        public void TokenListContainsOperator_ExponentiateOperator_EqualTest()
+        {
+            // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(4),
+                new Model.ExponentiateOperator(),
+                new Model.Operand(3),
+                new Model.ExponentiateOperator(),
+                new Model.Operand(3)
+            };
+            int index = default;
+
+            // Act
+            controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index);
+
+            // Assert
+            Assert.AreEqual(3, index);
+        }
 
         [Test]
         public void CalculateSubexpression_Test()
         {
             // Assign
-
+            // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(4),
+                new Model.SumOperator(),
+                new Model.Operand(3),
+                new Model.MultiplyOperator(),
+                new Model.Operand(3)
+            };
+            int index = 3;
 
             // Act
-
+            tokenList = controller.CalculateSubexpression(tokenList, index);
 
             // Assert
-
+            Assert.AreEqual("4", tokenList[0].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
+            Assert.AreEqual("9", tokenList[2].ToString());
         }
 
         [Test]
-        public void Operate_Test()
+        public void Operate_Test() // "2-3"
         {
             // Assign
+            List<Token> tokenList = new List<Token>()
+            {
+                new Model.Operand(2),
+                new Model.SumOperator(),
+                new Model.Operand(0),
+                new Model.MultiplyOperator(),
+                new Model.Operand(1),
+                new Model.SubtractOperator(),
+                new Model.Operand(3),
+                new Model.DivideOperator(),
+                new Model.Operand(1.5),
+                new Model.ExponentiateOperator(),
+                new Model.Operand(0)
+            };
+            int index = default;
 
+            // Act, Assert
+            tokenList = controller.Operate(tokenList);
+            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
+            Assert.AreEqual("0", tokenList[2].ToString());
+            Assert.AreEqual("[MultiplyOperator]", tokenList[3].ToString());
+            Assert.AreEqual("1", tokenList[4].ToString());
+            Assert.AreEqual("[SubtractOperator]", tokenList[5].ToString());
+            Assert.AreEqual("3", tokenList[6].ToString());
+            Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
+            Assert.AreEqual("1", tokenList[8].ToString());
 
-            // Act
+            tokenList = controller.Operate(tokenList);
+            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
+            Assert.AreEqual("0", tokenList[2].ToString());
+            Assert.AreEqual("[MultiplyOperator]", tokenList[3].ToString());
+            Assert.AreEqual("1", tokenList[4].ToString());
+            Assert.AreEqual("[SubtractOperator]", tokenList[5].ToString());
+            Assert.AreEqual("3", tokenList[6].ToString());
 
+            tokenList = controller.Operate(tokenList);
+            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
+            Assert.AreEqual("0", tokenList[2].ToString());
+            Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
+            Assert.AreEqual("3", tokenList[4].ToString());
 
-            // Assert
+            tokenList = controller.Operate(tokenList);
+            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("[SubtractOperator]", tokenList[1].ToString());
+            Assert.AreEqual("3", tokenList[2].ToString());
 
+            tokenList = controller.Operate(tokenList);
+            Assert.AreEqual("-1", tokenList[0].ToString());
         }
 
         [Test]
-        public void NumberOfDecimals_Test()
+        public void NumberOfDecimals_EqualsTest()
         {
             // Assign
-
-
-            // Act
-
-
-            // Assert
-
-        }
-
-        [Test]
-        public void CalculateExpression_Test()
-        {
-            // Assign
-            string expression = "2+2";
+            string expression = "1,123456789";
 
             // Act
-            string result = controller.CalculateExpression(expression);
+            int numberOfDecimals = controller.NumberOfDecimals(expression);
 
             // Assert
-            Assert.AreEqual("4", result);
+            Assert.AreEqual(9, numberOfDecimals);
         }
     }
 }

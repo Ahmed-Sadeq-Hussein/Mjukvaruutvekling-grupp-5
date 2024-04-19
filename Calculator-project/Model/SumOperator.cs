@@ -1,7 +1,7 @@
 ﻿namespace Calculator_project.Model
 {
     // The sum operator
-    class SumOperator : Operator
+    public class SumOperator : Operator
     {
         public override double Compute(double x, double y)
         {
