@@ -424,7 +424,7 @@ namespace Calculator_project.nUnitTests
         public void NumberOfDecimals_EqualsTest()
         {
             // Assign
-            string expression = "1,123456789";
+            string expression = "1.123456789";
 
             // Act
             int numberOfDecimals = controller.NumberOfDecimals(expression);

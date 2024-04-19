@@ -7,20 +7,13 @@ namespace Calculator_project.Model
     {
         public override double Compute(double x, double y)
         {
+            //Error when divide with zero
+
             if (y == 0)
-<<<<<<< HEAD
-            {
-                return 0;
-            }
-            else
-            {
-                return x / y;
-            }
-=======
+
                 throw new DivideByZeroException();
 
             return x / y;
->>>>>>> origin/main
         }
 
         public override string ToString()
