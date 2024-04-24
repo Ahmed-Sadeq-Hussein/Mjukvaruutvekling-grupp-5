@@ -39,7 +39,6 @@ The languages we are going to use are:
 ### Features:
 - Addition, subtraction, multiplication, division and exponentiation operations
 - Euler's number and pi
-- Ans button (to enter the most recent answer)
 
 ---
 
