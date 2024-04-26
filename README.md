@@ -59,6 +59,9 @@ To compile and run the calculator, follow these 3 steps:
 
 ---
 
+## How to run a linter
+---
+
 ### Kanban: https://github.com/users/Ahmed-Sadeq-Hussein/projects/1
 ### Miro: https://miro.com/app/board/uXjVKbCJa-M=/
 
