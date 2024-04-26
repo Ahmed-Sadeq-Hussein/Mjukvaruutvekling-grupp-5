@@ -119,10 +119,32 @@ namespace Calculator_project
             string buttonContent = (string)((Button)sender).Content;
             if (!EndsWithOperator(output)) // If the expression does NOT end with an operator, add the pressed operator
             {
+                if (buttonContent == "-")
+                {
+                    if (output == "0")
+                    {
+                        output = "–";
+                    }
+                    else 
+                    {
+                        output += buttonContent;
+                    }
+                }
+                else
+                {
+                    output += buttonContent;
+                }
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
-                output += buttonContent;
+                OutputTextBlock.Text = output;
+            }
+            else if(buttonContent == "-" && !output.EndsWith('–'))
+            {
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                output += "–";
                 OutputTextBlock.Text = output;
             }
         }
@@ -174,7 +196,7 @@ namespace Calculator_project
         
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
             {
                 return true;
             }
@@ -287,17 +309,25 @@ namespace Calculator_project
                     {
                         output += "x";
                     }
+                    else if (keyContent == "-")
+                    {
+                        if (output == "0")
+                        {
+                            output = "–";
+                        }
+                        else
+                        {
+                            output += keyContent;
+                        }
+                    }
                     else
                     {
                         output += keyContent;
                     }
-                    zeroIsAvailable = true;
-                    currentNumIncludesDecimal = false;
-                    OutputTextBlock.Text = output;
                 }
-                else
+                else if (keyContent == "-" && !output.EndsWith('–'))
                 {
-                    output += keyContent;
+                    output += "–";
                 }
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;

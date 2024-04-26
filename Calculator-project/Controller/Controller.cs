@@ -14,28 +14,17 @@ namespace Calculator_project.Controller
         {
             List<Token> tokenList = new List<Token>();
 
-            try
-            {
-                tokenList = SortToTokenList(expression); // Turn the expression string into a List of Tokens
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return expression;
-            }
+            string answer;
+            double doubleAnswer;
 
             try
             {
+                tokenList = SortToTokenList(expression); // Turn the expression string into a List of 
+            
                 while (tokenList.Count > 1)
                 {
                     tokenList = Operate(tokenList);
                 }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return "0";
-            }
 
             /* The expression had no errors! :)
              Now return the answer and add both the expression and its answer to the equationQueue
@@ -46,13 +35,9 @@ namespace Calculator_project.Controller
             equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
             */
 
+                answer = (tokenList[0].ToString()).Replace(",", ".");
+                doubleAnswer = 0.0;
 
-
-            string answer = (tokenList[0].ToString()).Replace(",", ".");
-            double doubleAnswer = 0.0;
-
-            try
-            {
                 doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
             }
             catch (Exception e)
@@ -93,7 +78,14 @@ namespace Calculator_project.Controller
                     }
                     else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
                     {
-                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        if (tempNumber == "-")
+                        {
+                            doubleTempNumber = -1;
+                        }
+                        else
+                        {
+                            doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        }
                         tokenList.Add(new Operand(doubleTempNumber));
                         tempNumber = "";
                         tokenList.Add(new MultiplyOperator());
@@ -108,7 +100,14 @@ namespace Calculator_project.Controller
                     }
                     else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
                     {
-                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        if (tempNumber == "-")
+                        {
+                            doubleTempNumber = -1;
+                        }
+                        else
+                        {
+                            doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        }
                         tokenList.Add(new Operand(doubleTempNumber));
                         tempNumber = "";
                         tokenList.Add(new MultiplyOperator());
@@ -245,6 +244,11 @@ namespace Calculator_project.Controller
 
             // Compute the result
             double result = currentOperator.Compute(firstOperand.value, secondOperand.value);
+
+            if (result == double.PositiveInfinity)
+            {
+                throw new NumberTooLargeException();
+            }
 
             //Remove the handled tokens from the list and replace them with the result
             tokenList.RemoveRange(index - 1, 3);
