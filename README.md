@@ -51,6 +51,13 @@ To compile and run the calculator, follow these 3 steps:
 3. Run the calculator by clicking the green arrow symbol (see image) or by pressing ctrl + F5 ![Running the application](https://cdn.discordapp.com/attachments/1221090555405008978/1225150263602446336/image.png?ex=66201519&is=660da019&hm=e42e01430d8cf151c3af736f86a261d2d26dfa776b84ff654fdd452ceefce605&)
 
 ---
+## How to run the unit tests
+
+---
+
+## How to generate code coverage for unit tests
+
+---
 
 ### Kanban: https://github.com/users/Ahmed-Sadeq-Hussein/projects/1
 ### Miro: https://miro.com/app/board/uXjVKbCJa-M=/
