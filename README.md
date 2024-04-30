@@ -39,7 +39,6 @@ The languages we are going to use are:
 ### Features:
 - Addition, subtraction, multiplication, division and exponentiation operations
 - Euler's number and pi
-- Ans button (to enter the most recent answer)
 
 ---
 
@@ -51,6 +50,16 @@ To compile and run the calculator, follow these 3 steps:
 2. Open the Solution file named "Calculator-project.sln" in Visual Studio ![Open Solution file](https://cdn.discordapp.com/attachments/1221090555405008978/1225149096503935026/image.png?ex=66201402&is=660d9f02&hm=e26567de9e1c58a417ea35e1f2eca4a53f09ec0353f59e609d6768921cf1f500&)
 3. Run the calculator by clicking the green arrow symbol (see image) or by pressing ctrl + F5 ![Running the application](https://cdn.discordapp.com/attachments/1221090555405008978/1225150263602446336/image.png?ex=66201519&is=660da019&hm=e42e01430d8cf151c3af736f86a261d2d26dfa776b84ff654fdd452ceefce605&)
 
+---
+## How to run the unit tests
+
+---
+
+## How to generate code coverage for unit tests
+
+---
+
+## How to run a linter
 ---
 
 ### Kanban: https://github.com/users/Ahmed-Sadeq-Hussein/projects/1
