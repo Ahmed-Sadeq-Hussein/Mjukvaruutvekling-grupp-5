@@ -60,7 +60,7 @@ These three icons at the top show the overall results.
 They show:
 - The total number of tests
 - The total number of passed tests
-- The total number of failed tests
+- The total number of failed tests\
 ![Overall results](https://cdn.discordapp.com/attachments/1221090555405008978/1235152675189035028/image.png?ex=66335511&is=66320391&hm=a0b4e057aeba17d53cebfbc31965c294e885db22d4aad8c551f74fa8ec32b4d8&)
 
 In order to view specific test results, simply unfold the tabs ![Specific results](https://cdn.discordapp.com/attachments/1221090555405008978/1235154431918739540/image.png?ex=663356b4&is=66320534&hm=33084432dcbb07164a16ad713f4dc2185ac5f96212a41cb8e3056f4fdf033fd3&)
