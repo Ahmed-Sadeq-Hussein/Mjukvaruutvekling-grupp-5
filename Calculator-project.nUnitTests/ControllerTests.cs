@@ -18,7 +18,7 @@ namespace Calculator_project.nUnitTests
         public void SortToTokenList_EqualTest()
         {
             // Assign
-            string expression = "2+0-1.x41.41/0.2^π+e";
+            string expression = "2+0-–1.x41.41/0.2^π+e";
             List<Token> tokenList = new List<Token>();
 
             // Act
@@ -29,7 +29,7 @@ namespace Calculator_project.nUnitTests
             Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
             Assert.AreEqual("0", tokenList[2].ToString().Replace('.', ','));
             Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
-            Assert.AreEqual("1", tokenList[4].ToString().Replace('.', ','));
+            Assert.AreEqual("-1", tokenList[4].ToString().Replace('.', ','));
             Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
             Assert.AreEqual("41,41", tokenList[6].ToString().Replace('.', ','));
             Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
@@ -364,7 +364,7 @@ namespace Calculator_project.nUnitTests
         }
 
         [Test]
-        public void Operate_Test() // "2-3"
+        public void Operate_Test()
         {
             // Assign
             List<Token> tokenList = new List<Token>()
