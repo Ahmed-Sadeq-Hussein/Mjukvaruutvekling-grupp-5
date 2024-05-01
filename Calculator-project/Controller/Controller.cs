@@ -20,20 +20,11 @@ namespace Calculator_project.Controller
             try
             {
                 tokenList = SortToTokenList(expression); // Turn the expression string into a List of 
-            
+
                 while (tokenList.Count > 1)
                 {
                     tokenList = Operate(tokenList);
                 }
-
-            /* The expression had no errors! :)
-             Now return the answer and add both the expression and its answer to the equationQueue
-            if (equationQueue.Count == 10)
-            {
-                equationQueue.Dequeue();
-            }
-            equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
-            */
 
                 answer = (tokenList[0].ToString()).Replace(",", ".");
                 doubleAnswer = 0.0;
@@ -76,7 +67,7 @@ namespace Calculator_project.Controller
                     {
                         tempNumber = (Math.PI.ToString()).Replace(',', '.');
                     }
-                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
+                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand. Also operate the newly added subexpression now, since this needs top priority
                     {
                         if (tempNumber == "-")
                         {
@@ -86,10 +77,7 @@ namespace Calculator_project.Controller
                         {
                             doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                         }
-                        tokenList.Add(new Operand(doubleTempNumber));
-                        tempNumber = "";
-                        tokenList.Add(new MultiplyOperator());
-                        tempNumber = (Math.PI.ToString()).Replace(',', '.');
+                        tempNumber = ((doubleTempNumber * Math.PI).ToString()).Replace(',', '.');
                     }
                 }
                 else if (expression[i] == 'e')
@@ -108,10 +96,8 @@ namespace Calculator_project.Controller
                         {
                             doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                         }
-                        tokenList.Add(new Operand(doubleTempNumber));
-                        tempNumber = "";
-                        tokenList.Add(new MultiplyOperator());
-                        tempNumber = (Math.E.ToString()).Replace(',', '.');
+                        tempNumber = ((doubleTempNumber * Math.E).ToString()).Replace(',', '.');
+
                     }
                 }
                 else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
