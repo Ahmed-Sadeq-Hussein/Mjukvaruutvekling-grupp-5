@@ -54,7 +54,7 @@ To compile and run the calculator, follow these 3 steps:
 ## How to run the unit tests and view the results
 In order to run the unit tests, follow these steps:
 1. Open "Test Explorer" under "View" manually or by pressing Ctrl+E and then T ![Test Explorer](https://cdn.discordapp.com/attachments/1221090555405008978/1235150186477518900/image.png?ex=663352c0&is=66320140&hm=e58fa10feb842d702489e66d34eb2c2cb26f1cb94bbe9ffd5e6b22694dffb670&)
-2. Click "Run All Tests In View" manually or by pressing Ctrl+R and then V ![Run tests](https://cdn.discordapp.com/attachments/1221090555405008978/1235150993222537286/image.png?ex=66335380&is=66320200&hm=dcb27a69e9d4d94cd634d92f78338b7797b922e67e461791aba7c5bafe67eb1b&)
+2. Click "Run All Tests In View" manually or by pressing Ctrl+R and then V ![Run tests](https://cdn.discordapp.com/attachments/1221090555405008978/1235155980288000060/image.png?ex=66335825&is=663206a5&hm=a97c79d1ee57f79f5511d31a60e4d1299da90a3c4e22444c347e96f24d37e135&)
 
 These three icons at the top show the overall results.
 They show:
