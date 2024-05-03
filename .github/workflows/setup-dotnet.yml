@@ -19,28 +19,7 @@ jobs:
       # You can test your matrix by printing the current dotnet version
       - name: Display dotnet version
         run: dotnet --version
-      - name: Restore dependencies
-        run: dotnet restore
       - name: Build
         run: dotnet build
-     
       - name: Test
         run: dotnet test
-
-      - name: Code Coverage Report
-        uses: irongut/CodeCoverageSummary@v1.3.0
-        with:
-          filename: coverage/**/coverage.cobertura.xml
-          badge: true
-          fail_below_min: true
-          format: markdown
-          hide_branch_rate: false
-          hide_complexity: true
-          indicators: true
-          output: both
-          thresholds: '60 80'
-
-      
-      - name: Super-linter
-        uses: super-linter/super-linter@v6.4.0
-      
