@@ -295,10 +295,6 @@ namespace Calculator_project
                     currentNumIncludesDecimal = false;
                     OutputTextBlock.Text = output;
                 }
-                else
-                {
-                    output += keyContent;
-                }
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
