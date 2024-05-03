@@ -162,7 +162,7 @@ namespace Calculator_project.Controller
         public List<Token> Operate(List<Token> tokenList)
         {
             int index = 0;
-            // Handle the operators in the correct order: [^] => [/] => [*] => [+] => [-]
+            // Handle the operators in the correct order: [^] => [/] => [*] => [+]&[-]
             if (TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
@@ -175,13 +175,9 @@ namespace Calculator_project.Controller
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index))
+            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index) || TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, index);
-            }
-            else if (TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
-            {
-                return CalculateSubexpression(tokenList, index);
+                return CalculateSubexpression(tokenList, 1);
             }
             else
             {
