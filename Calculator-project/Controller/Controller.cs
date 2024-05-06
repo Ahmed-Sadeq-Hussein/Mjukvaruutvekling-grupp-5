@@ -8,12 +8,54 @@ namespace Calculator_project.Controller
 {
     public class Controller
     {
-        //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
 
-        public string CalculateExpression(string expression)
+       
+        //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
+        private string bracketcontroll(string exp)
+        {
+             string expression = exp;
+            string calc_exp, awns;
+             while (expression.Contains("("))
+            {
+                /// step one. Find first (
+                /// second step find last )
+                /// Third step. take string between , run calculate expression, Then replace the brackets.
+                int x = 0;
+                int y = 0;
+                for (int i = 0; i < expression.Length; i++ )
+                {
+                    if (expression[i] == '(')
+                    {
+                        x = i; break;
+                    }
+                }
+                for (int i = expression.Length - 1; i >= 0; i--)
+                {
+                    if (expression[i] == ')')
+                    {
+                        y = i; break;
+                    }
+                }
+
+                // now to cut . calculate whats inside the brackets and then replace what was cut
+                calc_exp = expression.Substring(x+1, y- x); //cuts the part of the brackets
+                calc_exp = CalculateExpression(calc_exp); // calculates whats
+                expression = expression.Substring(0, x) + calc_exp + expression.Substring(y);
+
+
+
+
+
+                
+
+            }
+            return expression;
+            
+        }
+        public string CalculateExpression(string exp)
         {
             List<Token> tokenList = new List<Token>();
-
+            string expression = bracketcontroll(exp);
             string answer;
             double doubleAnswer;
 
