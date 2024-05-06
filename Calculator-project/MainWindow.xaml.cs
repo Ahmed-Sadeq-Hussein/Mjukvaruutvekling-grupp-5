@@ -16,6 +16,8 @@ namespace Calculator_project
         bool currentNumIncludesDecimal = false;
         bool zeroIsAvailable = false;
         bool eOrPiIsAvailable = true;
+        int parenthesesCount = 0; // Track parentheses count
+
 
         public MainWindow()
         {
@@ -373,6 +375,68 @@ namespace Calculator_project
                 e.Handled = true;
             }
         }
+
+        private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
+            {
+                parenthesesCount++;
+                output += "(";
+                OutputTextBlock.Text = output;
+            }
+
+
+        private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (parenthesesCount > 0) // Ensure there are open parentheses to close
+            {
+                parenthesesCount--;
+                output += ")";
+                OutputTextBlock.Text = output;
+            }
+            else
+            {
+                // Add closing parentheses until parenthesesCount becomes zero
+                while (parenthesesCount < 0)
+                {
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                    parenthesesCount++;
+                }
+            }
+
+
+        }
+
+        private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "sin(";
+
+                currentNumIncludesDecimal = true;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
+        private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "cos(";
+
+            
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
+        private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "tan(";
+
+          
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
     }
 }
+
 //Good coded 
