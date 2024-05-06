@@ -250,6 +250,21 @@ namespace Calculator_project
                     }
                 }
             }
+            else if(keyContent == "(" || keyContent == ")")
+            {
+                eOrPiIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                zeroIsAvailable = true;
+                if (output == "0")
+                {
+                    output = keyContent;
+                }
+                else
+                {
+                    output += keyContent;
+                }
+                OutputTextBlock.Text = output;
+            }
             else if (keyContent == "p")
             {
                 if (eOrPiIsAvailable)
