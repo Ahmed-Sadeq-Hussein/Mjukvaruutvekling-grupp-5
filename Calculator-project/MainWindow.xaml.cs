@@ -325,10 +325,12 @@ namespace Calculator_project
                         output += keyContent;
                     }
                 }
+
                 else if (keyContent == "-" && !output.EndsWith('–'))
                 {
                     output += "–";
                 }
+
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
