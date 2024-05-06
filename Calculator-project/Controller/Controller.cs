@@ -22,20 +22,23 @@ namespace Calculator_project.Controller
                 /// Third step. take string between , run calculate expression, Then replace the brackets.
                 int x = 0;
                 int y = 0;
+                int b_counter = 0;
                 for (int i = 0; i < expression.Length; i++ )
                 {
                     if (expression[i] == '(')
                     {
-                        x = i; break;
+                        if (b_counter == 0) { x = i;  b_counter++; }
+                        else { b_counter++; }
                     }
-                }
-                for (int i = expression.Length - 1; i >= 0; i--)
-                {
+
                     if (expression[i] == ')')
                     {
-                        y = i; break;
+                        if (b_counter == 1) { y = i; break; }
+                        else { b_counter--; }
+
                     }
                 }
+                
 
                 // now to cut . calculate whats inside the brackets and then replace what was cut
                 calc_exp = expression.Substring(x+1, y- x); //cuts the part of the brackets
