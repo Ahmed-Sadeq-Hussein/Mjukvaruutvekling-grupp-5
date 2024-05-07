@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -97,7 +98,7 @@ namespace Calculator_project
             // Check if the output already contains a decimal point
             if (!currentNumIncludesDecimal)
             {
-                if (EndsWithOperator(output))
+                if (EndsWithOperator(output) || output.EndsWith("(") || output.EndsWith(")"))
                 {
                     output += "0.";
                 }
@@ -134,8 +135,16 @@ namespace Calculator_project
         /// </summary>
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (output != "0")
             {
+                // closes all parenthesis in the function. :3
+                while (parenthesesCount > 0)
+                {
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                    parenthesesCount--;
+                }
                 // Call Controller.Calc function to calculate the result
                 output = controller.CalculateExpression(output);
 
@@ -176,7 +185,7 @@ namespace Calculator_project
         
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(") || expression.EndsWith(")")))
             {
                 return true;
             }
@@ -378,9 +387,14 @@ namespace Calculator_project
 
         private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
             {
+               
                 parenthesesCount++;
                 output += "(";
                 OutputTextBlock.Text = output;
+            // braket variable changes. included in both .
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
             }
 
 
@@ -392,16 +406,7 @@ namespace Calculator_project
                 output += ")";
                 OutputTextBlock.Text = output;
             }
-            else
-            {
-                // Add closing parentheses until parenthesesCount becomes zero
-                while (parenthesesCount < 0)
-                {
-                    output += ")";
-                    OutputTextBlock.Text = output;
-                    parenthesesCount++;
-                }
-            }
+            
 
 
         }
