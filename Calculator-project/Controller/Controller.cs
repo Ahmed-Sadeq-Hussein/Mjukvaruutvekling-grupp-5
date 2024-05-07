@@ -14,7 +14,7 @@ namespace Calculator_project.Controller
         private string bracketcontroll(string exp)
         {
              string expression = exp;
-            string calc_exp, awns;
+            string calc_exp;
              while (expression.Contains("("))
             {
                 /// step one. Find first (
