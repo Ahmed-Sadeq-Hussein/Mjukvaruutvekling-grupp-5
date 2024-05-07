@@ -180,6 +180,7 @@ namespace Calculator_project
                 // Display the result
                 OutputTextBlock.Text = output;
             }
+            
         }
 
         /// <summary>
@@ -207,7 +208,7 @@ namespace Calculator_project
         
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(") || expression.EndsWith(")")))
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(")))
             {
                 return true;
             }
@@ -434,14 +435,19 @@ namespace Calculator_project
 
         private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
             {
-               
+              
                 parenthesesCount++;
+                if (output == "0") { output = "("; }
+                else
+            {
                 output += "(";
+
+            }
                 OutputTextBlock.Text = output;
             // braket variable changes. included in both .
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
             }
 
 
