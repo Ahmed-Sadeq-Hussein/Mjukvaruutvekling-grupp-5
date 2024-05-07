@@ -16,43 +16,28 @@ namespace Calculator_project.Controller
         {
             List<Token> tokenList = new List<Token>();
 
+            string answer;
+            double doubleAnswer;
+
             try
             {
-                tokenList = SortToTokenList(expression); // Turn the expression string into a List of Tokens
+                tokenList = SortToTokenList(expression); // Turn the expression string into a List of 
+
+                while (tokenList.Count > 1)
+                {
+                    tokenList = Operate(tokenList);
+                }
+
+                answer = (tokenList[0].ToString()).Replace(",", ".");
+                doubleAnswer = 0.0;
+
+                doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return expression;
             }
-
-            try
-            {
-                while (tokenList.Count > 1)
-                {
-                    tokenList = Operate(tokenList);
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return "0";
-            }
-
-            /* The expression had no errors! :)
-             Now return the answer and add both the expression and its answer to the equationQueue
-            if (equationQueue.Count == 10)
-            {
-                equationQueue.Dequeue();
-            }
-            equationQueue.Enqueue(new Equation(expression, tokenList[0].ToString()));
-            */
-
-
-
-            string answer = (tokenList[0].ToString()).Replace(",", ".");
-            double doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
-
             if (NumberOfDecimals(answer) > 8)
             {
                 answer = (doubleAnswer.ToString($"F{8}")).Replace(',', '.');
@@ -84,13 +69,17 @@ namespace Calculator_project.Controller
                     {
                         tempNumber = (Math.PI.ToString()).Replace(',', '.');
                     }
-                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
+                    else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand. Also operate the newly added subexpression now, since this needs top priority
                     {
-                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
-                        tokenList.Add(new Operand(doubleTempNumber));
-                        tempNumber = "";
-                        tokenList.Add(new MultiplyOperator());
-                        tempNumber = (Math.PI.ToString()).Replace(',', '.');
+                        if (tempNumber == "-")
+                        {
+                            doubleTempNumber = -1;
+                        }
+                        else
+                        {
+                            doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        tempNumber = ((doubleTempNumber * Math.PI).ToString()).Replace(',', '.');
                     }
                 }
                 else if (expression[i] == 'e')
@@ -101,11 +90,16 @@ namespace Calculator_project.Controller
                     }
                     else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
                     {
-                        doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
-                        tokenList.Add(new Operand(doubleTempNumber));
-                        tempNumber = "";
-                        tokenList.Add(new MultiplyOperator());
-                        tempNumber = (Math.E.ToString()).Replace(',', '.');
+                        if (tempNumber == "-")
+                        {
+                            doubleTempNumber = -1;
+                        }
+                        else
+                        {
+                            doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
+                        }
+                        tempNumber = ((doubleTempNumber * Math.E).ToString()).Replace(',', '.');
+
                     }
                 }
                 else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
@@ -170,7 +164,7 @@ namespace Calculator_project.Controller
         public List<Token> Operate(List<Token> tokenList)
         {
             int index = 0;
-            // Handle the operators in the correct order: [^] => [/] => [*] => [+] => [-]
+            // Handle the operators in the correct order: [^] => [/] => [*] => [+]&[-]
             if (TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index))
             {
                 return CalculateSubexpression(tokenList, index);
@@ -183,13 +177,9 @@ namespace Calculator_project.Controller
             {
                 return CalculateSubexpression(tokenList, index);
             }
-            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index))
+            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index) || TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, index);
-            }
-            else if (TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
-            {
-                return CalculateSubexpression(tokenList, index);
+                return CalculateSubexpression(tokenList, 1);
             }
             else
             {
@@ -238,6 +228,11 @@ namespace Calculator_project.Controller
 
             // Compute the result
             double result = currentOperator.Compute(firstOperand.value, secondOperand.value);
+
+            if (result == double.PositiveInfinity)
+            {
+                throw new NumberTooLargeException();
+            }
 
             //Remove the handled tokens from the list and replace them with the result
             tokenList.RemoveRange(index - 1, 3);
