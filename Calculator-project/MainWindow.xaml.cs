@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,6 +17,8 @@ namespace Calculator_project
         bool currentNumIncludesDecimal = false;
         bool zeroIsAvailable = false;
         bool eOrPiIsAvailable = true;
+        int parenthesesCount = 0; // Track parentheses count
+
 
         public MainWindow()
         {
@@ -95,7 +98,7 @@ namespace Calculator_project
             // Check if the output already contains a decimal point
             if (!currentNumIncludesDecimal)
             {
-                if (EndsWithOperator(output))
+                if (EndsWithOperator(output) || output.EndsWith("(") || output.EndsWith(")"))
                 {
                     output += "0.";
                 }
@@ -154,8 +157,16 @@ namespace Calculator_project
         /// </summary>
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (output != "0")
             {
+                // closes all parenthesis in the function. :3
+                while (parenthesesCount > 0)
+                {
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                    parenthesesCount--;
+                }
                 // Call Controller.Calc function to calculate the result
                 output = controller.CalculateExpression(output);
 
@@ -169,6 +180,7 @@ namespace Calculator_project
                 // Display the result
                 OutputTextBlock.Text = output;
             }
+            
         }
 
         /// <summary>
@@ -196,7 +208,7 @@ namespace Calculator_project
         
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(")))
             {
                 return true;
             }
@@ -249,6 +261,21 @@ namespace Calculator_project
 
                     }
                 }
+            }
+            else if(keyContent == "(" || keyContent == ")")
+            {
+                eOrPiIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                zeroIsAvailable = true;
+                if (output == "0")
+                {
+                    output = keyContent;
+                }
+                else
+                {
+                    output += keyContent;
+                }
+                OutputTextBlock.Text = output;
             }
             else if (keyContent == "p")
             {
@@ -405,6 +432,69 @@ namespace Calculator_project
                 e.Handled = true;
             }
         }
+
+        private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
+            {
+              
+                parenthesesCount++;
+                if (output == "0") { output = "("; }
+                else
+            {
+                output += "(";
+
+            }
+                OutputTextBlock.Text = output;
+            // braket variable changes. included in both .
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+            }
+
+
+        private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (parenthesesCount > 0) // Ensure there are open parentheses to close
+            {
+                parenthesesCount--;
+                output += ")";
+                OutputTextBlock.Text = output;
+            }
+            
+
+
+        }
+
+        private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "sin(";
+
+                currentNumIncludesDecimal = true;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
+        private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "cos(";
+
+            
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
+        private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "tan(";
+
+          
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
+        }
+
     }
 }
+
 //Good coded 
