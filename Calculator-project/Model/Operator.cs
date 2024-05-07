@@ -2,6 +2,7 @@
 
 namespace Calculator_project.Model
 {
+
     public abstract class Operator : Token
     {
         /// <summary>

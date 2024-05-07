@@ -2,6 +2,9 @@
 
 namespace Calculator_project.Model
 {
+    /// <summary>
+    /// the token for operatos . Good for abstraction and polymorphism
+    /// </summary>
     public class Operand : Token
     {
         //The value of the operand
