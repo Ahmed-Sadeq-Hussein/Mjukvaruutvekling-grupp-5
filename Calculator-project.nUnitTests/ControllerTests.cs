@@ -13,6 +13,45 @@ namespace Calculator_project.nUnitTests
             controller = new Controller.Controller();
         }
 
+        //Tests the different ways to use include brackets
+        [Test]
+        public void CalculateExpression_EqualTest()
+        {
+            //Assign
+            string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)";
+
+            //Act
+            string result = controller.CalculateExpression(expression);
+
+            //Assert
+            Assert.AreEqual("19.00000002", result);
+        }
+
+        [Test]
+        public void bracketcontroll_EqualTest1()
+        {
+            //Assign
+            string expression = "(2+2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.AreEqual("4", returned_expression);
+        }
+
+        //Assign
+        [TestCase("2(2)")]
+        [TestCase("(2)2")]
+        public void bracketcontroll_EqualTest2(string expression)
+        {
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.AreEqual("2x2", returned_expression);
+        }
+
         // Tests the different valid input tokens
         [Test]
         public void SortToTokenList_EqualTest()
