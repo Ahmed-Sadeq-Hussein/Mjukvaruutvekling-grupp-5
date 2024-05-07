@@ -11,13 +11,13 @@ namespace Calculator_project.Controller
     public class Controller
     {
 
-       
+
         //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
-        private string bracketcontroll(string exp)
+        public string bracketcontroll(string exp)
         {
-             string expression = exp;
+            string expression = exp;
             string calc_exp;
-             while (expression.Contains("("))
+            while (expression.Contains("("))
             {
                 /// step one. Find first (
                 /// second step find last )
@@ -27,61 +27,46 @@ namespace Calculator_project.Controller
                 int b_counter = 0;
                 bool success = false;
                 int numba;
-                for (int i = 0; i < expression.Length; i++ )
+                for (int i = 0; i < expression.Length; i++)
                 {
                     if (expression[i] == '(')
                     {
-                        if (b_counter == 0) { x = i;  b_counter++; }
+                        if (b_counter == 0) { x = i; b_counter++; }
                         else { b_counter++; }
                     }
-
                     if (expression[i] == ')')
                     {
-                        if (b_counter == 1) { y = i; b_counter--; success = true;  }
+                        if (b_counter == 1) { y = i; b_counter--; success = true; }
                         else { b_counter--; }
-
                     }
-                    if (success) 
+                    if (success)
                     {
                         // now to cut . calculate whats inside the brackets and then replace what was cut
                         calc_exp = expression.Substring(x + 1, y - x - 1); //cuts the part of the brackets
                         calc_exp = CalculateExpression(calc_exp); // calculates whats
+
                         /// to better this and make it able to interprite if multiplication method is required we ask of
                         /// if expression[x-1] isnt operator, if it isnt we add a "*" . test case first paranthesis [0].
                         /// if expression[y+1] isnt operator, if it isnt we add a "*" test case last parenthesis [len -1]
                         /// isnt operator is if the spot is occupied with either a (,) or a number.
-                        /// 
                         if (x > 0)
                         {
-                            if (expression[x - 1] == ')' || expression[x - 1] == ',' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = "x" + calc_exp; }
+                            if (expression[x - 1] == ')' || expression[x - 1] == ',' || expression[x - 1] == '-' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = "x" + calc_exp; }
                         }
                         if (y < expression.Length - 1)
                         {
-                            if (expression[y + 1] == '('|| expression[x - 1] == ',' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = calc_exp + "x"; }
+                            if (expression[y + 1] == '(' || expression[y + 1] == ',' || expression[y + 1] == '-' || int.TryParse(expression[y + 1].ToString(), out numba)) { calc_exp = calc_exp + "x"; }
                         }
 
-
-
-                        ///
                         expression = expression.Substring(0, x) + calc_exp + expression.Substring(y + 1);
                         success = false;
                         break;
                     }
                 }
-                
-
-                
-
-
-
-
-
-                
-
             }
             return expression;
-            
         }
+
         public string CalculateExpression(string exp)
         {
             List<Token> tokenList = new List<Token>();
