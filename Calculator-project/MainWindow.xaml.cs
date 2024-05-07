@@ -207,11 +207,7 @@ namespace Calculator_project
         
         private bool EndsWithOperator(string expression)
         {
-<<<<<<< HEAD
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(") || expression.EndsWith(")")))
-=======
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
->>>>>>> controller
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(") || expression.EndsWith(")")))
             {
                 return true;
             }
