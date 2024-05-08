@@ -39,6 +39,7 @@ The languages we are going to use are:
 ### Features:
 - Addition, subtraction, multiplication, division and exponentiation operations
 - Euler's number and pi
+- Support for brackets
 
 ---
 
