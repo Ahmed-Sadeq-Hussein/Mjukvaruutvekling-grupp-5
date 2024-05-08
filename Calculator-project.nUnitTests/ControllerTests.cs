@@ -52,6 +52,32 @@ namespace Calculator_project.nUnitTests
             Assert.AreEqual("2x2", returned_expression);
         }
 
+        [Test]
+        public void bracketcontroll_EqualTest3()
+        {
+            //Assign
+            string expression = "e(2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.AreEqual("ex2", returned_expression);
+        }
+
+        [Test]
+        public void bracketcontroll_EqualTest4()
+        {
+            //Assign
+            string expression = "-(2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.AreEqual("-x2", returned_expression);
+        }
+
         // Tests the different valid input tokens
         [Test]
         public void SortToTokenList_EqualTest()
