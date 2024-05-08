@@ -68,7 +68,7 @@ In order to view specific test results, simply unfold the tabs ![Specific result
 
 ---
 CI Badge
-[![CI](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5.git)
+[![CI](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5/actions/workflows/setup-dotnet.yml/badge.svg)
 
 ## How to generate code coverage for unit tests
 
