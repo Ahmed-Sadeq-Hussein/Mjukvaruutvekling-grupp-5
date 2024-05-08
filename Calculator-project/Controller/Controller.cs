@@ -10,7 +10,7 @@ namespace Calculator_project.Controller
 
     public class Controller
     {
-
+        private bool errorvar = false;
 
         //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
         public string bracketcontroll(string exp)
@@ -27,6 +27,7 @@ namespace Calculator_project.Controller
                 int b_counter = 0;
                 bool success = false;
                 int numba;
+                string vars = ",-eπ";
                 for (int i = 0; i < expression.Length; i++)
                 {
                     if (expression[i] == '(')
@@ -51,11 +52,11 @@ namespace Calculator_project.Controller
                         /// isnt operator is if the spot is occupied with either a (,) or a number.
                         if (x > 0)
                         {
-                            if (expression[x - 1] == ')' || expression[x - 1] == ',' || expression[x - 1] == '-' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = "x" + calc_exp; }
+                            if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = "x" + calc_exp; }
                         }
                         if (y < expression.Length - 1)
                         {
-                            if (expression[y + 1] == '(' || expression[y + 1] == ',' || expression[y + 1] == '-' || int.TryParse(expression[y + 1].ToString(), out numba)) { calc_exp = calc_exp + "x"; }
+                            if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba)) { calc_exp = calc_exp + "x"; }
                         }
 
                         expression = expression.Substring(0, x) + calc_exp + expression.Substring(y + 1);
@@ -69,11 +70,13 @@ namespace Calculator_project.Controller
 
         public string CalculateExpression(string exp)
         {
+
             List<Token> tokenList = new List<Token>();
             string expression = bracketcontroll(exp);
             string answer;
             double doubleAnswer;
-
+            /// before starting calc we look at error. if there are errors we throw only one and return 0
+            if (errorvar) { return "0"; }
             try
             {
                 tokenList = SortToTokenList(expression); // Turn the expression string into a List of 
@@ -91,7 +94,8 @@ namespace Calculator_project.Controller
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return expression;
+                errorvar = true;
+                return "0";
             }
             if (NumberOfDecimals(answer) > 8)
             {
