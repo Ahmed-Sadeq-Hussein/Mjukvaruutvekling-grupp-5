@@ -166,7 +166,7 @@ namespace Calculator_project
                     parenthesesCount--;
                 }
                 // Call Controller.Calc function to calculate the result
-                output = controller.CalculateExpression(output);
+                output = controller.CalculateExpression(output, true);
 
                 if (output.Contains('.'))
                 {
@@ -380,7 +380,7 @@ namespace Calculator_project
                         parenthesesCount--;
                     }
                     // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output);
+                    output = controller.CalculateExpression(output, true);
 
                     if (output.Contains('.'))
                     {
@@ -435,7 +435,7 @@ namespace Calculator_project
                         parenthesesCount--;
                     }
                     // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output);
+                    output = controller.CalculateExpression(output, true);
 
                     if (output.Contains('.'))
                     {

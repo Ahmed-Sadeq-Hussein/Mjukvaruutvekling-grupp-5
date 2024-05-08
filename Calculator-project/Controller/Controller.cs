@@ -44,7 +44,7 @@ namespace Calculator_project.Controller
                     {
                         // now to cut . calculate whats inside the brackets and then replace what was cut
                         calc_exp = expression.Substring(x + 1, y - x - 1); //cuts the part of the brackets
-                        calc_exp = CalculateExpression(calc_exp); // calculates whats
+                        calc_exp = CalculateExpression(calc_exp, false); // calculates whats
 
                         /// to better this and make it able to interprite if multiplication method is required we ask of
                         /// if expression[x-1] isnt operator, if it isnt we add a "*" . test case first paranthesis [0].
@@ -68,7 +68,7 @@ namespace Calculator_project.Controller
             return expression;
         }
 
-        public string CalculateExpression(string exp)
+        public string CalculateExpression(string exp, bool first)
         {
 
             List<Token> tokenList = new List<Token>();
@@ -76,7 +76,14 @@ namespace Calculator_project.Controller
             string answer;
             double doubleAnswer;
             /// before starting calc we look at error. if there are errors we throw only one and return 0
-            if (errorvar) { return "0"; }
+            if (errorvar)
+            {
+                if (first)
+                {
+                    errorvar = false;
+                }
+                return "0";
+            }
             try
             {
                 tokenList = SortToTokenList(expression); // Turn the expression string into a List of 

@@ -21,7 +21,7 @@ namespace Calculator_project.nUnitTests
             string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)";
 
             //Act
-            string result = controller.CalculateExpression(expression);
+            string result = controller.CalculateExpression(expression, true);
 
             //Assert
             Assert.AreEqual("19.00000002", result);
