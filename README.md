@@ -1,6 +1,6 @@
 # Mjukvaruutvekling-grupp5-project
----
 ![CI](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5/actions/workflows/setup-dotnet.yml/badge.svg)
+---
 
 ## Declarations:
 I, Julius Norén, declare that I am the sole author of the content I add to this repository. \
