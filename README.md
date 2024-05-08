@@ -1,4 +1,6 @@
 # Mjukvaruutvekling-grupp5-project
+---
+![CI](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5/actions/workflows/setup-dotnet.yml/badge.svg)
 
 ## Declarations:
 I, Julius Norén, declare that I am the sole author of the content I add to this repository. \
@@ -67,8 +69,7 @@ They show:
 
 In order to view specific test results, simply unfold the tabs ![Specific results](https://cdn.discordapp.com/attachments/1221090555405008978/1235154431918739540/image.png?ex=663356b4&is=66320534&hm=33084432dcbb07164a16ad713f4dc2185ac5f96212a41cb8e3056f4fdf033fd3&)
 
----
-![CI](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5/actions/workflows/setup-dotnet.yml/badge.svg)
+
 
 ---
 ## How to generate code coverage for unit tests
