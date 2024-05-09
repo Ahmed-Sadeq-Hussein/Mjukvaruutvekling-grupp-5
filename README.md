@@ -72,7 +72,7 @@ In order to view specific test results, simply unfold the tabs ![Specific result
 
 ---
 ## How to generate code coverage for unit tests
-After pushing newly added code to the main branch, a code coverage report is automatically created. To view the results, follow these steps:
+After pushing newly added code to the main branch, a code coverage report is automatically created. To view the results, follow these 3 steps:
 1. Head to Github Actions and open the workflow run that you want to view the code coverage report of.\
 ![Open workflow run](https://cdn.discordapp.com/attachments/1221090555405008978/1238085043763810324/image.png?ex=663e000c&is=663cae8c&hm=158b0692a836635da180521cef9482b3a7e5d8e1bc39756fe8d9abb9b386f0e9&)
 2. Scroll all the way down, there you'll find the report which you can download.\
