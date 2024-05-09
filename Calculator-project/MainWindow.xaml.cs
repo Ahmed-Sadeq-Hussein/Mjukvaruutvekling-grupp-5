@@ -182,6 +182,10 @@ namespace Calculator_project
                 {
                     currentNumIncludesDecimal = true;
                 }
+                else
+                {
+                    currentNumIncludesDecimal = false;
+                }
                 zeroIsAvailable = true;
                 numIsAvailable = true;
                 eOrPiIsAvailable = true;
