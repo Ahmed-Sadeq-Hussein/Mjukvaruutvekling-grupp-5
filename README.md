@@ -55,7 +55,7 @@ To compile and run the calculator, follow these 3 steps:
 
 ---
 ## How to run the unit tests and view the results
-In order to run the unit tests, follow these steps:
+In order to run the unit tests, follow these 2 steps:
 1. Open "Test Explorer" under "View" manually or by pressing Ctrl+E and then T ![Test Explorer](https://cdn.discordapp.com/attachments/1221090555405008978/1235150186477518900/image.png?ex=663352c0&is=66320140&hm=e58fa10feb842d702489e66d34eb2c2cb26f1cb94bbe9ffd5e6b22694dffb670&)
 2. Click "Run All Tests In View" manually or by pressing Ctrl+R and then V ![Run tests](https://cdn.discordapp.com/attachments/1221090555405008978/1235155980288000060/image.png?ex=66335825&is=663206a5&hm=a97c79d1ee57f79f5511d31a60e4d1299da90a3c4e22444c347e96f24d37e135&)
 
@@ -72,6 +72,14 @@ In order to view specific test results, simply unfold the tabs ![Specific result
 
 ---
 ## How to generate code coverage for unit tests
+After pushing newly added code to the main branch, a code coverage report is automatically created. To view the results, follow these steps:
+1. Head to Github Actions and open the workflow run that you want to view the code coverage report of.\
+![Open workflow run](https://cdn.discordapp.com/attachments/1221090555405008978/1238085043763810324/image.png?ex=663e000c&is=663cae8c&hm=158b0692a836635da180521cef9482b3a7e5d8e1bc39756fe8d9abb9b386f0e9&)
+2. Scroll all the way down, there you'll find the report which you can download.\
+![Download report](https://cdn.discordapp.com/attachments/1221090555405008978/1238086064329986099/image.png?ex=663e0100&is=663caf80&hm=541a4780ab7df10b8a3a7396cad81eeb44ad67a1a03409e8e3f64292a3074459&)
+3. Inside the downloaded folder you'll have access to the reports of each file individually and also a summary report of all files.\
+![Individual files](https://cdn.discordapp.com/attachments/1221090555405008978/1238083040815878194/image.png?ex=663dfe2f&is=663cacaf&hm=849ad8e850e1cfbf9b19fbe87c097d3825b2b9b08c746c560a0820561f014ef4&)
+![Summary files](https://cdn.discordapp.com/attachments/1221090555405008978/1238083085027901450/image.png?ex=663dfe39&is=663cacb9&hm=21e24d1f77d042326ec3892dce0838e9a3f55d16f31ebce229c7cd04a5d069fb&)
 
 ---
 
