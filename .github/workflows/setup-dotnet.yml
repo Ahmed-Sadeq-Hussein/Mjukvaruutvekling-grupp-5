@@ -39,12 +39,30 @@ jobs:
     
         uses: actions/upload-artifact@v4
         with:
-         name: code-coverage-report
-         path: coverlet/reports
-         
-      - name: Lint Code Base
-        uses: super-linter/super-linter@v5
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: code-coverage-report
+          path: coverlet/reports
+           
+           
+name: Lint Code Base
+on:
+  push:
+    branches: [main]
+jobs:
+  lint:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Run Super-Linter
+        run: |
+          docker run \
+            -e VALIDATE_ALL_CODEBASE=false \
+            -e DEFAULT_BRANCH=main \
+            -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+            -v $PWD:/tmp/lint \
+            ghcr.io/github/super-linter:slim
+
