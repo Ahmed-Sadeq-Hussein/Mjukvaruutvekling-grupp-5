@@ -47,10 +47,10 @@ jobs:
 
       - name: Run Super-Linter
         run: |
-          docker run \
-            -e VALIDATE_ALL_CODEBASE=false \
-            -e DEFAULT_BRANCH=main \
-            -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
-            -v $PWD:/tmp/lint \
+          docker run `
+            -e VALIDATE_ALL_CODEBASE=false `
+            -e DEFAULT_BRANCH=main `
+            -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} `
+            -v ${PWD.Path}:/tmp/lint `
             ghcr.io/github/super-linter:slim
 
