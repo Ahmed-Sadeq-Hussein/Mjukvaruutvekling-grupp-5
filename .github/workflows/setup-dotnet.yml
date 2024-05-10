@@ -8,7 +8,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        dotnet-version: [ '3.1.x', '6.0.x' ]
+        dotnet-version: [ '6.0.x' ]
 
     steps:
       - uses: actions/checkout@v4
@@ -22,4 +22,39 @@ jobs:
       - name: Build
         run: dotnet build
       - name: Test
-        run: dotnet test
+        run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" --results-directory ./coverage
+
+      - name: Code Coverage Generator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      
+      - name: Code Coverage Report - XMl
+        run: reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:"Cobertura"
+
+      - name: Code Coverage Report - HTML
+        run: reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:Html
+
+      - name: Upload Artefacts
+        #run: mkdir -p $GITHUB_WORKSPACE/coverage/
+    
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: coverlet/reports
+           
+           
+  
+      - name: Checkout code
+        uses: actions/checkout@v2
+  
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+  
+      - name: Run Super-Linter
+        run: |
+            docker run `
+              -e VALIDATE_ALL_CODEBASE=false `
+              -e DEFAULT_BRANCH=main `
+              -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} `
+              -v ${PWD}:/tmp/lint `
+              ghcr.io/github/super-linter:slim
