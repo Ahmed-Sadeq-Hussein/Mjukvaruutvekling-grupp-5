@@ -1,28 +1,76 @@
 ﻿using Calculator.Model;
 using System;
-using System.Linq; // Needed for methods on arrays like Average
+using System.Linq; // Needed for possible future extensions
+
+
+
 
 namespace Calculator_project.Model
 {
-    /// Represents a function token that can perform calculations on an array of doubles.
-    public class FunctionToken : Token
+    /// <summary>
+    /// Represents the cosine function.
+    /// </summary>
+    public class CosineFunction : Function
     {
-        // Delegate to hold the function.
-        private Func<double[], double> function;
-
-        /// Initializes a new instance of the FunctionToken class with the specified function.
-        /// <param name="function">The function this token will represent.</param>
-        public FunctionToken(Func<double[], double> function)
+        public override double Execute(double[] parameters)
         {
-            this.function = function;
+            if (parameters.Length != 1)
+                throw new ArgumentException("Cosine function requires only one parameter.");
+            return Math.Cos(parameters[0]);
         }
 
-        /// Executes the function with the provided double array.
-        /// <param name="args">Array of doubles as arguments to the function.
-        /// <returns>The result of the function.</returns>
-        public double Execute(double[] args)
+        public override string ToString()
         {
-            return function(args);
+            return "Cosine Function Token";
         }
+    }
+
+    /// <summary>
+    /// Represents the sine function.
+    /// </summary>
+    public class SineFunction : Function
+    {
+        public override double Execute(double[] parameters)
+        {
+            if (parameters.Length != 1)
+                throw new ArgumentException("Sine function requires only one parameter.");
+            return Math.Sin(parameters[0]);
+        }
+
+        public override string ToString()
+        {
+            return "Sine Function Token";
+        }
+    }
+
+    /// <summary>
+    /// Represents the tangent function.
+    /// </summary>
+    public class TangentFunction : Function
+    {
+        public override double Execute(double[] parameters)
+        {
+            if (parameters.Length != 1)
+                throw new ArgumentException("Tangent function requires only one parameter.");
+            return Math.Tan(parameters[0]);
+        }
+
+        public override string ToString()
+        {
+            return "Tangent Function Token";
+        }
+    }
+
+    /// <summary>
+    /// A token for mathematical functions. Enables the use of various mathematical operations that require multiple parameters.
+    /// </summary>
+    public abstract class Function : Token
+    {
+        /// <summary>
+        /// Executes the function with the given parameters.
+        /// </summary>
+        /// <param name="parameters">An array of doubles as parameters for the function.</param>
+        /// <returns>The result of the function as a double.</returns>
+        public abstract double Execute(double[] parameters);
     }
 }
