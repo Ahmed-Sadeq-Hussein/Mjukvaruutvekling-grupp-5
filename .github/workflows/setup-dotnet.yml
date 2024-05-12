@@ -43,4 +43,7 @@ jobs:
           path: coverlet/reports
            
            
-  
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          dotnet_format: true
