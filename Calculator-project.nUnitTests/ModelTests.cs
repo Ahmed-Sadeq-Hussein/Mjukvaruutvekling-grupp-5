@@ -16,7 +16,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(3, result);
+            Assert.That(result, Is.EqualTo(3));
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(1, result);
+            Assert.That(result, Is.EqualTo(1));
         }
 
         [Test]
@@ -46,7 +46,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(3.923, result);
+            Assert.That(result, Is.EqualTo(3.923));
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(-1, result);
+            Assert.That(result, Is.EqualTo(-1));
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(-12, result);
+            Assert.That(result, Is.EqualTo(-12));
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(9.9, result);
+            Assert.That(result, Is.EqualTo(9.9));
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(6, result);
+            Assert.That(result, Is.EqualTo(6));
         }
 
         [Test]
@@ -121,7 +121,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(-8, result);
+            Assert.That(result, Is.EqualTo(-8));
         }
 
         [Test]
@@ -136,7 +136,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(10.5, result);
+            Assert.That(result, Is.EqualTo(10.5));
         }
 
         [Test]
@@ -151,7 +151,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(3, result);
+            Assert.That(result, Is.EqualTo(3));
         }
 
         [Test]
@@ -166,7 +166,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(-5, result);
+            Assert.That(result, Is.EqualTo(-5));
         }
 
         [Test]
@@ -181,7 +181,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(0.8, result);
+            Assert.That(result, Is.EqualTo(0.8));
         }
 
         [Test]
@@ -208,7 +208,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(8, result);
+            Assert.That(result, Is.EqualTo(8));
         }
 
         [Test]
@@ -223,7 +223,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(-8, result);
+            Assert.That(result, Is.EqualTo(-8));
         }
 
         [Test]
@@ -238,7 +238,7 @@ namespace Calculator_project.nUnitTests
             double result = oPerator.Compute(x, y);
 
             // Assert
-            Assert.AreEqual(0.25, result);
+            Assert.That(result, Is.EqualTo(0.25));
         }
     }
 }

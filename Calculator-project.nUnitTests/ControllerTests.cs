@@ -24,7 +24,7 @@ namespace Calculator_project.nUnitTests
             string result = controller.CalculateExpression(expression, true);
 
             //Assert
-            Assert.AreEqual("19.00000002", result);
+            Assert.That(result, Is.EqualTo("19.00000002"));
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Calculator_project.nUnitTests
             string returned_expression = controller.bracketcontroll(expression);
 
             //Assert
-            Assert.AreEqual("4", returned_expression);
+            Assert.That(returned_expression, Is.EqualTo("4"));
         }
 
         //Assign
@@ -49,7 +49,7 @@ namespace Calculator_project.nUnitTests
             string returned_expression = controller.bracketcontroll(expression);
 
             //Assert
-            Assert.AreEqual("2x2", returned_expression);
+            Assert.That(returned_expression, Is.EqualTo("2x2"));
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace Calculator_project.nUnitTests
             string returned_expression = controller.bracketcontroll(expression);
 
             //Assert
-            Assert.AreEqual("ex2", returned_expression);
+            Assert.That(returned_expression, Is.EqualTo("ex2"));
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace Calculator_project.nUnitTests
             string returned_expression = controller.bracketcontroll(expression);
 
             //Assert
-            Assert.AreEqual("-x2", returned_expression);
+            Assert.That(returned_expression, Is.EqualTo("-x2"));
         }
 
         // Tests the different valid input tokens
@@ -90,19 +90,19 @@ namespace Calculator_project.nUnitTests
             tokenList = controller.SortToTokenList(expression);
 
             // Assert
-            Assert.AreEqual("2", tokenList[0].ToString().Replace('.', ','));
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString().Replace('.', ','));
-            Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
-            Assert.AreEqual("-1", tokenList[4].ToString().Replace('.', ','));
-            Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
-            Assert.AreEqual("41,41", tokenList[6].ToString().Replace('.', ','));
-            Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
-            Assert.AreEqual("0,2", tokenList[8].ToString().Replace('.', ','));
-            Assert.AreEqual("[ExponentiateOperator]", tokenList[9].ToString());
-            Assert.AreEqual("3,14159265", tokenList[10].ToString().Replace('.', ','));
-            Assert.AreEqual("[SumOperator]", tokenList[11].ToString());
-            Assert.AreEqual("2,71828183", tokenList[12].ToString().Replace('.', ','));
+            Assert.That(tokenList[0].ToString().Replace('.', ','), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString().Replace('.', ','), Is.EqualTo("0"));
+            Assert.That(tokenList[3].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[4].ToString().Replace('.', ','), Is.EqualTo("-1"));
+            Assert.That(tokenList[5].ToString(), Is.EqualTo("[MultiplyOperator]"));
+            Assert.That(tokenList[6].ToString().Replace('.', ','), Is.EqualTo("41,41"));
+            Assert.That(tokenList[7].ToString(), Is.EqualTo("[DivideOperator]"));
+            Assert.That(tokenList[8].ToString().Replace('.', ','), Is.EqualTo("0,2"));
+            Assert.That(tokenList[9].ToString(), Is.EqualTo("[ExponentiateOperator]"));
+            Assert.That(tokenList[10].ToString().Replace('.', ','), Is.EqualTo("3,14159265"));
+            Assert.That(tokenList[11].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[12].ToString().Replace('.', ','), Is.EqualTo("2,71828183"));
         }
 
         // Tests the program to see if it throws an InvalidExpressionException when the expression is invalid (when it ends with an operator)
@@ -317,7 +317,7 @@ namespace Calculator_project.nUnitTests
             controller.TokenListContainsOperator<SumOperator>(tokenList, ref index);
 
             // Assert
-            Assert.AreEqual(1, index);
+            Assert.That(index, Is.EqualTo(1));
         }
 
         [Test]
@@ -338,7 +338,7 @@ namespace Calculator_project.nUnitTests
             controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index);
 
             // Assert
-            Assert.AreEqual(1, index);
+            Assert.That(index, Is.EqualTo(1));
         }
 
         [Test]
@@ -359,7 +359,7 @@ namespace Calculator_project.nUnitTests
             controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index);
 
             // Assert
-            Assert.AreEqual(1, index);
+            Assert.That(index, Is.EqualTo(1));
         }
 
         [Test]
@@ -380,7 +380,7 @@ namespace Calculator_project.nUnitTests
             controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index);
 
             // Assert
-            Assert.AreEqual(1, index);
+            Assert.That(index, Is.EqualTo(1));
         }
 
         [Test]
@@ -401,7 +401,7 @@ namespace Calculator_project.nUnitTests
             controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index);
 
             // Assert
-            Assert.AreEqual(3, index);
+            Assert.That(index, Is.EqualTo(3));
         }
 
         [Test]
@@ -423,9 +423,9 @@ namespace Calculator_project.nUnitTests
             tokenList = controller.CalculateSubexpression(tokenList, index);
 
             // Assert
-            Assert.AreEqual("4", tokenList[0].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("9", tokenList[2].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("4"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString(), Is.EqualTo("9"));
         }
 
         [Test]
@@ -450,39 +450,39 @@ namespace Calculator_project.nUnitTests
 
             // Act, Assert
             tokenList = controller.Operate(tokenList);
-            Assert.AreEqual("2", tokenList[0].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString());
-            Assert.AreEqual("[MultiplyOperator]", tokenList[3].ToString());
-            Assert.AreEqual("1", tokenList[4].ToString());
-            Assert.AreEqual("[SubtractOperator]", tokenList[5].ToString());
-            Assert.AreEqual("3", tokenList[6].ToString());
-            Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
-            Assert.AreEqual("1", tokenList[8].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
+            Assert.That(tokenList[3].ToString(), Is.EqualTo("[MultiplyOperator]"));
+            Assert.That(tokenList[4].ToString(), Is.EqualTo("1"));
+            Assert.That(tokenList[5].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[6].ToString(), Is.EqualTo("3"));
+            Assert.That(tokenList[7].ToString(), Is.EqualTo("[DivideOperator]"));
+            Assert.That(tokenList[8].ToString(), Is.EqualTo("1"));
 
             tokenList = controller.Operate(tokenList);
-            Assert.AreEqual("2", tokenList[0].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString());
-            Assert.AreEqual("[MultiplyOperator]", tokenList[3].ToString());
-            Assert.AreEqual("1", tokenList[4].ToString());
-            Assert.AreEqual("[SubtractOperator]", tokenList[5].ToString());
-            Assert.AreEqual("3", tokenList[6].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
+            Assert.That(tokenList[3].ToString(), Is.EqualTo("[MultiplyOperator]"));
+            Assert.That(tokenList[4].ToString(), Is.EqualTo("1"));
+            Assert.That(tokenList[5].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[6].ToString(), Is.EqualTo("3"));
 
             tokenList = controller.Operate(tokenList);
-            Assert.AreEqual("2", tokenList[0].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString());
-            Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
-            Assert.AreEqual("3", tokenList[4].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
+            Assert.That(tokenList[3].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[4].ToString(), Is.EqualTo("3"));
 
             tokenList = controller.Operate(tokenList);
-            Assert.AreEqual("2", tokenList[0].ToString());
-            Assert.AreEqual("[SubtractOperator]", tokenList[1].ToString());
-            Assert.AreEqual("3", tokenList[2].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[2].ToString(), Is.EqualTo("3"));
 
             tokenList = controller.Operate(tokenList);
-            Assert.AreEqual("-1", tokenList[0].ToString());
+            Assert.That(tokenList[0].ToString(), Is.EqualTo("-1"));
         }
 
         [Test]
@@ -495,7 +495,7 @@ namespace Calculator_project.nUnitTests
             int numberOfDecimals = controller.NumberOfDecimals(expression);
 
             // Assert
-            Assert.AreEqual(9, numberOfDecimals);
+            Assert.That(numberOfDecimals, Is.EqualTo(9));
         }
     }
 }
