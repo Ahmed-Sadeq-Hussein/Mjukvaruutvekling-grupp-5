@@ -13,6 +13,9 @@ namespace Calculator_project
 
         string output = "0"; //used to keep track of the numbers
         bool currentNumIncludesDecimal = false;
+
+        bool numIsAvailable = true;
+
         bool zeroIsAvailable = false;
         bool eOrPiIsAvailable = true;
         int parenthesesCount = 0; // Track parentheses count
@@ -41,6 +44,7 @@ namespace Calculator_project
                     {
                         if (EndsWithOperator(output))
                         {
+                            numIsAvailable = false;
                             zeroIsAvailable = false;
                         }
                         output += buttonContent;
@@ -49,16 +53,19 @@ namespace Calculator_project
                 }
                 else // If any other number button is pressed, add it
                 {
-                    if (output == "0")
+                    if (numIsAvailable)
                     {
-                        output = buttonContent;
-                        zeroIsAvailable = true;
+                        if (output == "0")
+                        {
+                            output = buttonContent;
+                            zeroIsAvailable = true;
+                        }
+                        else
+                        {
+                            output += buttonContent;
+                        }
+                        OutputTextBlock.Text = output;
                     }
-                    else
-                    {
-                        output += buttonContent;
-                    }
-                    OutputTextBlock.Text = output;
 
                 }
             }
@@ -104,6 +111,7 @@ namespace Calculator_project
                 {
                     output += '.';
                 }
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 OutputTextBlock.Text = output;
                 currentNumIncludesDecimal = true;
@@ -135,6 +143,7 @@ namespace Calculator_project
                 {
                     output += buttonContent;
                 }
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
@@ -142,6 +151,7 @@ namespace Calculator_project
             }
             else if (buttonContent == "-" && !output.EndsWith('–'))
             {
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
@@ -172,11 +182,17 @@ namespace Calculator_project
                 {
                     currentNumIncludesDecimal = true;
                 }
+                else
+                {
+                    currentNumIncludesDecimal = false;
+                }
                 zeroIsAvailable = true;
+                numIsAvailable = true;
                 eOrPiIsAvailable = true;
 
                 // Display the result
                 OutputTextBlock.Text = output;
+
             }
 
         }
@@ -188,6 +204,7 @@ namespace Calculator_project
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
+            numIsAvailable = true;
             zeroIsAvailable = false;
             currentNumIncludesDecimal = false;
             eOrPiIsAvailable = true;
@@ -239,6 +256,7 @@ namespace Calculator_project
                         {
                             if (EndsWithOperator(output))
                             {
+                                numIsAvailable = false;
                                 zeroIsAvailable = false;
                             }
                             output += keyContent;
@@ -247,16 +265,19 @@ namespace Calculator_project
                     }
                     else // If any other number button is pressed, add it
                     {
-                        if (output == "0")
+                        if (numIsAvailable)
                         {
-                            output = keyContent;
-                            zeroIsAvailable = true;
+                            if (output == "0")
+                            {
+                                output = keyContent;
+                                zeroIsAvailable = true;
+                            }
+                            else
+                            {
+                                output += keyContent;
+                            }
+                            OutputTextBlock.Text = output;
                         }
-                        else
-                        {
-                            output += keyContent;
-                        }
-                        OutputTextBlock.Text = output;
                     }
                 }
             }
@@ -329,6 +350,7 @@ namespace Calculator_project
                     {
                         output += '.';
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     OutputTextBlock.Text = output;
                     currentNumIncludesDecimal = true;
@@ -364,6 +386,7 @@ namespace Calculator_project
                     output += "–";
                 }
 
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
@@ -386,6 +409,7 @@ namespace Calculator_project
                     {
                         currentNumIncludesDecimal = true;
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     eOrPiIsAvailable |= true;
 
@@ -416,6 +440,7 @@ namespace Calculator_project
         {
             if (e.Key == System.Windows.Input.Key.Back)
             {
+                numIsAvailable = true;
                 zeroIsAvailable = false;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
@@ -441,6 +466,7 @@ namespace Calculator_project
                     {
                         currentNumIncludesDecimal = true;
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     eOrPiIsAvailable = true;
 
