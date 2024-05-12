@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using Calculator_project.Model;
+﻿using Calculator_project.Model;
 
 namespace Calculator_project.nUnitTests
 {
@@ -19,7 +13,7 @@ namespace Calculator_project.nUnitTests
             double y = 2;
 
             // Act
-            double result = oPerator.Compute(x,y);
+            double result = oPerator.Compute(x, y);
 
             // Assert
             Assert.AreEqual(3, result);
@@ -64,7 +58,7 @@ namespace Calculator_project.nUnitTests
             double y = 2;
 
             // Act
-            double result = oPerator.Compute(x,y);
+            double result = oPerator.Compute(x, y);
 
             // Assert
             Assert.AreEqual(-1, result);
@@ -109,7 +103,7 @@ namespace Calculator_project.nUnitTests
             double y = 2;
 
             // Act
-            double result = oPerator.Compute(x,y);
+            double result = oPerator.Compute(x, y);
 
             // Assert
             Assert.AreEqual(6, result);
@@ -189,7 +183,7 @@ namespace Calculator_project.nUnitTests
             // Assert
             Assert.AreEqual(0.8, result);
         }
-        
+
         [Test]
         public void DivideOperator_ThrowExceptionTest()
         {
@@ -209,9 +203,9 @@ namespace Calculator_project.nUnitTests
             ExponentiateOperator oPerator = new ExponentiateOperator();
             double x = 2;
             double y = 3;
-                
+
             // Act
-            double result = oPerator.Compute(x,y);
+            double result = oPerator.Compute(x, y);
 
             // Assert
             Assert.AreEqual(8, result);
