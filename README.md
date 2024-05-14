@@ -60,7 +60,7 @@ There are two ways to run the unit tests:
 First way:
 
 1. Open the cloned repository folder, right-click anywhere, and then select "View more alternatives," and then click on "Open in Terminal."
-2. Type "dotnet test" in the terminal, and then all tests will run.
+2. Type "dotnet test" in the terminal and press enter, and then all tests will run.
    
 Second way: 
 
