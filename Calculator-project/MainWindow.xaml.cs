@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-
+using System.IO;
 namespace Calculator_project
 {
     /// <summary>
@@ -9,11 +9,18 @@ namespace Calculator_project
 
     public partial class MainWindow : Window
     {
-        Controller.Controller controller = new Controller.Controller();
+        /// <summary>
+        ///  creates a file to save stuff inside 
+        ///  
+        /// </summary>
+        /// 
+        
+
+    Controller.Controller controller = new Controller.Controller();
 
         string output = "0"; //used to keep track of the numbers
         bool currentNumIncludesDecimal = false;
-
+        string filePath = "yourfile.txt";
         bool numIsAvailable = true;
 
         bool zeroIsAvailable = false;
@@ -25,6 +32,15 @@ namespace Calculator_project
         {
             InitializeComponent();
             this.DataContext = this;
+           
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Dispose();
+            }
+            else
+            {
+                File.WriteAllText(filePath, string.Empty);
+            }
         }
 
         /// <summary>
@@ -175,6 +191,10 @@ namespace Calculator_project
                     OutputTextBlock.Text = output;
                     parenthesesCount--;
                 }
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(output + "=");
+                }
                 // Call Controller.Calc function to calculate the result
                 output = controller.CalculateExpression(output, true);
 
@@ -192,6 +212,11 @@ namespace Calculator_project
 
                 // Display the result
                 OutputTextBlock.Text = output;
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(output);
+                }
+
 
             }
 
@@ -539,9 +564,10 @@ namespace Calculator_project
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
 
+        private void save_file_protocol(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(filePath);
         }
     }
 }

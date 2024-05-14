@@ -12,10 +12,13 @@
 
     <Grid Margin="10,28,10,10">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="83*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <!--  This is for the output  -->
@@ -26,7 +29,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border BorderThickness="0.1" BorderBrush="White" CornerRadius="10" Margin="5,5,5,20" Grid.ColumnSpan="4">
+        <Border BorderThickness="0.1" BorderBrush="White" CornerRadius="10" Margin="5,5,5,20" Grid.ColumnSpan="7">
             <TextBox
                 x:Name="OutputTextBlock"
                 Margin="5,30,5,0"
@@ -41,7 +44,7 @@
 
 
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="4">
+        <Grid Grid.Row="1" Grid.ColumnSpan="7">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -274,12 +277,12 @@
                 HorizontalAlignment="Left" 
                 Margin="2,-122,0,0" 
                 RenderTransformOrigin="-0.281,-3.238" 
-                Click="Button_Click_1" 
                 VerticalAlignment="Top" 
                 BorderThickness="1,0,1,1" 
                 Height="21" 
                 Width="80" 
                 Grid.ColumnSpan="2"
+                Click="save_file_protocol"
                     
         />
 
