@@ -84,18 +84,19 @@ namespace Calculator_project.Controller
                     x = expression.IndexOf(functionlist.names[i]);
                     y = x + functionlist.names[i].Length;
                     z = y;
-                    while (z < expression.Length -1 && char.IsDigit(expression[z]) || expression[z] == ',' ) // edge cases
+                    while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',') // edge cases
                     {
                         z++;
                     }
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
-                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z-y + 1)) }).ToString();
+                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
                     // write code here that restricts the size of the number.
-                    expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z- 1);
+                    expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
 
                 }
             }
 
+            expression = expression.Replace(',', '.');
             return expression;
         }
         public string CalculateExpression(string exp, bool first)
@@ -103,7 +104,7 @@ namespace Calculator_project.Controller
 
             List<Token> tokenList = new List<Token>();
             string expression = bracketcontroll(exp);
-            expression =functioncontroll(expression);
+            expression = functioncontroll(expression);
             string answer;
             double doubleAnswer;
             /// before starting calc we look at error. if there are errors we throw only one and return 0
