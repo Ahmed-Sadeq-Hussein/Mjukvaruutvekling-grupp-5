@@ -1,0 +1,6 @@
+*.cache
+*.json
+.vs/
+bin/
+obj/
+*.vsidx

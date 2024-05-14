@@ -5,11 +5,21 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Calculator_project"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Calculator"
-    MinWidth="350" Width="350" MaxWidth="350"
-    MinHeight="450" Height="450" MaxHeight="450"
+    Title="Calculator" 
+    MinWidth="300" Width="350" MaxWidth="400"
+    MinHeight="400" Height="450" MaxHeight="500"
     mc:Ignorable="d" Background="#FF202124">
-    <Grid Margin="10">
+
+    <Grid Margin="10,28,10,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="32*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <!--  This is for the output  -->
 
@@ -19,26 +29,29 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Border BorderThickness="0.1" BorderBrush="White" CornerRadius="10" Margin="5,5,5,20">
-            <TextBlock
+        <Border BorderThickness="0.1" BorderBrush="White" CornerRadius="10" Margin="5,5,5,20" Grid.ColumnSpan="7">
+            <TextBox
                 x:Name="OutputTextBlock"
-                Margin="5"
-                VerticalAlignment="Bottom"
-                Foreground="White" FontSize="30" Text="0"
-                TextAlignment="Right">
-            </TextBlock>
+                Margin="5,30,5,0"
+                VerticalAlignment="Top"
+                Background="#FF202124" Foreground="White" FontSize="30" Text="0"
+                BorderThickness="0" CaretBrush="Transparent"
+                TextAlignment="Right" PreviewTextInput="OutputTextBlock_PreviewTextInput" PreviewKeyDown="OutputTextBlock_PreviewKeyDown" Height="45">
+            </TextBox>
         </Border>
 
-        
 
 
-        <Grid Grid.Row="1">
+
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="7">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -46,9 +59,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+
+
+
             </Grid.ColumnDefinitions>
-        
-                <!-- 7 -->
+
+            <!-- 7 -->
             <Button 
                 x:Name="SevenBtn"
                 Grid.Row="1" Grid.Column="0"
@@ -56,23 +73,23 @@
                 Content="7"
             />
 
-                <!-- 8 -->
+            <!-- 8 -->
             <Button
                 x:Name="EightBtn"
                 Content="8"
                 Grid.Row="1" Grid.Column="1"
                 Click="NumBtn_Click"
             />
-        
-                <!-- 9 -->
+
+            <!-- 9 -->
             <Button
                 x:Name="NineBtn"
                 Content="9"
                 Grid.Row="1" Grid.Column="2" 
-                Click="NumBtn_Click"
+                Click="NumBtn_Click" 
             />
 
-                <!-- 4 -->
+            <!-- 4 -->
             <Button
                 x:Name="FourBtn"
                 Content="4"
@@ -80,15 +97,15 @@
                 Click="NumBtn_Click"
             />
 
-                <!-- 5 -->
+            <!-- 5 -->
             <Button
                 x:Name="FiveBtn"
                 Content="5"
                 Grid.Row="2" Grid.Column="1"
                 Click="NumBtn_Click"
             />
-            
-                <!-- 6 -->
+
+            <!-- 6 -->
             <Button
                 x:Name="SixBtn"
                 Content="6"
@@ -96,7 +113,7 @@
                 Click="NumBtn_Click"
             />
 
-                <!-- 1 -->
+            <!-- 1 -->
             <Button
                 x:Name="OneBtn"
                 Content="1"
@@ -112,7 +129,7 @@
                 Click="NumBtn_Click"
             />
 
-                <!-- 3 -->
+            <!-- 3 -->
             <Button
                 x:Name="ThreeBtn"
                 Content="3"
@@ -120,7 +137,7 @@
                 Click="NumBtn_Click"
             />
 
-                <!-- 0 -->
+            <!-- 0 -->
             <Button
                 x:Name="ZeroBtn"
                 Content="0"
@@ -131,7 +148,7 @@
             <!-- Decimal Button -->
             <Button
                 x:Name="DecimalBtn"
-                Content=","
+                Content="."
                 Grid.Row="4" Grid.Column="1"
                 Click="DecimalBtn_Click"
             />
@@ -141,38 +158,39 @@
                 x:Name="PlusBtn"
                 Content="+"
                 Grid.Row="4" Grid.Column="3"
-                Click="PlusBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
-                <!-- Subtraction Button -->
+            <!-- Subtraction Button -->
             <Button
                 x:Name="MinusBtn"
-                Content="–"
+                Content="-"
                 Grid.Row="3" Grid.Column="3"
-                Click="MinusBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
+                FontSize="40"
             />
 
-                <!-- Multiplication Button -->
+            <!-- Multiplication Button -->
             <Button
                 x:Name="TimesBtn"
                 Content="x"
                 Grid.Row="2" Grid.Column="3"
-                Click="TimesBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
-                <!-- Dividision Button -->
+            <!-- Division Button -->
             <Button
                 x:Name="DivideBtn"
                 Content="/"
                 Grid.Row="1" Grid.Column="3"
-                Click="DivideBtn_Click"
+                Click="OperatorBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
-                <!-- Equal Button -->
+            <!-- Equal Button -->
             <Button
                 x:Name="EqualsBtn"
                 Content="="
@@ -182,42 +200,92 @@
                 Click="EqualsBtn_Click" 
             />
 
-                <!-- Clear Button -->
+            <!-- Clear Button -->
             <Button
                 x:Name="ClearBtn"
                 Content="C"
-                Grid.Row="0" Grid.Column="3"
+                Grid.Row="0" Grid.Column="0"
                 Click="ClearBtn_Click"
                 Style="{StaticResource OperatorButton}"
             />
 
-            <!-- Answer Button -->
-            <Button
-                x:Name="AnswerBtn"
-                Content="Ans"
-                Grid.Row="0" Grid.Column="0"
-                Click="AnswerBtn_Click"
-                Style="{StaticResource OperatorButton}"
-                FontWeight="Regular"
-             />
+
             <Button
                 x:Name="PiBtn"
                 Content="&#x03C0;"
                 Grid.Row="0" Grid.Column="1"
-                Click="PiBtn_Click"
+                Click="eOrPiBtn_Click"
                 Style="{StaticResource OperatorButton}"
                 FontWeight="Regular"
              />
             <Button
-                x:Name="e_Btn"
+                x:Name="E_Btn"
                 Content="e"
                 Grid.Row="0" Grid.Column="2"
-                Click="e_Btn_Click"
+                Click="eOrPiBtn_Click"
                 Style="{StaticResource OperatorButton}"
                 FontWeight="Regular"   
                 
               />
-            
+
+            <Button
+                 x:Name="Power_Btn"
+                 Content="^"
+                 Grid.Row="0" Grid.Column="3"
+                 Click="OperatorBtn_Click"
+                 Style="{StaticResource OperatorButton}"
+         />
+
+            <Button
+                x:Name="OpenParentheses_Btn"
+                Content="("
+                Grid.Row="0" Grid.Column="4"
+                Click="OpenParentheses_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+        />
+            <Button
+                x:Name="CloseParentheses_Btn"
+                Content=")"
+                Grid.Row="1" Grid.Column="4"
+                Click="CloseParentheses_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+        />
+            <Button
+                x:Name="Sinus_Btn"
+                Content="sin"
+                Grid.Row="2" Grid.Column="4"
+                Click="Sinus_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+        />
+            <Button
+                x:Name="Cosinus_Btn"
+                Content="cos"
+                Grid.Row="3" Grid.Column="4"
+                Click="Cosinus_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+        />
+            <Button
+                x:Name="Tanges_Btn"
+                Content="tan"
+                Grid.Row="4" Grid.Column="4"
+                Click="Tanges_Btn_Click"
+                Style="{StaticResource OperatorButton}"
+        />
+            <Button 
+                Content="Save file" 
+                FontSize="15" 
+                HorizontalAlignment="Left" 
+                Margin="2,-122,0,0" 
+                RenderTransformOrigin="-0.281,-3.238" 
+                VerticalAlignment="Top" 
+                BorderThickness="1,0,1,1" 
+                Height="21" 
+                Width="80" 
+                Grid.ColumnSpan="2"
+                Click="save_file_protocol"
+                    
+        />
+
         </Grid>
     </Grid>
 </Window>

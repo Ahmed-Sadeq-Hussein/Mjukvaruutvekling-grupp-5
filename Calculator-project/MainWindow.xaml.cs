@@ -1,263 +1,575 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using System.IO;
 namespace Calculator_project
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// 
     /// </summary>
+
     public partial class MainWindow : Window
     {
-        double temp = 0;
-        string operation = "";
+        /// <summary>
+        ///  creates a file to save stuff inside 
+        ///  
+        /// </summary>
+        /// 
+        
 
-        String output = "";
+    Controller.Controller controller = new Controller.Controller();
+
+        string output = "0"; //used to keep track of the numbers
+        bool currentNumIncludesDecimal = false;
+        string filePath = "yourfile.txt";
+        bool numIsAvailable = true;
+
+        bool zeroIsAvailable = false;
+        bool eOrPiIsAvailable = true;
+        int parenthesesCount = 0; // Track parentheses count
+
 
         public MainWindow()
         {
             InitializeComponent();
             this.DataContext = this;
-            // DivideBtn.Content = "\u00f7";
-
-
-        }
-
-        private void NumBtn_Click(object sender, RoutedEventArgs e)
-        {
-            String name = ((Button)sender).Name;
-
-            switch(name)
+           
+            if (!File.Exists(filePath))
             {
-                case "OneBtn":
-                    output += "1";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "TwoBtn":
-                    output += "2";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ThreeBtn":
-                    output += "3";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FourBtn":
-                    output += "4";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "FiveBtn":
-                    output += "5";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SixBtn":
-                    output += "6";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "SevenBtn":
-                    output += "7";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "EightBtn":
-                    output += "8";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "NineBtn":
-                    output += "9";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                case "ZeroBtn":
-                    output += "0";
-                    OutputTextBlock.Text = output;
-
-                    break;
-
-                
-
+                File.Create(filePath).Dispose();
             }
-            
+            else
+            {
+                File.WriteAllText(filePath, string.Empty);
+            }
         }
 
         /// <summary>
-        /// 
+        /// A function that takes the current button content to the output string. 
+        /// Smart. very creative
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
 
-        private void EqualsBtn_Click(object sender, RoutedEventArgs e)
+        private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
-            double outputTemp;
+            string buttonContent = (string)((Button)sender).Content;
 
-            switch (operation)
+            if (eOrPiIsAvailable)
             {
-                case "Minus":
-                    outputTemp = temp - double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
-
-                case "Plus":
-                    outputTemp = temp + double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
-
-                case "Product":
-                    outputTemp = temp * double.Parse(output);
-                    output = outputTemp.ToString();
-                    OutputTextBlock.Text = output;
-                    break;
-
-                case "Divide":
-                    if (double.Parse(output) != 0)
+                if (buttonContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
+                {
+                    if (zeroIsAvailable)
                     {
-                        outputTemp = temp / double.Parse(output);
-                        output = outputTemp.ToString();
+                        if (EndsWithOperator(output))
+                        {
+                            numIsAvailable = false;
+                            zeroIsAvailable = false;
+                        }
+                        output += buttonContent;
                         OutputTextBlock.Text = output;
                     }
-                    else
+                }
+                else // If any other number button is pressed, add it
+                {
+                    if (numIsAvailable)
                     {
-                        // Handle divide by zero error, for example:
-                        OutputTextBlock.Text = "ERROR";
+                        if (output == "0")
+                        {
+                            output = buttonContent;
+                            zeroIsAvailable = true;
+                        }
+                        else
+                        {
+                            output += buttonContent;
+                        }
+                        OutputTextBlock.Text = output;
                     }
-                break;
-            }       
-        }
 
-
-
-        private void MinusBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Minus";
+                }
             }
         }
 
-        private void PlusBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// implementation of e or pi. might be redundant considering the button press. Will ask about it .
+        /// </summary>
+        private void eOrPiBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Plus";
-            }
+            string buttonContent = (string)((Button)sender).Content;
 
-        }
-
-        private void TimesBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
+            if (eOrPiIsAvailable)
             {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Product";
-            }
-        }
-
-        private void DivideBtn_Click(object sender, RoutedEventArgs e)
-        {
-            if (output != "")
-            {
-                temp = double.Parse(output);
-                output = "";
-                operation = "Divide";
+                eOrPiIsAvailable = false;
+                currentNumIncludesDecimal = true;
+                if (output == "0")
+                {
+                    output = buttonContent;
+                }
+                else
+                {
+                    output += buttonContent;
+                }
+                OutputTextBlock.Text = output;
             }
         }
-
-        private void ClearBtn_Click(object sender, RoutedEventArgs e)
-        {
-            output = "";
-            OutputTextBlock.Text = output;
-            temp = 0; // Reset temp
-            operation = ""; // Reset operation
-        }
-
+        /// <summary>
+        /// Button specifically for decimal. 
+        /// Good. does go well with oop and grasp implementation.
+        /// </summary>
 
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
             // Check if the output already contains a decimal point
-            if (!output.Contains('.'))
+            if (!currentNumIncludesDecimal)
             {
-                output += ".";
+                if (EndsWithOperator(output) || output.EndsWith("(") || output.EndsWith(")"))
+                {
+                    output += "0.";
+                }
+                else
+                {
+                    output += '.';
+                }
+                numIsAvailable = true;
+                zeroIsAvailable = true;
                 OutputTextBlock.Text = output;
+                currentNumIncludesDecimal = true;
+            }
+        }
+
+        /// <summary>
+        /// implementation of the diffrent operators, +, - ect .
+        /// Good. Identifies the issue that might occur and adresses it through a simple and compact if statement.
+        /// </summary>
+
+        private void OperatorBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = (string)((Button)sender).Content;
+            if (!EndsWithOperator(output)) // If the expression does NOT end with an operator, add the pressed operator
+            {
+                if (buttonContent == "-")
+                {
+                    if (output == "0")
+                    {
+                        output = "–";
+                    }
+                    else
+                    {
+                        output += buttonContent;
+                    }
+                }
+                else
+                {
+                    output += buttonContent;
+                }
+                numIsAvailable = true;
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                OutputTextBlock.Text = output;
+            }
+            else if (buttonContent == "-" && !output.EndsWith('–'))
+            {
+                numIsAvailable = true;
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                output += "–";
+                OutputTextBlock.Text = output;
+            }
+        }
+
+        /// <summary>
+        /// Implementation of = . This is pretty self explanitory . This also takes into account decimals and waits for controller to do its job before showing awnser.
+        /// </summary>
+        private void EqualsBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (output != "0")
+            {
+                // closes all parenthesis in the function. :3
+                while (parenthesesCount > 0)
+                {
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                    parenthesesCount--;
+                }
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(output + "=");
+                }
+                // Call Controller.Calc function to calculate the result
+                output = controller.CalculateExpression(output, true);
+
+                if (output.Contains('.'))
+                {
+                    currentNumIncludesDecimal = true;
+                }
+                else
+                {
+                    currentNumIncludesDecimal = false;
+                }
+                zeroIsAvailable = true;
+                numIsAvailable = true;
+                eOrPiIsAvailable = true;
+
+                // Display the result
+                OutputTextBlock.Text = output;
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(output);
+                }
+
+
+            }
+
+        }
+
+        /// <summary>
+        /// implementation of Clear. Good. Resets values and readresses output and text block.
+        /// Well done.
+        /// </summary>
+
+        private void ClearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            numIsAvailable = true;
+            zeroIsAvailable = false;
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            parenthesesCount = 0;
+            output = "0";
+            OutputTextBlock.Text = output;
+
+        }
+
+        /// <summary>
+        /// A support function. Goes well with previous functions.
+        /// could have been put in model but since it is closely knit and only used here.
+        /// .......
+        /// hint. use this on the ending to delete excess operator in the end of the string to add furthure bug prevention
+        /// ......
+        /// </summary>
+
+        private bool EndsWithOperator(string expression)
+        {
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
 
 
 
-        private void AnswerBtn_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// keyboard input implementation. 
+        /// good addition to the calculator and can help with people that use calculator through kepyboard.
+        /// </summary>
+
+        private void OutputTextBlock_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            if (output != "")
+            string keyContent = e.Text;
+
+            if ((IsNumber(keyContent)))
             {
-                double secondOperand = double.Parse(output);
-                switch (operation)
+                if (eOrPiIsAvailable)
                 {
-                    case "Plus":
-                        output = (temp + secondOperand).ToString();
-                        break;
-                    case "Minus":
-                        output = (temp - secondOperand).ToString();
-                        break;
-                    case "Product":
-                        output = (temp * secondOperand).ToString();
-                        break;
-                    case "Divide":
-                        if (secondOperand != 0) // Check for division by zero
-                            output = (temp / secondOperand).ToString();
-                        else
-                            output = "Error"; // Handle division by zero error
-                        break;
+                    if (keyContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
+                    {
+                        if (zeroIsAvailable)
+                        {
+                            if (EndsWithOperator(output))
+                            {
+                                numIsAvailable = false;
+                                zeroIsAvailable = false;
+                            }
+                            output += keyContent;
+                            OutputTextBlock.Text = output;
+                        }
+                    }
+                    else // If any other number button is pressed, add it
+                    {
+                        if (numIsAvailable)
+                        {
+                            if (output == "0")
+                            {
+                                output = keyContent;
+                                zeroIsAvailable = true;
+                            }
+                            else
+                            {
+                                output += keyContent;
+                            }
+                            OutputTextBlock.Text = output;
+                        }
+                    }
+                }
+            }
+            else if (keyContent == "(")
+            {
+                parenthesesCount++;
+                if (output == "0") { output = "("; }
+                else
+                {
+                    output += "(";
                 }
                 OutputTextBlock.Text = output;
-              
+                // braket variable changes. included in both .
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+            }
+            else if (keyContent == ")")
+            {
+                if (parenthesesCount > 0) // Ensure there are open parentheses to close
+                {
+                    parenthesesCount--;
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                }
+            }
+            else if (keyContent == "p")
+            {
+                if (eOrPiIsAvailable)
+                {
+                    eOrPiIsAvailable = false;
+                    currentNumIncludesDecimal = true;
+                    if (output == "0")
+                    {
+                        output = "π";
+                    }
+                    else
+                    {
+                        output += "π";
+                    }
+                    OutputTextBlock.Text = output;
+                }
+            }
+            else if (keyContent == "e")
+            {
+                if (eOrPiIsAvailable)
+                {
+                    eOrPiIsAvailable = false;
+                    currentNumIncludesDecimal = true;
+                    if (output == "0")
+                    {
+                        output = "e";
+                    }
+                    else
+                    {
+                        output += "e";
+                    }
+                    OutputTextBlock.Text = output;
+                }
+            }
+            else if (keyContent == "," || keyContent == ".")
+            {
+                if (!currentNumIncludesDecimal)
+                {
+                    if (EndsWithOperator(output))
+                    {
+                        output += "0.";
+                    }
+                    else
+                    {
+                        output += '.';
+                    }
+                    numIsAvailable = true;
+                    zeroIsAvailable = true;
+                    OutputTextBlock.Text = output;
+                    currentNumIncludesDecimal = true;
+                }
+            }
+            else if (EndsWithOperator((string)keyContent))
+            {
+                if (!EndsWithOperator(output))
+                {
+                    if (keyContent == "*")
+                    {
+                        output += "x";
+                    }
+                    else if (keyContent == "-")
+                    {
+                        if (output == "0")
+                        {
+                            output = "–";
+                        }
+                        else
+                        {
+                            output += keyContent;
+                        }
+                    }
+                    else
+                    {
+                        output += keyContent;
+                    }
+                }
+
+                else if (keyContent == "-" && !output.EndsWith('–'))
+                {
+                    output += "–";
+                }
+
+                numIsAvailable = true;
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                OutputTextBlock.Text = output;
+            }
+            else if (keyContent == "=")
+            {
+                if (output != "0")
+                {
+                    while (parenthesesCount > 0)
+                    {
+                        output += ")";
+                        OutputTextBlock.Text = output;
+                        parenthesesCount--;
+                    }
+                    // Call Controller.Calc function to calculate the result
+                    output = controller.CalculateExpression(output, true);
+
+                    if (output.Contains('.'))
+                    {
+                        currentNumIncludesDecimal = true;
+                    }
+                    numIsAvailable = true;
+                    zeroIsAvailable = true;
+                    eOrPiIsAvailable |= true;
+
+                    // Display the result
+                    OutputTextBlock.Text = output;
+                }
+            }
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// used in keyboard text function
+        /// ...........
+        /// -should probably be in the model instead of in gui. for cohesion and for model to contain what it is required to contain.
+        /// ............
+        /// </summary>
+        private bool IsNumber(string text)
+        {
+            int number;
+            return int.TryParse(text, out number);
+        }
+
+        /// <summary>
+        /// is used for pressing back or enter key. 
+        /// good.
+        /// </summary>
+        private void OutputTextBlock_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Back)
+            {
+                numIsAvailable = true;
+                zeroIsAvailable = false;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                parenthesesCount = 0;
+                output = "0";
+                OutputTextBlock.Text = output;
+                e.Handled = true;
+            }
+            else if (e.Key == System.Windows.Input.Key.Enter)
+            {
+                if (output != "0")
+                {
+                    while (parenthesesCount > 0)
+                    {
+                        output += ")";
+                        OutputTextBlock.Text = output;
+                        parenthesesCount--;
+                    }
+                    // Call Controller.Calc function to calculate the result
+                    output = controller.CalculateExpression(output, true);
+
+                    if (output.Contains('.'))
+                    {
+                        currentNumIncludesDecimal = true;
+                    }
+                    numIsAvailable = true;
+                    zeroIsAvailable = true;
+                    eOrPiIsAvailable = true;
+
+                    // Display the result
+                    OutputTextBlock.Text = output;
+                }
+                e.Handled = true;
             }
         }
 
-        private void PiBtn_Click(object sender, RoutedEventArgs e)
+        private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
-            output += Math.PI.ToString();
+            parenthesesCount++;
+            if (output == "0") { output = "("; }
+            else
+            {
+                output += "(";
+
+            }
+            OutputTextBlock.Text = output;
+            // braket variable changes. included in both .
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+        }
+
+
+        private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            if (parenthesesCount > 0) // Ensure there are open parentheses to close
+            {
+                parenthesesCount--;
+                output += ")";
+                OutputTextBlock.Text = output;
+            }
+        }
+
+        private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "sin(";
+
+            parenthesesCount++;
+            currentNumIncludesDecimal = true;
+            output += buttonContent;
             OutputTextBlock.Text = output;
         }
 
-        private void e_Btn_Click(object sender, RoutedEventArgs e)
+        private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
         {
-            output += Math.E.ToString();
+            string buttonContent = "cos(";
+
+            parenthesesCount++;
+            output += buttonContent;
             OutputTextBlock.Text = output;
+
+        }
+
+        private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            string buttonContent = "tan(";
+
+            parenthesesCount++;
+            output += buttonContent;
+            OutputTextBlock.Text = output;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 
-
+        private void save_file_protocol(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(filePath);
+        }
     }
 }
+
+//Good coded 
