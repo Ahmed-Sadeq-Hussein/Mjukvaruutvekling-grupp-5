@@ -78,7 +78,7 @@ In order to view specific test results, simply unfold the tabs ![Specific result
   - This step is only needed the first time
 - reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:"Cobertura"
 - reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:Html
-- mkdir -p $GITHUB_WORKSPACE/coverage/
+- mkdir -p $GITHUB_WORKSPACE/coverage/ \
 Now there are two files in the repository. The coverlet folder includes all of the reports in human readable format. The coverage folder includes the report in xml format.
 !(Code Coverage files)[https://cdn.discordapp.com/attachments/1176238610144571453/1239891000072208434/image.png?ex=664491fa&is=6643407a&hm=fa0706e05b13cdd3c517d5712e89f27f5ca5e9a5e22c15f3a7f013c45aa12507&]
 
