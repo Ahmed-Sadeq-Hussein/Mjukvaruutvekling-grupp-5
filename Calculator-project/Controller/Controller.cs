@@ -67,12 +67,43 @@ namespace Calculator_project.Controller
             }
             return expression;
         }
+        public string functioncontroll(string exp)
+        {
+            string expression = exp;
+            ///first we iterate through the function list
+            ///then if we find a match we take the function string and the first number and then get the result.
+            ///then we replace that part of the string with the current.
+            FunctionList functionlist = new FunctionList();
+            int x, y, z;
+            char c;
+            string tempexp;
+            for (int i = 0; i < functionlist.count; i++)
+            {
+                while (expression.Contains(functionlist.names[i]))
+                {
+                    x = expression.IndexOf(functionlist.names[i]);
+                    y = x + functionlist.names[i].Length;
+                    z = y;
+                    while (z < expression.Length -1 && char.IsDigit(expression[z]) || expression[z] == ',' ) // edge cases
+                    {
+                        z++;
+                    }
+                    //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
+                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z-y + 1)) }).ToString();
+                    // write code here that restricts the size of the number.
+                    expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z- 1);
 
+                }
+            }
+
+            return expression;
+        }
         public string CalculateExpression(string exp, bool first)
         {
 
             List<Token> tokenList = new List<Token>();
             string expression = bracketcontroll(exp);
+            expression =functioncontroll(expression);
             string answer;
             double doubleAnswer;
             /// before starting calc we look at error. if there are errors we throw only one and return 0

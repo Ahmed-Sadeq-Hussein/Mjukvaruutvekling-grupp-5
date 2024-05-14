@@ -508,6 +508,7 @@ namespace Calculator_project
         {
             string buttonContent = "sin(";
 
+            parenthesesCount++;
             currentNumIncludesDecimal = true;
             output += buttonContent;
             OutputTextBlock.Text = output;
@@ -517,7 +518,7 @@ namespace Calculator_project
         {
             string buttonContent = "cos(";
 
-
+            parenthesesCount++;
             output += buttonContent;
             OutputTextBlock.Text = output;
 
@@ -527,7 +528,7 @@ namespace Calculator_project
         {
             string buttonContent = "tan(";
 
-
+            parenthesesCount++;
             output += buttonContent;
             OutputTextBlock.Text = output;
 
