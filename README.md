@@ -55,7 +55,15 @@ To compile and run the calculator, follow these 3 steps:
 
 ---
 ## How to run the unit tests and view the results
-In order to run the unit tests, follow these 2 steps:
+There are two ways to run the unit tests:
+
+First way:
+
+1. Open the cloned repository folder, right-click anywhere, and then select "View more alternatives," and then click on "Open in Terminal."
+2. Type "dotnet test" in the terminal, and then all tests will run.
+   
+Second way: 
+
 1. Open "Test Explorer" under "View" manually or by pressing Ctrl+E and then T ![Test Explorer](https://cdn.discordapp.com/attachments/1221090555405008978/1235150186477518900/image.png?ex=663352c0&is=66320140&hm=e58fa10feb842d702489e66d34eb2c2cb26f1cb94bbe9ffd5e6b22694dffb670&)
 2. Click "Run All Tests In View" manually or by pressing Ctrl+R and then V ![Run tests](https://cdn.discordapp.com/attachments/1221090555405008978/1235155980288000060/image.png?ex=66335825&is=663206a5&hm=a97c79d1ee57f79f5511d31a60e4d1299da90a3c4e22444c347e96f24d37e135&)
 
@@ -65,13 +73,6 @@ They show:
 - The total number of passed tests
 - The total number of failed tests\
 ![Overall results](https://cdn.discordapp.com/attachments/1221090555405008978/1235152675189035028/image.png?ex=66335511&is=66320391&hm=a0b4e057aeba17d53cebfbc31965c294e885db22d4aad8c551f74fa8ec32b4d8&)
-
-
-You can also simply run the unit tests by following these steps:
-
-1. Open the cloned repository folder, right-click anywhere, and then select "View more alternatives," and then click on "Open in Terminal."
-2. Type "dotnet test" in the terminal, and then all tests will run.
-
 
 
 ---
