@@ -59,7 +59,7 @@ There are two ways to run the unit tests:
 
 #### First way:
 
-1. Open the project repository in the terminal
+1. Open the project repository in the terminal.
 2. Type "dotnet test" in the terminal and press enter, and then all tests will run.
    
 #### Second way: 
