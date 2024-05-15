@@ -77,7 +77,8 @@ They show:
 
 ---
 ## How to generate code coverage for unit tests
-### To run and view the code coverage of the unit tests,Open the project repository in the terminal and enter the following:
+### To run and view the code coverage of the unit tests: 
+Open the project repository in the terminal and enter the following:
 - dotnet test --no-build --verbosity normal --collect:"Xplat Code Coverage" --results-directory ./coverage
 - dotnet tool install -g dotnet-reportgenerator-globaltool
   - This step is only needed the first time
