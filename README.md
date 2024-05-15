@@ -55,7 +55,7 @@ To compile and run the calculator, follow these 3 steps:
 
 ---
 ## How to run the unit tests and view the results
-There are two ways to run the unit tests:
+There are three ways to run the unit tests:
 
 #### First way:
 
@@ -74,17 +74,21 @@ They show:
 - The total number of failed tests\
 ![Overall results](https://cdn.discordapp.com/attachments/1221090555405008978/1235152675189035028/image.png?ex=66335511&is=66320391&hm=a0b4e057aeba17d53cebfbc31965c294e885db22d4aad8c551f74fa8ec32b4d8&)
 
+#### Third way:
+1. Open the project in the terminal.
+2. Enter `dotnet test`
+
 
 ---
 ## How to generate code coverage for unit tests
 ### To run and view the code coverage of the unit tests: 
 Open the project repository in the terminal and enter the following:
-- dotnet test --no-build --verbosity normal --collect:"Xplat Code Coverage" --results-directory ./coverage
-- dotnet tool install -g dotnet-reportgenerator-globaltool
+- `dotnet test --no-build --verbosity normal --collect:"Xplat Code Coverage" --results-directory ./coverage`
+- `dotnet tool install -g dotnet-reportgenerator-globaltool`
   - This step is only needed the first time
-- reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:"Cobertura"
-- reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:Html
-- mkdir -p $GITHUB_WORKSPACE/coverage/ \
+- `reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:"Cobertura"`
+- `reportgenerator -reports:coverage/**/coverage.cobertura.xml -targetdir:coverlet/reports -reporttypes:Html`
+- `mkdir -p $GITHUB_WORKSPACE/coverage/` \
 Now there are two folders in the repository. The coverlet folder includes all of the reports in human readable format. The coverage folder includes the report in xml format.
   ![Code Coverage files](https://cdn.discordapp.com/attachments/1176238610144571453/1239891000072208434/image.png?ex=664491fa&is=6643407a&hm=fa0706e05b13cdd3c517d5712e89f27f5ca5e9a5e22c15f3a7f013c45aa12507&)
 
