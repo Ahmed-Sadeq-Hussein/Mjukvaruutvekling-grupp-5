@@ -579,7 +579,7 @@ namespace Calculator_project
 
         private void save_file_protocol(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start(filePath);
+            System.Diagnostics.Process.Start("notepad.exe",filePath);
         }
     }
 }
