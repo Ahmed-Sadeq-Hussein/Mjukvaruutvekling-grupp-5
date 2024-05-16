@@ -91,13 +91,13 @@ namespace Calculator_project.Controller
                     expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
                     tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
+                    tempexp = tempexp.Replace('-', '–');
                     // write code here that restricts the size of the number.
                     expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
 
                 }
             }
 
-            expression = expression.Replace('-', '–');
             expression = expression.Replace(',', '.');
             return expression;
         }
