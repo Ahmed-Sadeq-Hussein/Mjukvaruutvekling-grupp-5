@@ -78,6 +78,19 @@ namespace Calculator_project.nUnitTests
             Assert.That(returned_expression, Is.EqualTo("-x2"));
         }
 
+        [Test]
+        public void functioncontroll_EqualTest1()
+        {
+            //Assign
+
+
+            //Act
+
+
+            //Assert
+
+        }
+
         // Tests the different valid input tokens
         [Test]
         public void SortToTokenList_EqualTest()
