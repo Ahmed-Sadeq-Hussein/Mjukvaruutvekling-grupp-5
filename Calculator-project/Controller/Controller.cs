@@ -87,10 +87,18 @@ namespace Calculator_project.Controller
                     x = expression.IndexOf(functionlist.names[i]);
                     y = x + functionlist.names[i].Length;
                     z = y;
-                    while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',' || expression[z] == '.') // edge cases
+                    while (z < expression.Length - 1) // edge cases
                     {
-                        z++;
+                        if (char.IsDigit(expression[z + 1]) || expression[z + 1] == ',' || expression[z + 1] == '.')
+                        {
+                            z++;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
+
                     expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
                     tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
