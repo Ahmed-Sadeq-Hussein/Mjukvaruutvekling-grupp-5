@@ -115,6 +115,7 @@ namespace Calculator_project.Controller
                 if (first)
                 {
                     errorvar = false;
+                    return "0 ";
                 }
                 return "0";
             }
