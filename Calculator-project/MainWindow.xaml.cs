@@ -211,11 +211,27 @@ namespace Calculator_project
                 eOrPiIsAvailable = true;
 
                 // Display the result
-                OutputTextBlock.Text = output;
-                using (StreamWriter sw = File.AppendText(filePath))
+                if (output == "0 ")
                 {
-                    sw.WriteLine(output);
+                    output = "0";
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine("Error");
+                    }
+
+
+
                 }
+                else
+                {
+
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
+
+                }
+                OutputTextBlock.Text = output;
             }
 
         }
