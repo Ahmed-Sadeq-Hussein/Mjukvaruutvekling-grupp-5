@@ -84,10 +84,11 @@ namespace Calculator_project.Controller
                     x = expression.IndexOf(functionlist.names[i]);
                     y = x + functionlist.names[i].Length;
                     z = y;
-                    while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',') // edge cases
+                    while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',' || expression[z] == '.') // edge cases
                     {
                         z++;
                     }
+                    expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
                     tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
                     // write code here that restricts the size of the number.
@@ -160,6 +161,12 @@ namespace Calculator_project.Controller
                 if (char.IsDigit(expression[i]) || expression[i] == '.') // If the current char is a number [0-9] or a decimal [,], add it to the tempNumber
                 {
                     tempNumber += expression[i];
+                }
+                else if (expression[i] == 'E')
+                {
+                    tempNumber += expression[i];
+                    tempNumber += '-';
+                    i++;
                 }
                 else if (expression[i] == 'π') // If the current char is [π] or [e]
                 {
