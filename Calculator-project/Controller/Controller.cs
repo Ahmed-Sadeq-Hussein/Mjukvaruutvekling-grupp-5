@@ -144,7 +144,7 @@ namespace Calculator_project.Controller
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 errorvar = true;
-                return "0";
+                return "0 ";
             }
             if (NumberOfDecimals(answer) > 8)
             {
