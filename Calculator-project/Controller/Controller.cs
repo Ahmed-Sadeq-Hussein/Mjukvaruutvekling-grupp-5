@@ -27,7 +27,7 @@ namespace Calculator_project.Controller
                 int b_counter = 0;
                 bool success = false;
                 int numba;
-                string vars = ",-eπ";
+                string vars = ",.-eπ";
                 for (int i = 0; i < expression.Length; i++)
                 {
                     if (expression[i] == '(')
@@ -136,7 +136,7 @@ namespace Calculator_project.Controller
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 errorvar = true;
-                return "0";
+                return "0 ";
             }
             if (NumberOfDecimals(answer) > 8)
             {

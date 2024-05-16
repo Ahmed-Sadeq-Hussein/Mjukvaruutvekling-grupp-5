@@ -216,8 +216,6 @@ namespace Calculator_project
                 {
                     sw.WriteLine(output);
                 }
-
-
             }
 
         }
