@@ -85,7 +85,7 @@ namespace Calculator_project.Controller
                 while (expression.Contains(functionlist.names[i]))
                 {
                     x = expression.IndexOf(functionlist.names[i]);
-                    y = x + functionlist.names[i].Length;
+                    y = x + functionlist.names[i].Length ;
                     z = y;
                     while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',' || expression[z] == '.') // edge cases
                     {
@@ -93,7 +93,7 @@ namespace Calculator_project.Controller
                     }
                     expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
-                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
+                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1 )) }).ToString();
                     tempexp = tempexp.Replace('-', '–');
                     // write code here that restricts the size of the number.
 
@@ -102,7 +102,10 @@ namespace Calculator_project.Controller
                         if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { tempexp = "x" + tempexp; }
                     }
                     expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
-
+                    if (y < expression.Length - 1)
+                    {
+                        if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba)) { tempexp = tempexp + "x"; }
+                    }
                 }
             }
 

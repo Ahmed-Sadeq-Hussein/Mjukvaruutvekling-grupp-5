@@ -285,6 +285,8 @@ namespace Calculator_project
         {
             string keyContent = e.Text;
 
+            
+
             if ((IsNumber(keyContent)))
             {
                 if (eOrPiIsAvailable)
@@ -319,6 +321,22 @@ namespace Calculator_project
                         }
                     }
                 }
+            }
+            else if (keyContent == "A")
+            {
+                if (output == "0")
+                {
+                    output = "";
+                }
+                string buttonContent = "ash(";
+
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+                numIsAvailable = true;
+                parenthesesCount++;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
             }
             else if (keyContent == "(")
             {

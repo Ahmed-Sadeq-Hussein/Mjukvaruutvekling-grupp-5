@@ -26,11 +26,13 @@ namespace Calculator_project.Model
             AddFunction(new CosineFunction());
             AddFunction(new SineFunction());
             AddFunction(new TangentFunction());
+            AddFunction(new AshFunction());
             // adds names here
             names = new string[count];
             names[0] = "cos";
             names[1] = "sin";
             names[2] = "tan";
+            names[3] = "ash";
         }
 
         // Method to add a function to the list
@@ -101,10 +103,19 @@ namespace Calculator_project.Model
             return "Tangent Function Token";
         }
     }
+    public class AshFunction : Function
+    {
+        public override double Execute(double[] parameters)
+        {
+            return 69;
+        }
+    }
+
 
     /// <summary>
     /// A token for mathematical functions. Enables the use of various mathematical operations that require multiple parameters.
     /// </summary>
+    /// 
     public abstract class Function : Token
     {
         /// <summary>
