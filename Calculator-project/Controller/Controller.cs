@@ -27,7 +27,8 @@ namespace Calculator_project.Controller
                 int b_counter = 0;
                 bool success = false;
                 int numba;
-                string vars = ",-eπ";
+
+                string vars = ",.-eπ";
                 for (int i = 0; i < expression.Length; i++)
                 {
                     if (expression[i] == '(')
@@ -76,25 +77,43 @@ namespace Calculator_project.Controller
             FunctionList functionlist = new FunctionList();
             int x, y, z;
             char c;
+            int numba;
+            string vars = ",-eπ";
             string tempexp;
             for (int i = 0; i < functionlist.count; i++)
             {
                 while (expression.Contains(functionlist.names[i]))
                 {
                     x = expression.IndexOf(functionlist.names[i]);
-                    y = x + functionlist.names[i].Length;
+                    y = x + functionlist.names[i].Length ;
                     z = y;
-                    while (z < expression.Length - 1 && char.IsDigit(expression[z]) || expression[z] == ',' || expression[z] == '.') // edge cases
+                    while (z < expression.Length - 1) // edge cases
                     {
-                        z++;
+                        if (char.IsDigit(expression[z + 1]) || expression[z + 1] == ',' || expression[z + 1] == '.')
+                        {
+                            z++;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
+
                     expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
-                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
+                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1 )) }).ToString();
                     tempexp = tempexp.Replace('-', '–');
                     // write code here that restricts the size of the number.
-                    expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
 
+                    if (x > 0)
+                    {
+                        if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { tempexp = "x" + tempexp; }
+                    }
+                    expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
+                    if (y < expression.Length - 1)
+                    {
+                        if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba)) { tempexp = tempexp + "x"; }
+                    }
                 }
             }
 
@@ -115,6 +134,7 @@ namespace Calculator_project.Controller
                 if (first)
                 {
                     errorvar = false;
+                    return "0 ";
                 }
                 return "0";
             }
@@ -136,7 +156,7 @@ namespace Calculator_project.Controller
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 errorvar = true;
-                return "0";
+                return "0 ";
             }
             if (NumberOfDecimals(answer) > 8)
             {

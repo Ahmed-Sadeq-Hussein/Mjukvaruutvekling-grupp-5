@@ -13,6 +13,28 @@ namespace Calculator_project.nUnitTests
             controller = new Controller.Controller();
         }
 
+        [Test]
+        // These tests are for those tests we made along the way
+
+        public void ASHTESTS()
+        {
+            Function ash = new AshFunction();
+            //Assign
+            double awns1 = 1;
+            double awns2 = 1.1;
+            double awns3 = 0;
+            //Act
+            awns1 = ash.Execute(new double[] {awns1});
+            awns2 = ash.Execute(new double[] { awns2 });
+            awns3 = ash.Execute(new double[] { awns3 });
+
+            //Assert?
+            Assert.AreEqual(awns1, awns2);
+            Assert.AreEqual(awns1, awns3);
+            Assert.AreEqual(69, awns1);
+
+        }
+
         //Tests the different ways to use include brackets
         [Test]
         public void CalculateExpression_EqualTest()
