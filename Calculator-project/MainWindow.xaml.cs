@@ -218,6 +218,7 @@ namespace Calculator_project
                     {
                         sw.WriteLine("Error");
                     }
+                    OutputTextBlock.Text = output;
 
 
                 }
