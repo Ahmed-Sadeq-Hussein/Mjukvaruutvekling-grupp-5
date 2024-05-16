@@ -97,6 +97,7 @@ namespace Calculator_project.Controller
                 }
             }
 
+            expression = expression.Replace('-', '–');
             expression = expression.Replace(',', '.');
             return expression;
         }
