@@ -1,6 +1,6 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Controls;
-using System.IO;
 namespace Calculator_project
 {
     /// <summary>
@@ -14,9 +14,9 @@ namespace Calculator_project
         ///  
         /// </summary>
         /// 
-        
 
-    Controller.Controller controller = new Controller.Controller();
+
+        Controller.Controller controller = new Controller.Controller();
 
         string output = "0"; //used to keep track of the numbers
         bool currentNumIncludesDecimal = false;
@@ -32,7 +32,7 @@ namespace Calculator_project
         {
             InitializeComponent();
             this.DataContext = this;
-           
+
             if (!File.Exists(filePath))
             {
                 File.Create(filePath).Dispose();
@@ -319,11 +319,16 @@ namespace Calculator_project
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
                 zeroIsAvailable = true;
+                numIsAvailable = true;
             }
             else if (keyContent == ")")
             {
                 if (parenthesesCount > 0) // Ensure there are open parentheses to close
                 {
+                    currentNumIncludesDecimal = false;
+                    eOrPiIsAvailable = true;
+                    zeroIsAvailable = true;
+                    numIsAvailable = true;
                     parenthesesCount--;
                     output += ")";
                     OutputTextBlock.Text = output;
@@ -427,6 +432,10 @@ namespace Calculator_project
                         OutputTextBlock.Text = output;
                         parenthesesCount--;
                     }
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output + "=");
+                    }
                     // Call Controller.Calc function to calculate the result
                     output = controller.CalculateExpression(output, true);
 
@@ -440,6 +449,10 @@ namespace Calculator_project
 
                     // Display the result
                     OutputTextBlock.Text = output;
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
                 }
             }
             e.Handled = true;
@@ -484,6 +497,10 @@ namespace Calculator_project
                         OutputTextBlock.Text = output;
                         parenthesesCount--;
                     }
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output + "=");
+                    }
                     // Call Controller.Calc function to calculate the result
                     output = controller.CalculateExpression(output, true);
 
@@ -497,6 +514,10 @@ namespace Calculator_project
 
                     // Display the result
                     OutputTextBlock.Text = output;
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
                 }
                 e.Handled = true;
             }
@@ -516,6 +537,7 @@ namespace Calculator_project
             currentNumIncludesDecimal = false;
             eOrPiIsAvailable = true;
             zeroIsAvailable = true;
+            numIsAvailable = true;
         }
 
 
@@ -523,6 +545,10 @@ namespace Calculator_project
         {
             if (parenthesesCount > 0) // Ensure there are open parentheses to close
             {
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+                numIsAvailable = true;
                 parenthesesCount--;
                 output += ")";
                 OutputTextBlock.Text = output;
@@ -537,8 +563,11 @@ namespace Calculator_project
             }
             string buttonContent = "sin(";
 
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
             parenthesesCount++;
-            currentNumIncludesDecimal = true;
             output += buttonContent;
             OutputTextBlock.Text = output;
         }
@@ -551,6 +580,10 @@ namespace Calculator_project
             }
             string buttonContent = "cos(";
 
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
             parenthesesCount++;
             output += buttonContent;
             OutputTextBlock.Text = output;
@@ -565,6 +598,10 @@ namespace Calculator_project
             }
             string buttonContent = "tan(";
 
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
             parenthesesCount++;
             output += buttonContent;
             OutputTextBlock.Text = output;
@@ -579,7 +616,7 @@ namespace Calculator_project
 
         private void save_file_protocol(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("notepad.exe",filePath);
+            System.Diagnostics.Process.Start("notepad.exe", filePath);
         }
     }
 }
