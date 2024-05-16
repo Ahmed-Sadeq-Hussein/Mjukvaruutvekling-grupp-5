@@ -27,7 +27,7 @@ namespace Calculator_project.Controller
                 int b_counter = 0;
                 bool success = false;
                 int numba;
-                string vars = ",-eπ";
+                string vars = "-eπ";
                 for (int i = 0; i < expression.Length; i++)
                 {
                     if (expression[i] == '(')
@@ -76,6 +76,8 @@ namespace Calculator_project.Controller
             FunctionList functionlist = new FunctionList();
             int x, y, z;
             char c;
+            int numba;
+            string vars = ",-eπ";
             string tempexp;
             for (int i = 0; i < functionlist.count; i++)
             {
@@ -93,6 +95,11 @@ namespace Calculator_project.Controller
                     tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
                     tempexp = tempexp.Replace('-', '–');
                     // write code here that restricts the size of the number.
+                    
+                    if (x > 0)
+                    {
+                        if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { tempexp = "x" + tempexp; }
+                    } 
                     expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
 
                 }

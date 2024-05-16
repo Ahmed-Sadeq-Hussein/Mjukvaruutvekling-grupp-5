@@ -211,26 +211,28 @@ namespace Calculator_project
                 eOrPiIsAvailable = true;
 
                 // Display the result
-                if (output != "0 ")
+                if (output == "0 ")
                 {
                     output = "0";
                     using (StreamWriter sw = File.AppendText(filePath))
                     {
                         sw.WriteLine("Error");
                     }
-                    OutputTextBlock.Text = output;
+                    
 
 
                 }
                 else
                 {
-                    OutputTextBlock.Text = output;
+                    
                     using (StreamWriter sw = File.AppendText(filePath))
                     {
                         sw.WriteLine(output);
                     }
+                    
                 }
-                
+                OutputTextBlock.Text = output;
+
 
 
             }
