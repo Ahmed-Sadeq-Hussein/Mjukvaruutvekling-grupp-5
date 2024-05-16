@@ -531,6 +531,10 @@ namespace Calculator_project
 
         private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "sin(";
 
             parenthesesCount++;
@@ -541,6 +545,10 @@ namespace Calculator_project
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "cos(";
 
             parenthesesCount++;
@@ -551,6 +559,10 @@ namespace Calculator_project
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "tan(";
 
             parenthesesCount++;
