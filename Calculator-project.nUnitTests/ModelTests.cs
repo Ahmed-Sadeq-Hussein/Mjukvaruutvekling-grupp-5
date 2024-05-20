@@ -240,5 +240,32 @@ namespace Calculator_project.nUnitTests
             // Assert
             Assert.That(result, Is.EqualTo(0.25));
         }
+        [Test]
+        public void SineFunction_EqualTest1()
+        {
+            // Assign
+            Function function = new SineFunction();
+            double[] paramList = { 3.14159265 / 2 };
+
+            // Act
+            double result = function.Execute(paramList);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void SineFunction_EqualTest2()
+        {
+            // Assign
+            Function function = new SineFunction();
+            double[] paramList = { 0 };
+
+            // Act
+            double result = function.Execute(paramList);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(0));
+        }
     }
 }
