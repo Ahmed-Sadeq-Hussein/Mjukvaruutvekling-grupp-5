@@ -225,7 +225,7 @@ var assemblies = [
       { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 261, "ucl": 52, "cal": 313, "tl": 381, "cb": 180, "tb": 254, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Exceptions.NumberTooLargeException", "rp": "Calculator_project_NumberTooLargeException.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 611, "cal": 611, "tl": 939, "cb": 0, "tb": 314, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 636, "cal": 636, "tl": 940, "cb": 0, "tb": 386, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.AshFunction", "rp": "Calculator_project_AshFunction.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 129, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.CosineFunction", "rp": "Calculator_project_CosineFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.DivideOperator", "rp": "Calculator_project_DivideOperator.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 27, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -233,7 +233,7 @@ var assemblies = [
       { "name": "Calculator_project.Model.FunctionList", "rp": "Calculator_project_FunctionList.html", "cl": 19, "ucl": 0, "cal": 19, "tl": 129, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.MultiplyOperator", "rp": "Calculator_project_MultiplyOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 4, "ucl": 1, "cal": 5, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
-      { "name": "Calculator_project.Model.SineFunction", "rp": "Calculator_project_SineFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SineFunction", "rp": "Calculator_project_SineFunction.html", "cl": 4, "ucl": 4, "cal": 8, "tl": 129, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.TangentFunction", "rp": "Calculator_project_TangentFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -324,6 +324,12 @@ var riskHotspots = [
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OperatorBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "OperatorBtn_Click(...)", "fileIndex": 1, "line": 143,
+    "metrics": [
+      { "value": 110, "exceeded": true },
+      { "value": 10, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 511,
     "metrics": [
       { "value": 110, "exceeded": true },
       { "value": 10, "exceeded": false },
