@@ -13,9 +13,9 @@ namespace Calculator_project.nUnitTests
             controller = new Controller.Controller();
         }
 
-        [Test]
-        // These tests are for those tests we made along the way
 
+        // These tests are for those tests we made along the way
+        [Test]
         public void ASHTESTS()
         {
             Function ash = new AshFunction();
@@ -32,7 +32,6 @@ namespace Calculator_project.nUnitTests
             Assert.That(awns2, Is.EqualTo(awns1));
             Assert.That(awns3, Is.EqualTo(awns1));
             Assert.That(awns1, Is.EqualTo(69));
-
         }
 
         //Tests the different ways to use include brackets
