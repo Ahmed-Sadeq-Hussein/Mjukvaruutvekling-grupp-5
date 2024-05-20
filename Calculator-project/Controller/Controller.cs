@@ -76,7 +76,6 @@ namespace Calculator_project.Controller
             ///then we replace that part of the string with the current.
             FunctionList functionlist = new FunctionList();
             int x, y, z;
-            char c;
             int numba;
             string vars = ",-eπ";
             string tempexp;
@@ -85,7 +84,7 @@ namespace Calculator_project.Controller
                 while (expression.Contains(functionlist.names[i]))
                 {
                     x = expression.IndexOf(functionlist.names[i]);
-                    y = x + functionlist.names[i].Length ;
+                    y = x + functionlist.names[i].Length;
                     z = y;
                     while (z < expression.Length - 1) // edge cases
                     {
@@ -101,7 +100,7 @@ namespace Calculator_project.Controller
 
                     expression = expression.Replace('.', ',');
                     //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
-                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1 )) }).ToString();
+                    tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
                     tempexp = tempexp.Replace('-', '–');
                     // write code here that restricts the size of the number.
 

@@ -24,14 +24,14 @@ namespace Calculator_project.nUnitTests
             double awns2 = 1.1;
             double awns3 = 0;
             //Act
-            awns1 = ash.Execute(new double[] {awns1});
+            awns1 = ash.Execute(new double[] { awns1 });
             awns2 = ash.Execute(new double[] { awns2 });
             awns3 = ash.Execute(new double[] { awns3 });
 
             //Assert?
-            Assert.AreEqual(awns1, awns2);
-            Assert.AreEqual(awns1, awns3);
-            Assert.AreEqual(69, awns1);
+            Assert.That(awns2, Is.EqualTo(awns1));
+            Assert.That(awns3, Is.EqualTo(awns1));
+            Assert.That(awns1, Is.EqualTo(69));
 
         }
 
