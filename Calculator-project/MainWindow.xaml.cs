@@ -285,7 +285,7 @@ namespace Calculator_project
         {
             string keyContent = e.Text;
 
-            
+
 
             if ((IsNumber(keyContent)))
             {
