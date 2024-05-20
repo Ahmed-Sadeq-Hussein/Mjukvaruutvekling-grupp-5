@@ -24,7 +24,7 @@ namespace Calculator_project.nUnitTests
             double awns2 = 1.1;
             double awns3 = 0;
             //Act
-            awns1 = ash.Execute(new double[] {awns1});
+            awns1 = ash.Execute(new double[] { awns1 });
             awns2 = ash.Execute(new double[] { awns2 });
             awns3 = ash.Execute(new double[] { awns3 });
 
@@ -40,13 +40,13 @@ namespace Calculator_project.nUnitTests
         public void CalculateExpression_EqualTest()
         {
             //Assign
-            string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)";
+            string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)+2cos(1-1)3";
 
             //Act
             string result = controller.CalculateExpression(expression, true);
 
             //Assert
-            Assert.That(result, Is.EqualTo("19.00000002"));
+            Assert.That(result, Is.EqualTo("25.00000002"));
         }
 
         [Test]
@@ -100,17 +100,42 @@ namespace Calculator_project.nUnitTests
             Assert.That(returned_expression, Is.EqualTo("-x2"));
         }
 
-        [Test]
-        public void functioncontroll_EqualTest1()
+        //Assign
+        [TestCase("cos0")]
+        [TestCase("sin1.570796325")]
+        public void functioncontroll_EqualTest1(string expression)
         {
-            //Assign
-
-
             //Act
-
+            string returned_string = controller.functioncontroll(expression);
 
             //Assert
+            Assert.That(returned_string, Is.EqualTo("1"));
+        }
 
+        [Test]
+        public void functioncontroll_EqualTest2()
+        {
+            //Assign
+            string expression = "3tan0";
+
+            //Act
+            string returned_string = controller.functioncontroll(expression);
+
+            //Assert
+            Assert.That(returned_string, Is.EqualTo("3x0"));
+        }
+
+        [Test]
+        public void functioncontroll_EqualTest3()
+        {
+            //Assign
+            string expression = "πsin3";
+
+            //Act
+            string returned_string = controller.functioncontroll(expression);
+
+            //Assert
+            Assert.That(returned_string, Is.EqualTo("πx0.1411200080598672"));
         }
 
         // Tests the different valid input tokens
