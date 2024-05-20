@@ -322,6 +322,7 @@ namespace Calculator_project
                     }
                 }
             }
+            /// here is an example of how to add it to the OutputTextBlock_PreviewTextInput method
             else if (keyContent == "A")
             {
                 if (output == "0")
