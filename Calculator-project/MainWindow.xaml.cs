@@ -507,6 +507,7 @@ namespace Calculator_project
         /// is used for pressing back or enter key. 
         /// good.
         /// </summary>
+
         private void OutputTextBlock_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Back)
@@ -572,7 +573,7 @@ namespace Calculator_project
             zeroIsAvailable = true;
             numIsAvailable = true;
         }
-
+        
 
         private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
@@ -596,13 +597,10 @@ namespace Calculator_project
             }
             string buttonContent = "sin(";
 
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
-            numIsAvailable = true;
-            parenthesesCount++;
-            output += buttonContent;
-            OutputTextBlock.Text = output;
+                currentNumIncludesDecimal = true;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
         }
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
@@ -621,6 +619,10 @@ namespace Calculator_project
             output += buttonContent;
             OutputTextBlock.Text = output;
 
+
+            output += buttonContent;
+            OutputTextBlock.Text = output;
+
         }
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
@@ -636,6 +638,10 @@ namespace Calculator_project
             zeroIsAvailable = true;
             numIsAvailable = true;
             parenthesesCount++;
+            output += buttonContent;
+            OutputTextBlock.Text = output;
+
+
             output += buttonContent;
             OutputTextBlock.Text = output;
 
