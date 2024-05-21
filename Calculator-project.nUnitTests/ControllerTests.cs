@@ -29,9 +29,9 @@ namespace Calculator_project.nUnitTests
             awns3 = ash.Execute(new double[] { awns3 });
 
             //Assert?
-            Assert.AreEqual(awns1, awns2);
-            Assert.AreEqual(awns1, awns3);
-            Assert.AreEqual(69, awns1);
+            Assert.That(awns2, Is.EqualTo(awns1));
+            Assert.That(awns3, Is.EqualTo(awns1));
+            Assert.That(awns1, Is.EqualTo(69));
 
         }
 
@@ -506,7 +506,6 @@ namespace Calculator_project.nUnitTests
                 new Model.ExponentiateOperator(),
                 new Model.Operand(0)
             };
-            int index = default;
 
             // Act, Assert
             tokenList = controller.Operate(tokenList);

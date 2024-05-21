@@ -269,5 +269,4 @@ namespace Calculator_project.nUnitTests
             Assert.That(result, Is.EqualTo(-0.66627602127982399));
         }
     }
-
 }

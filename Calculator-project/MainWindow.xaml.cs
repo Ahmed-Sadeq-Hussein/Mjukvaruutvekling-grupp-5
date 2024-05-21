@@ -285,7 +285,7 @@ namespace Calculator_project
         {
             string keyContent = e.Text;
 
-            
+
 
             if ((IsNumber(keyContent)))
             {
@@ -573,7 +573,6 @@ namespace Calculator_project
             zeroIsAvailable = true;
             numIsAvailable = true;
         }
-        
 
         private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
@@ -597,10 +596,13 @@ namespace Calculator_project
             }
             string buttonContent = "sin(";
 
-                currentNumIncludesDecimal = true;
-                output += buttonContent;
-                OutputTextBlock.Text = output;
-            
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
+            parenthesesCount++;
+            output += buttonContent;
+            OutputTextBlock.Text = output;
         }
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
