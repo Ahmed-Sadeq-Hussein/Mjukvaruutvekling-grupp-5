@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.30639097744360905" branch-rate="0.2815384615384615" lines-covered="326" lines-valid="1064" branches-covered="183" branches-valid="650" complexity="654" version="0" timestamp="1716216685">
+<coverage line-rate="0.30639097744360905" branch-rate="0.2815384615384615" lines-covered="326" lines-valid="1064" branches-covered="183" branches-valid="650" complexity="654" version="0" timestamp="1716299513">
   <sources>
     <source>C:\Users\music\Documents\pycom\gits\Mjukvaruutvekling-grupp-5\Mjukvaruutvekling-grupp-5\Calculator-project\</source>
     <source>C:\Users\sherk\OneDrive - Jonkoping University\Desktop\Mjukvaruutvekling-grupp-5\Calculator-project\</source>
