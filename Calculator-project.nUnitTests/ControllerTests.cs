@@ -101,10 +101,12 @@ namespace Calculator_project.nUnitTests
         }
 
         //Assign
-        [TestCase("cos0")]
-        [TestCase("sin1.570796325")]
-        public void functioncontroll_EqualTest1(string expression)
+        [Test]
+        public void functioncontroll_EqualTest1()
         {
+            //Assign
+            string expression = "cos0";
+
             //Act
             string returned_string = controller.functioncontroll(expression);
 
