@@ -150,19 +150,19 @@ namespace Calculator_project.nUnitTests
             tokenList = controller.SortToTokenList(expression);
 
             // Assert
-            Assert.AreEqual("2", tokenList[0].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
-            Assert.AreEqual("0", tokenList[2].ToString());
-            Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
-            Assert.AreEqual("1", tokenList[4].ToString());
-            Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
-            Assert.AreEqual("41,41", tokenList[6].ToString());
-            Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
-            Assert.AreEqual("0,2", tokenList[8].ToString());
-            Assert.AreEqual("[ExponentiateOperator]", tokenList[9].ToString());
-            Assert.AreEqual("3,14159265", tokenList[10].ToString());
-            Assert.AreEqual("[SumOperator]", tokenList[11].ToString());
-            Assert.AreEqual("2,71828183", tokenList[12].ToString());
+            Assert.That(tokenList[0].ToString().Replace('.', ','), Is.EqualTo("2"));
+            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[2].ToString().Replace('.', ','), Is.EqualTo("0"));
+            Assert.That(tokenList[3].ToString(), Is.EqualTo("[SubtractOperator]"));
+            Assert.That(tokenList[4].ToString().Replace('.', ','), Is.EqualTo("-1"));
+            Assert.That(tokenList[5].ToString(), Is.EqualTo("[MultiplyOperator]"));
+            Assert.That(tokenList[6].ToString().Replace('.', ','), Is.EqualTo("41,41"));
+            Assert.That(tokenList[7].ToString(), Is.EqualTo("[DivideOperator]"));
+            Assert.That(tokenList[8].ToString().Replace('.', ','), Is.EqualTo("0,2"));
+            Assert.That(tokenList[9].ToString(), Is.EqualTo("[ExponentiateOperator]"));
+            Assert.That(tokenList[10].ToString().Replace('.', ','), Is.EqualTo("3,14159265"));
+            Assert.That(tokenList[11].ToString(), Is.EqualTo("[SumOperator]"));
+            Assert.That(tokenList[12].ToString().Replace('.', ','), Is.EqualTo("2,71828183"));
         }
 
         // Tests the program to see if it throws an InvalidExpressionException when the expression is invalid (when it ends with an operator)

@@ -573,12 +573,7 @@ namespace Calculator_project
             zeroIsAvailable = true;
             numIsAvailable = true;
         }
-        {
-            parenthesesCount++;
-            output += "(";
-            OutputTextBlock.Text = output;
-        }
-
+        
 
         private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
