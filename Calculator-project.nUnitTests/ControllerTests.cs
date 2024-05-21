@@ -13,31 +13,156 @@ namespace Calculator_project.nUnitTests
             controller = new Controller.Controller();
         }
 
+        [Test]
+        // These tests are for those tests we made along the way
+
+        public void ASHTESTS()
+        {
+            Function ash = new AshFunction();
+            //Assign
+            double awns1 = 1;
+            double awns2 = 1.1;
+            double awns3 = 0;
+            //Act
+            awns1 = ash.Execute(new double[] { awns1 });
+            awns2 = ash.Execute(new double[] { awns2 });
+            awns3 = ash.Execute(new double[] { awns3 });
+
+            //Assert?
+            Assert.AreEqual(awns1, awns2);
+            Assert.AreEqual(awns1, awns3);
+            Assert.AreEqual(69, awns1);
+
+        }
+
+        //Tests the different ways to use include brackets
+        [Test]
+        public void CalculateExpression_EqualTest()
+        {
+            //Assign
+            string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)+2cos(1-1)3";
+
+            //Act
+            string result = controller.CalculateExpression(expression, true);
+
+            //Assert
+            Assert.That(result, Is.EqualTo("25.00000002"));
+        }
+
+        [Test]
+        public void bracketcontroll_EqualTest1()
+        {
+            //Assign
+            string expression = "(2+2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.That(returned_expression, Is.EqualTo("4"));
+        }
+
+        //Assign
+        [TestCase("2(2)")]
+        [TestCase("(2)2")]
+        public void bracketcontroll_EqualTest2(string expression)
+        {
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.That(returned_expression, Is.EqualTo("2x2"));
+        }
+
+        [Test]
+        public void bracketcontroll_EqualTest3()
+        {
+            //Assign
+            string expression = "e(2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.That(returned_expression, Is.EqualTo("ex2"));
+        }
+
+        [Test]
+        public void bracketcontroll_EqualTest4()
+        {
+            //Assign
+            string expression = "-(2)";
+
+            //Act
+            string returned_expression = controller.bracketcontroll(expression);
+
+            //Assert
+            Assert.That(returned_expression, Is.EqualTo("-x2"));
+        }
+
+        //Assign
+        [TestCase("cos0")]
+        [TestCase("sin1.570796325")]
+        public void functioncontroll_EqualTest1(string expression)
+        {
+            //Act
+            string returned_string = controller.functioncontroll(expression);
+
+            //Assert
+            Assert.That(returned_string, Is.EqualTo("1"));
+        }
+
+        [Test]
+        public void functioncontroll_EqualTest2()
+        {
+            //Assign
+            string expression = "3tan0";
+
+            //Act
+            string returned_string = controller.functioncontroll(expression);
+
+            //Assert
+            Assert.That(returned_string, Is.EqualTo("3x0"));
+        }
+
+        [Test]
+        public void functioncontroll_EqualTest3()
+        {
+            //Assign
+            string expression = "πsin3";
+
+            //Act
+            string returned_string = controller.functioncontroll(expression);
+
+            //Assert
+            Assert.That(returned_string, Is.EqualTo("πx0.1411200080598672"));
+        }
+
         // Tests the different valid input tokens
         [Test]
         public void SortToTokenList_EqualTest()
         {
             // Assign
-            string expression = "2+0-1.x41.41/0.2^π+e";
+            string expression = "2+0-–1.x41.41/0.2^π+e";
             List<Token> tokenList = new List<Token>();
 
             // Act
             tokenList = controller.SortToTokenList(expression);
 
             // Assert
-            Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
-            Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
-            Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
-            Assert.That(tokenList[3].ToString(), Is.EqualTo("[SubtractOperator]"));
-            Assert.That(tokenList[4].ToString(), Is.EqualTo("1"));
-            Assert.That(tokenList[5].ToString(), Is.EqualTo("[MultiplyOperator]"));
-            Assert.That(tokenList[6].ToString(), Is.EqualTo("41,41"));
-            Assert.That(tokenList[7].ToString(), Is.EqualTo("[DivideOperator]"));
-            Assert.That(tokenList[8].ToString(), Is.EqualTo("0,2"));
-            Assert.That(tokenList[9].ToString(), Is.EqualTo("[ExponentiateOperator]"));
-            Assert.That(tokenList[10].ToString(), Is.EqualTo("3,14159265"));
-            Assert.That(tokenList[11].ToString(), Is.EqualTo("[SumOperator]"));
-            Assert.That(tokenList[12].ToString(), Is.EqualTo("2,71828183"));
+            Assert.AreEqual("2", tokenList[0].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[1].ToString());
+            Assert.AreEqual("0", tokenList[2].ToString());
+            Assert.AreEqual("[SubtractOperator]", tokenList[3].ToString());
+            Assert.AreEqual("1", tokenList[4].ToString());
+            Assert.AreEqual("[MultiplyOperator]", tokenList[5].ToString());
+            Assert.AreEqual("41,41", tokenList[6].ToString());
+            Assert.AreEqual("[DivideOperator]", tokenList[7].ToString());
+            Assert.AreEqual("0,2", tokenList[8].ToString());
+            Assert.AreEqual("[ExponentiateOperator]", tokenList[9].ToString());
+            Assert.AreEqual("3,14159265", tokenList[10].ToString());
+            Assert.AreEqual("[SumOperator]", tokenList[11].ToString());
+            Assert.AreEqual("2,71828183", tokenList[12].ToString());
         }
 
         // Tests the program to see if it throws an InvalidExpressionException when the expression is invalid (when it ends with an operator)
@@ -364,7 +489,7 @@ namespace Calculator_project.nUnitTests
         }
 
         [Test]
-        public void Operate_Test() // "2-3"
+        public void Operate_Test()
         {
             // Assign
             List<Token> tokenList = new List<Token>()

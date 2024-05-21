@@ -1,7 +1,6 @@
-﻿using System;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-
 namespace Calculator_project
 {
     /// <summary>
@@ -10,10 +9,20 @@ namespace Calculator_project
 
     public partial class MainWindow : Window
     {
+        /// <summary>
+        ///  creates a file to save stuff inside 
+        ///  
+        /// </summary>
+        /// 
+
+
         Controller.Controller controller = new Controller.Controller();
 
         string output = "0"; //used to keep track of the numbers
         bool currentNumIncludesDecimal = false;
+        string filePath = "yourfile.txt";
+        bool numIsAvailable = true;
+
         bool zeroIsAvailable = false;
         bool eOrPiIsAvailable = true;
         int parenthesesCount = 0; // Track parentheses count
@@ -23,6 +32,15 @@ namespace Calculator_project
         {
             InitializeComponent();
             this.DataContext = this;
+
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Dispose();
+            }
+            else
+            {
+                File.WriteAllText(filePath, string.Empty);
+            }
         }
 
         /// <summary>
@@ -42,6 +60,7 @@ namespace Calculator_project
                     {
                         if (EndsWithOperator(output))
                         {
+                            numIsAvailable = false;
                             zeroIsAvailable = false;
                         }
                         output += buttonContent;
@@ -50,16 +69,19 @@ namespace Calculator_project
                 }
                 else // If any other number button is pressed, add it
                 {
-                    if (output == "0")
+                    if (numIsAvailable)
                     {
-                        output = buttonContent;
-                        zeroIsAvailable = true;
+                        if (output == "0")
+                        {
+                            output = buttonContent;
+                            zeroIsAvailable = true;
+                        }
+                        else
+                        {
+                            output += buttonContent;
+                        }
+                        OutputTextBlock.Text = output;
                     }
-                    else
-                    {
-                        output += buttonContent;
-                    }
-                    OutputTextBlock.Text = output;
 
                 }
             }
@@ -97,7 +119,7 @@ namespace Calculator_project
             // Check if the output already contains a decimal point
             if (!currentNumIncludesDecimal)
             {
-                if (EndsWithOperator(output))
+                if (EndsWithOperator(output) || output.EndsWith("(") || output.EndsWith(")"))
                 {
                     output += "0.";
                 }
@@ -105,6 +127,7 @@ namespace Calculator_project
                 {
                     output += '.';
                 }
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 OutputTextBlock.Text = output;
                 currentNumIncludesDecimal = true;
@@ -121,10 +144,34 @@ namespace Calculator_project
             string buttonContent = (string)((Button)sender).Content;
             if (!EndsWithOperator(output)) // If the expression does NOT end with an operator, add the pressed operator
             {
+                if (buttonContent == "-")
+                {
+                    if (output == "0")
+                    {
+                        output = "–";
+                    }
+                    else
+                    {
+                        output += buttonContent;
+                    }
+                }
+                else
+                {
+                    output += buttonContent;
+                }
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
-                output += buttonContent;
+                OutputTextBlock.Text = output;
+            }
+            else if (buttonContent == "-" && !output.EndsWith('–'))
+            {
+                numIsAvailable = true;
+                zeroIsAvailable = true;
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                output += "–";
                 OutputTextBlock.Text = output;
             }
         }
@@ -134,21 +181,59 @@ namespace Calculator_project
         /// </summary>
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
+
             if (output != "0")
             {
+                // closes all parenthesis in the function. :3
+                while (parenthesesCount > 0)
+                {
+                    output += ")";
+                    OutputTextBlock.Text = output;
+                    parenthesesCount--;
+                }
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(output + "=");
+                }
                 // Call Controller.Calc function to calculate the result
-                output = controller.CalculateExpression(output);
+                output = controller.CalculateExpression(output, true);
 
                 if (output.Contains('.'))
                 {
                     currentNumIncludesDecimal = true;
                 }
+                else
+                {
+                    currentNumIncludesDecimal = false;
+                }
                 zeroIsAvailable = true;
+                numIsAvailable = true;
                 eOrPiIsAvailable = true;
 
                 // Display the result
+                if (output == "0 ")
+                {
+                    output = "0";
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine("Error");
+                    }
+
+
+
+                }
+                else
+                {
+
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
+
+                }
                 OutputTextBlock.Text = output;
             }
+
         }
 
         /// <summary>
@@ -158,9 +243,11 @@ namespace Calculator_project
 
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
+            numIsAvailable = true;
             zeroIsAvailable = false;
             currentNumIncludesDecimal = false;
             eOrPiIsAvailable = true;
+            parenthesesCount = 0;
             output = "0";
             OutputTextBlock.Text = output;
 
@@ -176,7 +263,7 @@ namespace Calculator_project
 
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^')))
+            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(")))
             {
                 return true;
             }
@@ -198,6 +285,8 @@ namespace Calculator_project
         {
             string keyContent = e.Text;
 
+            
+
             if ((IsNumber(keyContent)))
             {
                 if (eOrPiIsAvailable)
@@ -208,6 +297,7 @@ namespace Calculator_project
                         {
                             if (EndsWithOperator(output))
                             {
+                                numIsAvailable = false;
                                 zeroIsAvailable = false;
                             }
                             output += keyContent;
@@ -216,18 +306,65 @@ namespace Calculator_project
                     }
                     else // If any other number button is pressed, add it
                     {
-                        if (output == "0")
+                        if (numIsAvailable)
                         {
-                            output = keyContent;
-                            zeroIsAvailable = true;
+                            if (output == "0")
+                            {
+                                output = keyContent;
+                                zeroIsAvailable = true;
+                            }
+                            else
+                            {
+                                output += keyContent;
+                            }
+                            OutputTextBlock.Text = output;
                         }
-                        else
-                        {
-                            output += keyContent;
-                        }
-                        OutputTextBlock.Text = output;
-
                     }
+                }
+            }
+            /// here is an example of how to add it to the OutputTextBlock_PreviewTextInput method
+            else if (keyContent == "A")
+            {
+                if (output == "0")
+                {
+                    output = "";
+                }
+                string buttonContent = "ash(";
+
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+                numIsAvailable = true;
+                parenthesesCount++;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            }
+            else if (keyContent == "(")
+            {
+                parenthesesCount++;
+                if (output == "0") { output = "("; }
+                else
+                {
+                    output += "(";
+                }
+                OutputTextBlock.Text = output;
+                // braket variable changes. included in both .
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+                numIsAvailable = true;
+            }
+            else if (keyContent == ")")
+            {
+                if (parenthesesCount > 0) // Ensure there are open parentheses to close
+                {
+                    currentNumIncludesDecimal = false;
+                    eOrPiIsAvailable = true;
+                    zeroIsAvailable = true;
+                    numIsAvailable = true;
+                    parenthesesCount--;
+                    output += ")";
+                    OutputTextBlock.Text = output;
                 }
             }
             else if (keyContent == "p")
@@ -276,6 +413,7 @@ namespace Calculator_project
                     {
                         output += '.';
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     OutputTextBlock.Text = output;
                     currentNumIncludesDecimal = true;
@@ -289,18 +427,29 @@ namespace Calculator_project
                     {
                         output += "x";
                     }
+                    else if (keyContent == "-")
+                    {
+                        if (output == "0")
+                        {
+                            output = "–";
+                        }
+                        else
+                        {
+                            output += keyContent;
+                        }
+                    }
                     else
                     {
                         output += keyContent;
                     }
-                    zeroIsAvailable = true;
-                    currentNumIncludesDecimal = false;
-                    OutputTextBlock.Text = output;
                 }
-                else
+
+                else if (keyContent == "-" && !output.EndsWith('–'))
                 {
-                    output += keyContent;
+                    output += "–";
                 }
+
+                numIsAvailable = true;
                 zeroIsAvailable = true;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
@@ -310,18 +459,33 @@ namespace Calculator_project
             {
                 if (output != "0")
                 {
+                    while (parenthesesCount > 0)
+                    {
+                        output += ")";
+                        OutputTextBlock.Text = output;
+                        parenthesesCount--;
+                    }
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output + "=");
+                    }
                     // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output);
+                    output = controller.CalculateExpression(output, true);
 
                     if (output.Contains('.'))
                     {
                         currentNumIncludesDecimal = true;
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     eOrPiIsAvailable |= true;
 
                     // Display the result
                     OutputTextBlock.Text = output;
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
                 }
             }
             e.Handled = true;
@@ -333,12 +497,12 @@ namespace Calculator_project
         /// -should probably be in the model instead of in gui. for cohesion and for model to contain what it is required to contain.
         /// ............
         /// </summary>
-
         private bool IsNumber(string text)
         {
             int number;
             return int.TryParse(text, out number);
         }
+
         /// <summary>
         /// is used for pressing back or enter key. 
         /// good.
@@ -348,9 +512,11 @@ namespace Calculator_project
         {
             if (e.Key == System.Windows.Input.Key.Back)
             {
+                numIsAvailable = true;
                 zeroIsAvailable = false;
                 currentNumIncludesDecimal = false;
                 eOrPiIsAvailable = true;
+                parenthesesCount = 0;
                 output = "0";
                 OutputTextBlock.Text = output;
                 e.Handled = true;
@@ -359,24 +525,54 @@ namespace Calculator_project
             {
                 if (output != "0")
                 {
+                    while (parenthesesCount > 0)
+                    {
+                        output += ")";
+                        OutputTextBlock.Text = output;
+                        parenthesesCount--;
+                    }
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output + "=");
+                    }
                     // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output);
+                    output = controller.CalculateExpression(output, true);
 
                     if (output.Contains('.'))
                     {
                         currentNumIncludesDecimal = true;
                     }
+                    numIsAvailable = true;
                     zeroIsAvailable = true;
                     eOrPiIsAvailable = true;
 
                     // Display the result
                     OutputTextBlock.Text = output;
+                    using (StreamWriter sw = File.AppendText(filePath))
+                    {
+                        sw.WriteLine(output);
+                    }
                 }
                 e.Handled = true;
             }
         }
 
         private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            parenthesesCount++;
+            if (output == "0") { output = "("; }
+            else
+            {
+                output += "(";
+
+            }
+            OutputTextBlock.Text = output;
+            // braket variable changes. included in both .
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
+        }
         {
             parenthesesCount++;
             output += "(";
@@ -388,37 +584,45 @@ namespace Calculator_project
         {
             if (parenthesesCount > 0) // Ensure there are open parentheses to close
             {
+                currentNumIncludesDecimal = false;
+                eOrPiIsAvailable = true;
+                zeroIsAvailable = true;
+                numIsAvailable = true;
                 parenthesesCount--;
                 output += ")";
                 OutputTextBlock.Text = output;
             }
-            else
-            {
-                // Add closing parentheses until parenthesesCount becomes zero
-                while (parenthesesCount < 0)
-                {
-                    output += ")";
-                    OutputTextBlock.Text = output;
-                    parenthesesCount++;
-                }
-            }
-
-
         }
 
         private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "sin(";
 
-            currentNumIncludesDecimal = true;
-            output += buttonContent;
-            OutputTextBlock.Text = output;
-
+                currentNumIncludesDecimal = true;
+                output += buttonContent;
+                OutputTextBlock.Text = output;
+            
         }
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "cos(";
+
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
+            parenthesesCount++;
+            output += buttonContent;
+            OutputTextBlock.Text = output;
 
 
             output += buttonContent;
@@ -428,7 +632,19 @@ namespace Calculator_project
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
         {
+            if (output == "0")
+            {
+                output = "";
+            }
             string buttonContent = "tan(";
+
+            currentNumIncludesDecimal = false;
+            eOrPiIsAvailable = true;
+            zeroIsAvailable = true;
+            numIsAvailable = true;
+            parenthesesCount++;
+            output += buttonContent;
+            OutputTextBlock.Text = output;
 
 
             output += buttonContent;
@@ -436,6 +652,16 @@ namespace Calculator_project
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void save_file_protocol(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("notepad.exe", filePath);
+        }
     }
 }
 
