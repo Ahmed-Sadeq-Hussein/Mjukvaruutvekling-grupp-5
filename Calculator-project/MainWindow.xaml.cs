@@ -71,7 +71,7 @@ namespace Calculator_project
                 {
                     if (numIsAvailable)
                     {
-                        if (output == "0")
+                        if (output == "0" || output == "0 ")
                         {
                             output = buttonContent;
                             zeroIsAvailable = true;
@@ -98,7 +98,7 @@ namespace Calculator_project
             {
                 eOrPiIsAvailable = false;
                 currentNumIncludesDecimal = true;
-                if (output == "0")
+                if (output == "0" || output == "0 ")
                 {
                     output = buttonContent;
                 }
@@ -146,7 +146,7 @@ namespace Calculator_project
             {
                 if (buttonContent == "-")
                 {
-                    if (output == "0")
+                    if (output == "0" || output == "0 ")
                     {
                         output = "–";
                     }
@@ -308,7 +308,7 @@ namespace Calculator_project
                     {
                         if (numIsAvailable)
                         {
-                            if (output == "0")
+                            if (output == "0" || output == "0 ")
                             {
                                 output = keyContent;
                                 zeroIsAvailable = true;
@@ -325,7 +325,7 @@ namespace Calculator_project
             /// here is an example of how to add it to the OutputTextBlock_PreviewTextInput method
             else if (keyContent == "A")
             {
-                if (output == "0")
+                if (output == "0" || output == "0 ")
                 {
                     output = "";
                 }
@@ -342,7 +342,7 @@ namespace Calculator_project
             else if (keyContent == "(")
             {
                 parenthesesCount++;
-                if (output == "0") { output = "("; }
+                if (output == "0" || output == "0 ") { output = "("; }
                 else
                 {
                     output += "(";
@@ -373,7 +373,7 @@ namespace Calculator_project
                 {
                     eOrPiIsAvailable = false;
                     currentNumIncludesDecimal = true;
-                    if (output == "0")
+                    if (output == "0" || output == "0 ")
                     {
                         output = "π";
                     }
@@ -390,7 +390,7 @@ namespace Calculator_project
                 {
                     eOrPiIsAvailable = false;
                     currentNumIncludesDecimal = true;
-                    if (output == "0")
+                    if (output == "0" || output == "0 ")
                     {
                         output = "e";
                     }
@@ -429,7 +429,7 @@ namespace Calculator_project
                     }
                     else if (keyContent == "-")
                     {
-                        if (output == "0")
+                        if (output == "0" || output == "0 ")
                         {
                             output = "–";
                         }
@@ -560,7 +560,7 @@ namespace Calculator_project
         private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
             parenthesesCount++;
-            if (output == "0") { output = "("; }
+            if (output == "0" || output == "0 ") { output = "("; }
             else
             {
                 output += "(";
@@ -590,7 +590,7 @@ namespace Calculator_project
 
         private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0")
+            if (output == "0" || output == "0 ")
             {
                 output = "";
             }
@@ -607,7 +607,7 @@ namespace Calculator_project
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0")
+            if (output == "0" || output == "0 ")
             {
                 output = "";
             }
@@ -629,7 +629,7 @@ namespace Calculator_project
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0")
+            if (output == "0" || output == "0 ")
             {
                 output = "";
             }
