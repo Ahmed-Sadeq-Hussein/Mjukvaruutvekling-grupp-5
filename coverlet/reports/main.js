@@ -221,6 +221,7 @@ var assemblies = [
   {
     "name": "Calculator-project",
     "classes": [
+<<<<<<< HEAD
       { "name": "Calculator_project.App", "rp": "Calculator_project_App.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 63, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 190, "ucl": 78, "cal": 268, "tl": 325, "cb": 143, "tb": 212, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -232,6 +233,49 @@ var assemblies = [
       { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 7, "ucl": 2, "cal": 9, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+=======
+<<<<<<< HEAD
+      { "name": "Calculator_project.App", "rp": "Calculator_project_App.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 98, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+<<<<<<< HEAD
+      { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 116, "ucl": 56, "cal": 172, "tl": 259, "cb": 70, "tb": 90, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 277, "cal": 277, "tl": 707, "cb": 0, "tb": 112, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.DivideOperator", "rp": "Calculator_project_DivideOperator.html", "cl": 7, "ucl": 1, "cal": 8, "tl": 21, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.ExponentiateOperator", "rp": "Calculator_project_ExponentiateOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.MultiplyOperator", "rp": "Calculator_project_MultiplyOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 4, "ucl": 1, "cal": 5, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+=======
+      { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 118, "ucl": 95, "cal": 213, "tl": 322, "cb": 73, "tb": 126, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 26, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.NumberTooLargeException", "rp": "Calculator_project_NumberTooLargeException.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 30, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 361, "cal": 361, "tl": 804, "cb": 0, "tb": 148, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.DivideOperator", "rp": "Calculator_project_DivideOperator.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 28, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.ExponentiateOperator", "rp": "Calculator_project_ExponentiateOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.MultiplyOperator", "rp": "Calculator_project_MultiplyOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 4, "ucl": 1, "cal": 5, "tl": 21, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
+      { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 16, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+=======
+      { "name": "Calculator_project.App", "rp": "Calculator_project_App.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 63, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 261, "ucl": 52, "cal": 313, "tl": 381, "cb": 180, "tb": 254, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.NumberTooLargeException", "rp": "Calculator_project_NumberTooLargeException.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 636, "cal": 636, "tl": 940, "cb": 0, "tb": 386, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.AshFunction", "rp": "Calculator_project_AshFunction.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 129, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.CosineFunction", "rp": "Calculator_project_CosineFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.DivideOperator", "rp": "Calculator_project_DivideOperator.html", "cl": 8, "ucl": 0, "cal": 8, "tl": 27, "cb": 2, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.ExponentiateOperator", "rp": "Calculator_project_ExponentiateOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.FunctionList", "rp": "Calculator_project_FunctionList.html", "cl": 19, "ucl": 0, "cal": 19, "tl": 129, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.MultiplyOperator", "rp": "Calculator_project_MultiplyOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 4, "ucl": 1, "cal": 5, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SineFunction", "rp": "Calculator_project_SineFunction.html", "cl": 4, "ucl": 4, "cal": 8, "tl": 129, "cb": 1, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.TangentFunction", "rp": "Calculator_project_TangentFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+>>>>>>> project
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     ]},
 ];
 
@@ -246,12 +290,28 @@ var riskHotspotMetrics = [
 
 var riskHotspots = [
   {
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)", "methodShortName": "OutputTextBlock_PreviewTextInput(...)", "fileIndex": 1, "line": 196,
+    "metrics": [
+      { "value": 1980, "exceeded": true },
+      { "value": 44, "exceeded": true },
+=======
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)", "methodShortName": "OutputTextBlock_PreviewTextInput(...)", "fileIndex": 1, "line": 285,
+    "metrics": [
+      { "value": 4692, "exceeded": true },
+      { "value": 68, "exceeded": true },
+    ]},
+  {
+>>>>>>> project
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)", "methodShortName": "OutputTextBlock_PreviewTextInput(...)", "fileIndex": 1, "line": 229,
     "metrics": [
       { "value": 3422, "exceeded": true },
       { "value": 58, "exceeded": true },
     ]},
   {
+<<<<<<< HEAD
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)", "methodShortName": "OutputTextBlock_PreviewTextInput(...)", "fileIndex": 1, "line": 155,
     "metrics": [
       { "value": 1980, "exceeded": true },
@@ -259,9 +319,18 @@ var riskHotspots = [
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "bracketcontroll(System.String)", "methodShortName": "bracketcontroll(...)", "fileIndex": 0, "line": 17,
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)", "methodShortName": "System.Windows.Markup.IComponentConnector.Connect(...)", "fileIndex": 0, "line": 39,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
+<<<<<<< HEAD
       { "value": 930, "exceeded": true },
       { "value": 30, "exceeded": false },
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
+=======
+      { "value": 812, "exceeded": true },
+      { "value": 28, "exceeded": false },
+>>>>>>> project
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)", "methodShortName": "System.Windows.Markup.IComponentConnector.Connect(...)", "fileIndex": 0, "line": 29,
@@ -270,19 +339,9 @@ var riskHotspots = [
       { "value": 22, "exceeded": false },
     ]},
   {
-    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 209,
-    "metrics": [
-      { "value": 272, "exceeded": true },
-      { "value": 16, "exceeded": false },
-    ]},
-  {
-    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "SortToTokenList(System.String)", "methodShortName": "SortToTokenList(...)", "fileIndex": 0, "line": 125,
-    "metrics": [
-      { "value": 160.7, "exceeded": true },
-      { "value": 66, "exceeded": true },
-    ]},
-  {
-    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 139,
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 176,
     "metrics": [
       { "value": 156, "exceeded": true },
       { "value": 12, "exceeded": false },
@@ -294,37 +353,124 @@ var riskHotspots = [
       { "value": 62, "exceeded": true },
     ]},
   {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 32,
+=======
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "functioncontroll(System.String)", "methodShortName": "functioncontroll(...)", "fileIndex": 0, "line": 72,
+    "metrics": [
+      { "value": 300.15, "exceeded": true },
+      { "value": 28, "exceeded": false },
+    ]},
+  {
+>>>>>>> project
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 209,
+    "metrics": [
+      { "value": 272, "exceeded": true },
+      { "value": 16, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 265,
+    "metrics": [
+      { "value": 272, "exceeded": true },
+      { "value": 16, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "SortToTokenList(System.String)", "methodShortName": "SortToTokenList(...)", "fileIndex": 0, "line": 175,
+    "metrics": [
+      { "value": 212.94, "exceeded": true },
+      { "value": 68, "exceeded": true },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "SortToTokenList(System.String)", "methodShortName": "SortToTokenList(...)", "fileIndex": 0, "line": 125,
+    "metrics": [
+      { "value": 160.7, "exceeded": true },
+      { "value": 66, "exceeded": true },
+    ]},
+  {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 139,
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 52,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
+    "metrics": [
+      { "value": 156, "exceeded": true },
+      { "value": 12, "exceeded": false },
+    ]},
+  {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "SortToTokenList(System.String)", "methodShortName": "SortToTokenList(...)", "fileIndex": 0, "line": 68,
+    "metrics": [
+      { "value": 141.94, "exceeded": true },
+      { "value": 62, "exceeded": true },
+    ]},
+  {
+=======
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 34,
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
     "metrics": [
       { "value": 110, "exceeded": true },
       { "value": 10, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 346,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OperatorBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "OperatorBtn_Click(...)", "fileIndex": 1, "line": 120,
     "metrics": [
       { "value": 110, "exceeded": true },
       { "value": 10, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 23,
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OperatorBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "OperatorBtn_Click(...)", "fileIndex": 1, "line": 143,
+    "metrics": [
+      { "value": 110, "exceeded": true },
+      { "value": 10, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 511,
+    "metrics": [
+      { "value": 110, "exceeded": true },
+      { "value": 10, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 510,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 110, "exceeded": true },
       { "value": 10, "exceeded": false },
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 96,
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
     "metrics": [
       { "value": 72, "exceeded": true },
       { "value": 8, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "CalculateExpression(System.String)", "methodShortName": "CalculateExpression(...)", "fileIndex": 0, "line": 14,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 404,
     "metrics": [
       { "value": 72, "exceeded": true },
       { "value": 8, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 294,
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 118,
+    "metrics": [
+      { "value": 72, "exceeded": true },
+      { "value": 8, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EqualsBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "EqualsBtn_Click(...)", "fileIndex": 1, "line": 183,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 72, "exceeded": true },
       { "value": 8, "exceeded": false },
@@ -336,19 +482,49 @@ var riskHotspots = [
       { "value": 6, "exceeded": false },
     ]},
   {
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "bracketcontroll(System.String)", "methodShortName": "bracketcontroll(...)", "fileIndex": 0, "line": 17,
+    "metrics": [
+      { "value": 30, "exceeded": true },
+      { "value": 30, "exceeded": false },
+    ]},
+  {
     "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "CalculateExpression(System.String)", "methodShortName": "CalculateExpression(...)", "fileIndex": 0, "line": 86,
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
     "metrics": [
       { "value": 20, "exceeded": true },
       { "value": 4, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
     "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "CalculateExpression(System.String)", "methodShortName": "CalculateExpression(...)", "fileIndex": 0, "line": 14,
+=======
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 70,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 20, "exceeded": true },
       { "value": 4, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+=======
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 94,
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EqualsBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "EqualsBtn_Click(...)", "fileIndex": 1, "line": 134,
+=======
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 72,
+>>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 94,
     "metrics": [
       { "value": 20, "exceeded": true },
       { "value": 4, "exceeded": false },
