@@ -241,6 +241,7 @@ namespace Calculator_project.nUnitTests
             Assert.That(result, Is.EqualTo(0.25));
         }
 
+
         [Test]
         public void CosineFunction_EqualTest1()
         {
@@ -251,11 +252,13 @@ namespace Calculator_project.nUnitTests
             // Act
             double result = function.Execute(paramList);
 
-            // Assert
+            // Assert 
             Assert.That(result, Is.EqualTo(1));
+
         }
 
         [Test]
+
         public void CosineFunction_EqualTest2()
         {
             // Assign
@@ -265,8 +268,42 @@ namespace Calculator_project.nUnitTests
             // Act
             double result = function.Execute(paramList);
 
+
             // Assert
+
             Assert.That(result, Is.EqualTo(-0.66627602127982399));
+        }
+
+
+        [Test]
+        public void SineFunction_EqualTest1()
+        {
+            // Assign
+            Function function = new SineFunction();
+            double[] paramList = { 3.14159265 / 2 };
+
+            // Act
+            double result = function.Execute(paramList);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(1));
+        }
+
+
+        [Test]
+        public void SineFunction_EqualTest2()
+        {
+            // Assign
+            Function function = new SineFunction();
+            double[] paramList = { 0 };
+
+            // Act 
+            double result = function.Execute(paramList);
+
+            //Assert
+
+            Assert.That(result, Is.EqualTo(0));
+
         }
     }
 }
