@@ -305,5 +305,33 @@ namespace Calculator_project.nUnitTests
             Assert.That(result, Is.EqualTo(0));
 
         }
+
+        [Test]
+        public void TangentFunction_EqualTest1()
+        {
+            // Assign
+            Function function = new TangentFunction();
+            double[] paramList = { 0 };
+
+            // Act
+            double result = function.Execute(paramList);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void TangentFunction_EqualTest2()
+        {
+            // Assign
+            Function function = new TangentFunction();
+            double[] paramList = { 0.78539816339 };
+
+            // Act
+            double result = function.Execute(paramList);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(0.99999999998510336));
+        }
     }
 }

@@ -222,6 +222,19 @@ var assemblies = [
     "name": "Calculator-project",
     "classes": [
 <<<<<<< HEAD
+      { "name": "Calculator_project.App", "rp": "Calculator_project_App.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 63, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 190, "ucl": 78, "cal": 268, "tl": 325, "cb": 143, "tb": 212, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.InvalidExpressionException", "rp": "Calculator_project_InvalidExpressionException.html", "cl": 3, "ucl": 10, "cal": 13, "tl": 25, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Exceptions.NumberTooLargeException", "rp": "Calculator_project_NumberTooLargeException.html", "cl": 0, "ucl": 13, "cal": 13, "tl": 29, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.MainWindow", "rp": "Calculator_project_MainWindow.html", "cl": 0, "ucl": 439, "cal": 439, "tl": 717, "cb": 0, "tb": 234, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.DivideOperator", "rp": "Calculator_project_DivideOperator.html", "cl": 13, "ucl": 1, "cal": 14, "tl": 27, "cb": 3, "tb": 4, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.ExponentiateOperator", "rp": "Calculator_project_ExponentiateOperator.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.MultiplyOperator", "rp": "Calculator_project_MultiplyOperator.html", "cl": 10, "ucl": 0, "cal": 10, "tl": 19, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.Operand", "rp": "Calculator_project_Operand.html", "cl": 7, "ucl": 2, "cal": 9, "tl": 20, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SubtractOperator", "rp": "Calculator_project_SubtractOperator.html", "cl": 11, "ucl": 0, "cal": 11, "tl": 18, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+      { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
+=======
+<<<<<<< HEAD
       { "name": "Calculator_project.App", "rp": "Calculator_project_App.html", "cl": 0, "ucl": 6, "cal": 6, "tl": 98, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
 <<<<<<< HEAD
       { "name": "Calculator_project.Controller.Controller", "rp": "Calculator_project_Controller.html", "cl": 116, "ucl": 56, "cal": 172, "tl": 259, "cb": 70, "tb": 90, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
@@ -262,6 +275,7 @@ var assemblies = [
       { "name": "Calculator_project.Model.SumOperator", "rp": "Calculator_project_SumOperator.html", "cl": 6, "ucl": 0, "cal": 6, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
       { "name": "Calculator_project.Model.TangentFunction", "rp": "Calculator_project_TangentFunction.html", "cl": 0, "ucl": 8, "cal": 8, "tl": 129, "cb": 0, "tb": 2, "cm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "hc": [], "metrics": { } },
 >>>>>>> project
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     ]},
 ];
 
@@ -297,7 +311,17 @@ var riskHotspots = [
       { "value": 58, "exceeded": true },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)", "methodShortName": "OutputTextBlock_PreviewTextInput(...)", "fileIndex": 1, "line": 155,
+    "metrics": [
+      { "value": 1980, "exceeded": true },
+      { "value": 44, "exceeded": true },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "bracketcontroll(System.String)", "methodShortName": "bracketcontroll(...)", "fileIndex": 0, "line": 17,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)", "methodShortName": "System.Windows.Markup.IComponentConnector.Connect(...)", "fileIndex": 0, "line": 39,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
 <<<<<<< HEAD
       { "value": 930, "exceeded": true },
@@ -363,12 +387,25 @@ var riskHotspots = [
       { "value": 66, "exceeded": true },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EndsWithOperator(System.String)", "methodShortName": "EndsWithOperator(...)", "fileIndex": 1, "line": 139,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 52,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 156, "exceeded": true },
       { "value": 12, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "SortToTokenList(System.String)", "methodShortName": "SortToTokenList(...)", "fileIndex": 0, "line": 68,
+    "metrics": [
+      { "value": 141.94, "exceeded": true },
+      { "value": 62, "exceeded": true },
+    ]},
+  {
+=======
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 34,
 >>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
     "metrics": [
@@ -385,6 +422,9 @@ var riskHotspots = [
       { "value": 10, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "NumBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "NumBtn_Click(...)", "fileIndex": 1, "line": 23,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OperatorBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "OperatorBtn_Click(...)", "fileIndex": 1, "line": 143,
     "metrics": [
       { "value": 110, "exceeded": true },
@@ -398,6 +438,7 @@ var riskHotspots = [
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 510,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 110, "exceeded": true },
       { "value": 10, "exceeded": false },
@@ -419,6 +460,9 @@ var riskHotspots = [
       { "value": 8, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "OutputTextBlock_PreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)", "methodShortName": "OutputTextBlock_PreviewKeyDown(...)", "fileIndex": 1, "line": 294,
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 118,
     "metrics": [
       { "value": 72, "exceeded": true },
@@ -426,6 +470,7 @@ var riskHotspots = [
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EqualsBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "EqualsBtn_Click(...)", "fileIndex": 1, "line": 183,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 72, "exceeded": true },
       { "value": 8, "exceeded": false },
@@ -451,12 +496,18 @@ var riskHotspots = [
     ]},
   {
 <<<<<<< HEAD
+    "assembly": "Calculator-project", "class": "Calculator_project.Controller.Controller", "reportPath": "Calculator_project_Controller.html", "methodName": "CalculateExpression(System.String)", "methodShortName": "CalculateExpression(...)", "fileIndex": 0, "line": 14,
+=======
+<<<<<<< HEAD
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 70,
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "metrics": [
       { "value": 20, "exceeded": true },
       { "value": 4, "exceeded": false },
     ]},
   {
+<<<<<<< HEAD
+=======
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 94,
     "metrics": [
       { "value": 20, "exceeded": true },
@@ -465,6 +516,7 @@ var riskHotspots = [
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EqualsBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "EqualsBtn_Click(...)", "fileIndex": 1, "line": 134,
 =======
+>>>>>>> 1b09597b7a4c9764fad8d1e47a45a9f8966fa402
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 72,
 >>>>>>> 4007e7c591566d94d795fd899e7acc36201e1a1c
     "metrics": [
@@ -473,6 +525,24 @@ var riskHotspots = [
     ]},
   {
     "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 94,
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "eOrPiBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "eOrPiBtn_Click(...)", "fileIndex": 1, "line": 58,
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "DecimalBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "DecimalBtn_Click(...)", "fileIndex": 1, "line": 78,
+    "metrics": [
+      { "value": 20, "exceeded": true },
+      { "value": 4, "exceeded": false },
+    ]},
+  {
+    "assembly": "Calculator-project", "class": "Calculator_project.MainWindow", "reportPath": "Calculator_project_MainWindow.html", "methodName": "EqualsBtn_Click(System.Object,System.Windows.RoutedEventArgs)", "methodShortName": "EqualsBtn_Click(...)", "fileIndex": 1, "line": 110,
     "metrics": [
       { "value": 20, "exceeded": true },
       { "value": 4, "exceeded": false },
