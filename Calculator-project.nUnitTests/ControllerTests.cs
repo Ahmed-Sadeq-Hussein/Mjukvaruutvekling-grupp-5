@@ -564,7 +564,7 @@ namespace Calculator_project.nUnitTests
         {
             // Assign
             string expression = "2 + 3 * (4 - 1)";
-            string expectedOutput = "11"; 
+            string expectedOutput = "11";
 
             // Act
             string result = controller.CalculateExpression(expression, true);
