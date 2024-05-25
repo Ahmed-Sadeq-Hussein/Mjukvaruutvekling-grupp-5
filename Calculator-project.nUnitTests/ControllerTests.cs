@@ -564,7 +564,7 @@ namespace Calculator_project.nUnitTests
         {
             // Assign
             string expression = "2 + 3 * (4 - 1)";
-            string expectedOutput = "15";
+            string expectedOutput = "11"; // Expected result of the expression
 
             // Act
             string result = controller.CalculateExpression(expression, true);
@@ -572,5 +572,7 @@ namespace Calculator_project.nUnitTests
             // Assert
             Assert.That(result, Is.EqualTo(expectedOutput));
         }
+
+
     }
 }
