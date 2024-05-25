@@ -558,5 +558,19 @@ namespace Calculator_project.nUnitTests
             // Assert
             Assert.That(numberOfDecimals, Is.EqualTo(9));
         }
+
+        [Test]
+        public void CalculateComplexExpression_IntegrationTest()
+        {
+            // Assign
+            string expression = "2 + 3 * (4 - 1)";
+            string expectedOutput = "11"; 
+
+            // Act
+            string result = controller.CalculateExpression(expression, true);
+
+            // Assert
+            Assert.That(result, Is.EqualTo(expectedOutput));
+        }
     }
 }
