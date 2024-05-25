@@ -622,9 +622,6 @@ namespace Calculator_project
             OutputTextBlock.Text = output;
 
 
-            output += buttonContent;
-            OutputTextBlock.Text = output;
-
         }
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
