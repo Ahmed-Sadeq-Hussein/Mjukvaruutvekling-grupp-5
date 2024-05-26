@@ -563,7 +563,7 @@ namespace Calculator_project.nUnitTests
         public void CalculateComplexExpression_IntegrationTest()
         {
             // Assign
-            string expression = "2 + 3 * (4 - 1)";
+            string expression = "2+3x(4-1)";
             string expectedOutput = "11"; // Expected result of the expression
 
             // Act
