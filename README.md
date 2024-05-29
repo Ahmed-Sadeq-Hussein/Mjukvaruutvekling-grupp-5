@@ -104,6 +104,12 @@ Now there are two folders in the repository. The coverlet folder includes all of
 ---
 
 ## How to run a linter
+1. Right click the solution in the Solution Explorer and selecting "Manage NuGet Packages for Solution"
+![Manage NuGet Packages](https://cdn.discordapp.com/attachments/1221090555405008978/1245347755069542462/image.png?ex=66586bfa&is=66571a7a&hm=2d17482e2956ed86c0f27add721d6cc69a47ad6a91e64ea88a403c8199cef020&)
+2. Search for StyleCop.Analyzers and install it.
+3. When building the project, the errors will be listed in the error list
+![image](https://github.com/Ahmed-Sadeq-Hussein/Mjukvaruutvekling-grupp-5/assets/164903550/1d46d336-8a0f-442d-9ba6-6b4ff47d8f5a)
+
 ---
 
 ### Kanban: https://github.com/users/Ahmed-Sadeq-Hussein/projects/1
