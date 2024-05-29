@@ -1,142 +1,143 @@
-﻿using Calculator.Model;
-using Calculator_project.Model;
-
-namespace Calculator_project.nUnitTests
+﻿namespace Calculator_project.nUnitTests
 {
+    using Calculator_project.Model;
+    using Calculator.Model;
+
     public class ControllerTests
     {
-        private Controller.Controller controller { get; set; } = null!;
+        private Controller.Controller Controller { get; set; } = null!;
 
         [SetUp]
         public void Setup()
         {
-            controller = new Controller.Controller();
+            this.Controller = new Controller.Controller();
         }
 
         [Test]
-        // These tests are for those tests we made along the way
 
+        // These tests are for those tests we made along the way
         public void ASHTESTS()
         {
             Function ash = new AshFunction();
-            //Assign
+
+            // Assign
             double awns1 = 1;
             double awns2 = 1.1;
             double awns3 = 0;
-            //Act
+
+            // Act
             awns1 = ash.Execute(new double[] { awns1 });
             awns2 = ash.Execute(new double[] { awns2 });
             awns3 = ash.Execute(new double[] { awns3 });
 
-            //Assert?
+            // Assert?
             Assert.That(awns2, Is.EqualTo(awns1));
             Assert.That(awns3, Is.EqualTo(awns1));
             Assert.That(awns1, Is.EqualTo(69));
 
         }
 
-        //Tests the different ways to use include brackets
+        // Tests the different ways to use include brackets
         [Test]
         public void CalculateExpression_EqualTest()
         {
-            //Assign
+            // Assign
             string expression = "3x(138/(30+4^2))4/3-7(2/7-1/7)+(4)(1+1)+2cos(1-1)3";
 
-            //Act
-            string result = controller.CalculateExpression(expression, true);
+            // Act
+            string result = this.Controller.CalculateExpression(expression, true);
 
-            //Assert
+            // Assert
             Assert.That(result, Is.EqualTo("25.00000002"));
         }
 
         [Test]
-        public void bracketcontroll_EqualTest1()
+        public void BracketControl_EqualTest1()
         {
-            //Assign
+            // Assign
             string expression = "(2+2)";
 
-            //Act
-            string returned_expression = controller.bracketcontroll(expression);
+            // Act
+            string returned_expression = this.Controller.BracketControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_expression, Is.EqualTo("4"));
         }
 
-        //Assign
+        // Assign
         [TestCase("2(2)")]
         [TestCase("(2)2")]
-        public void bracketcontroll_EqualTest2(string expression)
+        public void BracketControl_EqualTest2(string expression)
         {
-            //Act
-            string returned_expression = controller.bracketcontroll(expression);
+            // Act
+            string returned_expression = this.Controller.BracketControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_expression, Is.EqualTo("2x2"));
         }
 
         [Test]
-        public void bracketcontroll_EqualTest3()
+        public void BracketControl_EqualTest3()
         {
-            //Assign
+            // Assign
             string expression = "e(2)";
 
-            //Act
-            string returned_expression = controller.bracketcontroll(expression);
+            // Act
+            string returned_expression = this.Controller.BracketControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_expression, Is.EqualTo("ex2"));
         }
 
         [Test]
-        public void bracketcontroll_EqualTest4()
+        public void BracketControl_EqualTest4()
         {
-            //Assign
+            // Assign
             string expression = "-(2)";
 
-            //Act
-            string returned_expression = controller.bracketcontroll(expression);
+            // Act
+            string returned_expression = this.Controller.BracketControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_expression, Is.EqualTo("-x2"));
         }
 
-        //Assign
         [Test]
-        public void functioncontroll_EqualTest1()
+        public void FunctionControl_EqualTest1()
         {
-            //Assign
+            // Assign
             string expression = "cos0";
 
-            //Act
-            string returned_string = controller.functioncontroll(expression);
+            // Act
+            string returned_string = this.Controller.FunctionControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_string, Is.EqualTo("1"));
         }
 
         [Test]
-        public void functioncontroll_EqualTest2()
+        public void FunctionControl_EqualTest2()
         {
-            //Assign
+            // Assign
             string expression = "3tan0";
 
-            //Act
-            string returned_string = controller.functioncontroll(expression);
+            // Act
+            string returned_string = this.Controller.FunctionControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_string, Is.EqualTo("3x0"));
         }
 
         [Test]
-        public void functioncontroll_EqualTest3()
+        public void FunctionContrll_EqualTest3()
         {
-            //Assign
+            // Assign
             string expression = "πsin3";
 
-            //Act
-            string returned_string = controller.functioncontroll(expression);
+            // Act
+            string returned_string = this.Controller.FunctionControl(expression);
 
-            //Assert
+            // Assert
             Assert.That(returned_string, Is.EqualTo("πx0.1411200080598672"));
         }
 
@@ -149,7 +150,7 @@ namespace Calculator_project.nUnitTests
             List<Token> tokenList = new List<Token>();
 
             // Act
-            tokenList = controller.SortToTokenList(expression);
+            tokenList = this.Controller.SortToTokenList(expression);
 
             // Assert
             Assert.That(tokenList[0].ToString().Replace('.', ','), Is.EqualTo("2"));
@@ -178,7 +179,7 @@ namespace Calculator_project.nUnitTests
         public void SortToTokenList_ThrowsExceptionTest(string expression)
         {
             // Act, Assert
-            Assert.Throws<Calculator_project.Exceptions.InvalidExpressionException>(() => controller.SortToTokenList(expression));
+            Assert.Throws<Calculator_project.Exceptions.InvalidExpressionException>(() => this.Controller.SortToTokenList(expression));
         }
 
         [Test]
@@ -191,12 +192,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SumOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsTrue(controller.TokenListContainsOperator<SumOperator>(tokenList, ref index));
+            Assert.IsTrue(this.Controller.TokenListContainsOperator<SumOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -209,12 +210,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsFalse(controller.TokenListContainsOperator<SumOperator>(tokenList, ref index));
+            Assert.IsFalse(this.Controller.TokenListContainsOperator<SumOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -227,12 +228,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsTrue(controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index));
+            Assert.IsTrue(this.Controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -245,12 +246,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SumOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsFalse(controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index));
+            Assert.IsFalse(this.Controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -263,12 +264,12 @@ namespace Calculator_project.nUnitTests
                 new Model.MultiplyOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsTrue(controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index));
+            Assert.IsTrue(this.Controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -281,12 +282,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsFalse(controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index));
+            Assert.IsFalse(this.Controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -299,12 +300,12 @@ namespace Calculator_project.nUnitTests
                 new Model.MultiplyOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsTrue(controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index));
+            Assert.IsTrue(this.Controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -317,12 +318,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.MultiplyOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsFalse(controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index));
+            Assert.IsFalse(this.Controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -335,12 +336,12 @@ namespace Calculator_project.nUnitTests
                 new Model.MultiplyOperator(),
                 new Model.Operand(3),
                 new Model.ExponentiateOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsTrue(controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index));
+            Assert.IsTrue(this.Controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -353,12 +354,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act, Assert
-            Assert.IsFalse(controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index));
+            Assert.IsFalse(this.Controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index));
         }
 
         [Test]
@@ -371,12 +372,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SumOperator(),
                 new Model.Operand(3),
                 new Model.SumOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act
-            controller.TokenListContainsOperator<SumOperator>(tokenList, ref index);
+            this.Controller.TokenListContainsOperator<SumOperator>(tokenList, ref index);
 
             // Assert
             Assert.That(index, Is.EqualTo(1));
@@ -392,12 +393,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SubtractOperator(),
                 new Model.Operand(3),
                 new Model.SubtractOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act
-            controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index);
+            this.Controller.TokenListContainsOperator<SubtractOperator>(tokenList, ref index);
 
             // Assert
             Assert.That(index, Is.EqualTo(1));
@@ -413,12 +414,12 @@ namespace Calculator_project.nUnitTests
                 new Model.MultiplyOperator(),
                 new Model.Operand(3),
                 new Model.MultiplyOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act
-            controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index);
+            this.Controller.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index);
 
             // Assert
             Assert.That(index, Is.EqualTo(1));
@@ -434,12 +435,12 @@ namespace Calculator_project.nUnitTests
                 new Model.DivideOperator(),
                 new Model.Operand(3),
                 new Model.DivideOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act
-            controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index);
+            this.Controller.TokenListContainsOperator<DivideOperator>(tokenList, ref index);
 
             // Assert
             Assert.That(index, Is.EqualTo(1));
@@ -455,12 +456,12 @@ namespace Calculator_project.nUnitTests
                 new Model.ExponentiateOperator(),
                 new Model.Operand(3),
                 new Model.ExponentiateOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = default;
 
             // Act
-            controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index);
+            this.Controller.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index);
 
             // Assert
             Assert.That(index, Is.EqualTo(3));
@@ -477,12 +478,12 @@ namespace Calculator_project.nUnitTests
                 new Model.SumOperator(),
                 new Model.Operand(3),
                 new Model.MultiplyOperator(),
-                new Model.Operand(3)
+                new Model.Operand(3),
             };
             int index = 3;
 
             // Act
-            tokenList = controller.CalculateSubexpression(tokenList, index);
+            tokenList = this.Controller.CalculateSubexpression(tokenList, index);
 
             // Assert
             Assert.That(tokenList[0].ToString(), Is.EqualTo("4"));
@@ -506,11 +507,11 @@ namespace Calculator_project.nUnitTests
                 new Model.DivideOperator(),
                 new Model.Operand(1.5),
                 new Model.ExponentiateOperator(),
-                new Model.Operand(0)
+                new Model.Operand(0),
             };
 
             // Act, Assert
-            tokenList = controller.Operate(tokenList);
+            tokenList = this.Controller.Operate(tokenList);
             Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
             Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
             Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
@@ -521,7 +522,7 @@ namespace Calculator_project.nUnitTests
             Assert.That(tokenList[7].ToString(), Is.EqualTo("[DivideOperator]"));
             Assert.That(tokenList[8].ToString(), Is.EqualTo("1"));
 
-            tokenList = controller.Operate(tokenList);
+            tokenList = this.Controller.Operate(tokenList);
             Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
             Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
             Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
@@ -530,19 +531,19 @@ namespace Calculator_project.nUnitTests
             Assert.That(tokenList[5].ToString(), Is.EqualTo("[SubtractOperator]"));
             Assert.That(tokenList[6].ToString(), Is.EqualTo("3"));
 
-            tokenList = controller.Operate(tokenList);
+            tokenList = this.Controller.Operate(tokenList);
             Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
             Assert.That(tokenList[1].ToString(), Is.EqualTo("[SumOperator]"));
             Assert.That(tokenList[2].ToString(), Is.EqualTo("0"));
             Assert.That(tokenList[3].ToString(), Is.EqualTo("[SubtractOperator]"));
             Assert.That(tokenList[4].ToString(), Is.EqualTo("3"));
 
-            tokenList = controller.Operate(tokenList);
+            tokenList = this.Controller.Operate(tokenList);
             Assert.That(tokenList[0].ToString(), Is.EqualTo("2"));
             Assert.That(tokenList[1].ToString(), Is.EqualTo("[SubtractOperator]"));
             Assert.That(tokenList[2].ToString(), Is.EqualTo("3"));
 
-            tokenList = controller.Operate(tokenList);
+            tokenList = this.Controller.Operate(tokenList);
             Assert.That(tokenList[0].ToString(), Is.EqualTo("-1"));
         }
 
@@ -553,7 +554,7 @@ namespace Calculator_project.nUnitTests
             string expression = "1.123456789";
 
             // Act
-            int numberOfDecimals = controller.NumberOfDecimals(expression);
+            int numberOfDecimals = this.Controller.NumberOfDecimals(expression);
 
             // Assert
             Assert.That(numberOfDecimals, Is.EqualTo(9));

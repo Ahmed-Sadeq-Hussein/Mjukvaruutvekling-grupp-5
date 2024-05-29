@@ -1,88 +1,85 @@
-﻿using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-namespace Calculator_project
+﻿namespace Calculator_project
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Controls;
 
+    /// <summary>
+    ///
+    /// </summary>
     public partial class MainWindow : Window
     {
         /// <summary>
-        ///  creates a file to save stuff inside 
-        ///  
+        ///  creates a file to save stuff inside.
+        ///
         /// </summary>
-        /// 
+        ///
+        private Controller.Controller controller = new Controller.Controller();
 
+        private string output = "0"; // used to keep track of the numbers
+        private bool currentNumIncludesDecimal = false;
+        private string filePath = "yourfile.txt";
+        private bool numIsAvailable = true;
 
-        Controller.Controller controller = new Controller.Controller();
-
-        string output = "0"; //used to keep track of the numbers
-        bool currentNumIncludesDecimal = false;
-        string filePath = "yourfile.txt";
-        bool numIsAvailable = true;
-
-        bool zeroIsAvailable = false;
-        bool eOrPiIsAvailable = true;
-        int parenthesesCount = 0; // Track parentheses count
-
+        private bool zeroIsAvailable = false;
+        private bool eOrPiIsAvailable = true;
+        private int parenthesesCount = 0; // Track parentheses count
 
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.DataContext = this;
 
-            if (!File.Exists(filePath))
+            if (!File.Exists(this.filePath))
             {
-                File.Create(filePath).Dispose();
+                File.Create(this.filePath).Dispose();
             }
             else
             {
-                File.WriteAllText(filePath, string.Empty);
+                File.WriteAllText(this.filePath, string.Empty);
             }
         }
 
         /// <summary>
-        /// A function that takes the current button content to the output string. 
-        /// Smart. very creative
+        /// A function that takes the current button content to the output string.
+        /// Smart. very creative.
         /// </summary>
-
         private void NumBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
 
-            if (eOrPiIsAvailable)
+            if (this.eOrPiIsAvailable)
             {
                 if (buttonContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
                 {
-                    if (zeroIsAvailable)
+                    if (this.zeroIsAvailable)
                     {
-                        if (EndsWithOperator(output))
+                        if (this.EndsWithOperator(this.output))
                         {
-                            numIsAvailable = false;
-                            zeroIsAvailable = false;
+                            this.numIsAvailable = false;
+                            this.zeroIsAvailable = false;
                         }
-                        output += buttonContent;
-                        OutputTextBlock.Text = output;
+
+                        this.output += buttonContent;
+                        this.OutputTextBlock.Text = this.output;
                     }
                 }
                 else // If any other number button is pressed, add it
                 {
-                    if (numIsAvailable)
+                    if (this.numIsAvailable)
                     {
-                        if (output == "0" || output == "0 ")
+                        if (this.output == "0" || this.output == "0 ")
                         {
-                            output = buttonContent;
-                            zeroIsAvailable = true;
+                            this.output = buttonContent;
+                            this.zeroIsAvailable = true;
                         }
                         else
                         {
-                            output += buttonContent;
+                            this.output += buttonContent;
                         }
-                        OutputTextBlock.Text = output;
-                    }
 
+                        this.OutputTextBlock.Text = this.output;
+                    }
                 }
             }
         }
@@ -90,89 +87,91 @@ namespace Calculator_project
         /// <summary>
         /// implementation of e or pi. might be redundant considering the button press. Will ask about it .
         /// </summary>
-        private void eOrPiBtn_Click(object sender, RoutedEventArgs e)
+        private void EOrPiBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
 
-            if (eOrPiIsAvailable)
+            if (this.eOrPiIsAvailable)
             {
-                eOrPiIsAvailable = false;
-                currentNumIncludesDecimal = true;
-                if (output == "0" || output == "0 ")
+                this.eOrPiIsAvailable = false;
+                this.currentNumIncludesDecimal = true;
+                if (this.output == "0" || this.output == "0 ")
                 {
-                    output = buttonContent;
+                    this.output = buttonContent;
                 }
                 else
                 {
-                    output += buttonContent;
+                    this.output += buttonContent;
                 }
-                OutputTextBlock.Text = output;
+
+                this.OutputTextBlock.Text = this.output;
             }
         }
+
         /// <summary>
-        /// Button specifically for decimal. 
+        /// Button specifically for decimal.
         /// Good. does go well with oop and grasp implementation.
         /// </summary>
-
         private void DecimalBtn_Click(object sender, RoutedEventArgs e)
         {
             // Check if the output already contains a decimal point
-            if (!currentNumIncludesDecimal)
+            if (!this.currentNumIncludesDecimal)
             {
-                if (EndsWithOperator(output) || output.EndsWith("(") || output.EndsWith(")"))
+                if (this.EndsWithOperator(this.output) || this.output.EndsWith("(") || this.output.EndsWith(")"))
                 {
-                    output += "0.";
+                    this.output += "0.";
                 }
                 else
                 {
-                    output += '.';
+                    this.output += '.';
                 }
-                numIsAvailable = true;
-                zeroIsAvailable = true;
-                OutputTextBlock.Text = output;
-                currentNumIncludesDecimal = true;
+
+                this.numIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.OutputTextBlock.Text = this.output;
+                this.currentNumIncludesDecimal = true;
             }
         }
 
         /// <summary>
-        /// implementation of the diffrent operators, +, - ect .
+        /// implementation of the diffrent operators, +, - ect.
         /// Good. Identifies the issue that might occur and adresses it through a simple and compact if statement.
         /// </summary>
-
         private void OperatorBtn_Click(object sender, RoutedEventArgs e)
         {
             string buttonContent = (string)((Button)sender).Content;
-            if (!EndsWithOperator(output)) // If the expression does NOT end with an operator, add the pressed operator
+            if (!this.EndsWithOperator(this.output)) // If the expression does NOT end with an operator, add the pressed operator
             {
                 if (buttonContent == "-")
                 {
-                    if (output == "0" || output == "0 ")
+                    if (this.output == "0" || this.output == "0 ")
                     {
-                        output = "–";
+                        this.output = "–";
                     }
                     else
                     {
-                        output += buttonContent;
+                        this.output += buttonContent;
                     }
                 }
                 else
                 {
-                    output += buttonContent;
+                    this.output += buttonContent;
                 }
-                numIsAvailable = true;
-                zeroIsAvailable = true;
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                OutputTextBlock.Text = output;
+
+                this.numIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.OutputTextBlock.Text = this.output;
             }
-            else if (buttonContent == "-" && !output.EndsWith('–'))
+            else if (buttonContent == "-" && !this.output.EndsWith('–'))
             {
-                numIsAvailable = true;
-                zeroIsAvailable = true;
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                output += "–";
-                OutputTextBlock.Text = output;
+                this.numIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.output += "–";
+                this.OutputTextBlock.Text = this.output;
             }
         }
 
@@ -181,76 +180,71 @@ namespace Calculator_project
         /// </summary>
         private void EqualsBtn_Click(object sender, RoutedEventArgs e)
         {
-
-            if (output != "0")
+            if (this.output != "0")
             {
                 // closes all parenthesis in the function. :3
-                while (parenthesesCount > 0)
+                while (this.parenthesesCount > 0)
                 {
-                    output += ")";
-                    OutputTextBlock.Text = output;
-                    parenthesesCount--;
+                    this.output += ")";
+                    this.OutputTextBlock.Text = this.output;
+                    this.parenthesesCount--;
                 }
-                using (StreamWriter sw = File.AppendText(filePath))
-                {
-                    sw.WriteLine(output + "=");
-                }
-                // Call Controller.Calc function to calculate the result
-                output = controller.CalculateExpression(output, true);
 
-                if (output.Contains('.'))
+                using (StreamWriter sw = File.AppendText(this.filePath))
                 {
-                    currentNumIncludesDecimal = true;
+                    sw.WriteLine(this.output + "=");
+                }
+
+                // Call Controller.Calc function to calculate the result
+                this.output = this.controller.CalculateExpression(this.output, true);
+
+                if (this.output.Contains('.'))
+                {
+                    this.currentNumIncludesDecimal = true;
                 }
                 else
                 {
-                    currentNumIncludesDecimal = false;
+                    this.currentNumIncludesDecimal = false;
                 }
-                zeroIsAvailable = true;
-                numIsAvailable = true;
-                eOrPiIsAvailable = true;
+
+                this.zeroIsAvailable = true;
+                this.numIsAvailable = true;
+                this.eOrPiIsAvailable = true;
 
                 // Display the result
-                if (output == "0 ")
+                if (this.output == "0 ")
                 {
-                    output = "0";
-                    using (StreamWriter sw = File.AppendText(filePath))
+                    this.output = "0";
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
                         sw.WriteLine("Error");
                     }
-
-
-
                 }
                 else
                 {
-
-                    using (StreamWriter sw = File.AppendText(filePath))
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
-                        sw.WriteLine(output);
+                        sw.WriteLine(this.output);
                     }
-
                 }
-                OutputTextBlock.Text = output;
-            }
 
+                this.OutputTextBlock.Text = this.output;
+            }
         }
 
         /// <summary>
         /// implementation of Clear. Good. Resets values and readresses output and text block.
         /// Well done.
         /// </summary>
-
         private void ClearBtn_Click(object sender, RoutedEventArgs e)
         {
-            numIsAvailable = true;
-            zeroIsAvailable = false;
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            parenthesesCount = 0;
-            output = "0";
-            OutputTextBlock.Text = output;
-
+            this.numIsAvailable = true;
+            this.zeroIsAvailable = false;
+            this.currentNumIncludesDecimal = false;
+            this.eOrPiIsAvailable = true;
+            this.parenthesesCount = 0;
+            this.output = "0";
+            this.OutputTextBlock.Text = this.output;
         }
 
         /// <summary>
@@ -260,10 +254,9 @@ namespace Calculator_project
         /// hint. use this on the ending to delete excess operator in the end of the string to add furthure bug prevention
         /// ......
         /// </summary>
-
         private bool EndsWithOperator(string expression)
         {
-            if ((expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("(")))
+            if (expression.EndsWith('+') || expression.EndsWith('-') || expression.EndsWith('–') || expression.EndsWith('x') || expression.EndsWith('*') || expression.EndsWith('/') || expression.EndsWith('^') || expression.EndsWith("("))
             {
                 return true;
             }
@@ -273,221 +266,229 @@ namespace Calculator_project
             }
         }
 
-
-
-
         /// <summary>
-        /// keyboard input implementation. 
+        /// keyboard input implementation.
         /// good addition to the calculator and can help with people that use calculator through kepyboard.
         /// </summary>
-
         private void OutputTextBlock_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             string keyContent = e.Text;
-
-
-
-            if ((IsNumber(keyContent)))
+            if (this.IsNumber(keyContent))
             {
-                if (eOrPiIsAvailable)
+                if (this.eOrPiIsAvailable)
                 {
                     if (keyContent == "0") // If the zero button is pressed, check to see if a zeroAvailable is true before adding
                     {
-                        if (zeroIsAvailable)
+                        if (this.zeroIsAvailable)
                         {
-                            if (EndsWithOperator(output))
+                            if (this.EndsWithOperator(this.output))
                             {
-                                numIsAvailable = false;
-                                zeroIsAvailable = false;
+                                this.numIsAvailable = false;
+                                this.zeroIsAvailable = false;
                             }
-                            output += keyContent;
-                            OutputTextBlock.Text = output;
+
+                            this.output += keyContent;
+                            this.OutputTextBlock.Text = this.output;
                         }
                     }
                     else // If any other number button is pressed, add it
                     {
-                        if (numIsAvailable)
+                        if (this.numIsAvailable)
                         {
-                            if (output == "0" || output == "0 ")
+                            if (this.output == "0" || this.output == "0 ")
                             {
-                                output = keyContent;
-                                zeroIsAvailable = true;
+                                this.output = keyContent;
+                                this.zeroIsAvailable = true;
                             }
                             else
                             {
-                                output += keyContent;
+                                this.output += keyContent;
                             }
-                            OutputTextBlock.Text = output;
+
+                            this.OutputTextBlock.Text = this.output;
                         }
                     }
                 }
             }
-            /// here is an example of how to add it to the OutputTextBlock_PreviewTextInput method
+
+            // here is an example of how to add it to the OutputTextBlock_PreviewTextInput method
             else if (keyContent == "A")
             {
-                if (output == "0" || output == "0 ")
+                if (this.output == "0" || this.output == "0 ")
                 {
-                    output = "";
+                    this.output = string.Empty;
                 }
+
                 string buttonContent = "ash(";
 
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                zeroIsAvailable = true;
-                numIsAvailable = true;
-                parenthesesCount++;
-                output += buttonContent;
-                OutputTextBlock.Text = output;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.numIsAvailable = true;
+                this.parenthesesCount++;
+                this.output += buttonContent;
+                this.OutputTextBlock.Text = this.output;
             }
             else if (keyContent == "(")
             {
-                parenthesesCount++;
-                if (output == "0" || output == "0 ") { output = "("; }
+                this.parenthesesCount++;
+                if (this.output == "0" || this.output == "0 ")
+                {
+                    this.output = "(";
+                }
                 else
                 {
-                    output += "(";
+                    this.output += "(";
                 }
-                OutputTextBlock.Text = output;
+
+                this.OutputTextBlock.Text = this.output;
+
                 // braket variable changes. included in both .
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                zeroIsAvailable = true;
-                numIsAvailable = true;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.numIsAvailable = true;
             }
             else if (keyContent == ")")
             {
-                if (parenthesesCount > 0) // Ensure there are open parentheses to close
+                if (this.parenthesesCount > 0) // Ensure there are open parentheses to close
                 {
-                    currentNumIncludesDecimal = false;
-                    eOrPiIsAvailable = true;
-                    zeroIsAvailable = true;
-                    numIsAvailable = true;
-                    parenthesesCount--;
-                    output += ")";
-                    OutputTextBlock.Text = output;
+                    this.currentNumIncludesDecimal = false;
+                    this.eOrPiIsAvailable = true;
+                    this.zeroIsAvailable = true;
+                    this.numIsAvailable = true;
+                    this.parenthesesCount--;
+                    this.output += ")";
+                    this.OutputTextBlock.Text = this.output;
                 }
             }
             else if (keyContent == "p")
             {
-                if (eOrPiIsAvailable)
+                if (this.eOrPiIsAvailable)
                 {
-                    eOrPiIsAvailable = false;
-                    currentNumIncludesDecimal = true;
-                    if (output == "0" || output == "0 ")
+                    this.eOrPiIsAvailable = false;
+                    this.currentNumIncludesDecimal = true;
+                    if (this.output == "0" || this.output == "0 ")
                     {
-                        output = "π";
+                        this.output = "π";
                     }
                     else
                     {
-                        output += "π";
+                        this.output += "π";
                     }
-                    OutputTextBlock.Text = output;
+
+                    this.OutputTextBlock.Text = this.output;
                 }
             }
             else if (keyContent == "e")
             {
-                if (eOrPiIsAvailable)
+                if (this.eOrPiIsAvailable)
                 {
-                    eOrPiIsAvailable = false;
-                    currentNumIncludesDecimal = true;
-                    if (output == "0" || output == "0 ")
+                    this.eOrPiIsAvailable = false;
+                    this.currentNumIncludesDecimal = true;
+                    if (this.output == "0" || this.output == "0 ")
                     {
-                        output = "e";
+                        this.output = "e";
                     }
                     else
                     {
-                        output += "e";
+                        this.output += "e";
                     }
-                    OutputTextBlock.Text = output;
+
+                    this.OutputTextBlock.Text = this.output;
                 }
             }
             else if (keyContent == "," || keyContent == ".")
             {
-                if (!currentNumIncludesDecimal)
+                if (!this.currentNumIncludesDecimal)
                 {
-                    if (EndsWithOperator(output))
+                    if (this.EndsWithOperator(this.output))
                     {
-                        output += "0.";
+                        this.output += "0.";
                     }
                     else
                     {
-                        output += '.';
+                        this.output += '.';
                     }
-                    numIsAvailable = true;
-                    zeroIsAvailable = true;
-                    OutputTextBlock.Text = output;
-                    currentNumIncludesDecimal = true;
+
+                    this.numIsAvailable = true;
+                    this.zeroIsAvailable = true;
+                    this.OutputTextBlock.Text = this.output;
+                    this.currentNumIncludesDecimal = true;
                 }
             }
-            else if (EndsWithOperator((string)keyContent))
+            else if (this.EndsWithOperator((string)keyContent))
             {
-                if (!EndsWithOperator(output))
+                if (!this.EndsWithOperator(this.output))
                 {
                     if (keyContent == "*")
                     {
-                        output += "x";
+                        this.output += "x";
                     }
                     else if (keyContent == "-")
                     {
-                        if (output == "0" || output == "0 ")
+                        if (this.output == "0" || this.output == "0 ")
                         {
-                            output = "–";
+                            this.output = "–";
                         }
                         else
                         {
-                            output += keyContent;
+                            this.output += keyContent;
                         }
                     }
                     else
                     {
-                        output += keyContent;
+                        this.output += keyContent;
                     }
                 }
-
-                else if (keyContent == "-" && !output.EndsWith('–'))
+                else if (keyContent == "-" && !this.output.EndsWith('–'))
                 {
-                    output += "–";
+                    this.output += "–";
                 }
 
-                numIsAvailable = true;
-                zeroIsAvailable = true;
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                OutputTextBlock.Text = output;
+                this.numIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.OutputTextBlock.Text = this.output;
             }
             else if (keyContent == "=")
             {
-                if (output != "0")
+                if (this.output != "0")
                 {
-                    while (parenthesesCount > 0)
+                    while (this.parenthesesCount > 0)
                     {
-                        output += ")";
-                        OutputTextBlock.Text = output;
-                        parenthesesCount--;
+                        this.output += ")";
+                        this.OutputTextBlock.Text = this.output;
+                        this.parenthesesCount--;
                     }
-                    using (StreamWriter sw = File.AppendText(filePath))
-                    {
-                        sw.WriteLine(output + "=");
-                    }
-                    // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output, true);
 
-                    if (output.Contains('.'))
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
-                        currentNumIncludesDecimal = true;
+                        sw.WriteLine(this.output + "=");
                     }
-                    numIsAvailable = true;
-                    zeroIsAvailable = true;
-                    eOrPiIsAvailable |= true;
+
+                    // Call Controller.Calc function to calculate the result
+                    this.output = this.controller.CalculateExpression(this.output, true);
+
+                    if (this.output.Contains('.'))
+                    {
+                        this.currentNumIncludesDecimal = true;
+                    }
+
+                    this.numIsAvailable = true;
+                    this.zeroIsAvailable = true;
+                    this.eOrPiIsAvailable |= true;
 
                     // Display the result
-                    OutputTextBlock.Text = output;
-                    using (StreamWriter sw = File.AppendText(filePath))
+                    this.OutputTextBlock.Text = this.output;
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
-                        sw.WriteLine(output);
+                        sw.WriteLine(this.output);
                     }
                 }
             }
+
             e.Handled = true;
         }
 
@@ -504,159 +505,160 @@ namespace Calculator_project
         }
 
         /// <summary>
-        /// is used for pressing back or enter key. 
+        /// is used for pressing back or enter key.
         /// good.
         /// </summary>
-
         private void OutputTextBlock_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == System.Windows.Input.Key.Back)
             {
-                numIsAvailable = true;
-                zeroIsAvailable = false;
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                parenthesesCount = 0;
-                output = "0";
-                OutputTextBlock.Text = output;
+                this.numIsAvailable = true;
+                this.zeroIsAvailable = false;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.parenthesesCount = 0;
+                this.output = "0";
+                this.OutputTextBlock.Text = this.output;
                 e.Handled = true;
             }
             else if (e.Key == System.Windows.Input.Key.Enter)
             {
-                if (output != "0")
+                if (this.output != "0")
                 {
-                    while (parenthesesCount > 0)
+                    while (this.parenthesesCount > 0)
                     {
-                        output += ")";
-                        OutputTextBlock.Text = output;
-                        parenthesesCount--;
+                        this.output += ")";
+                        this.OutputTextBlock.Text = this.output;
+                        this.parenthesesCount--;
                     }
-                    using (StreamWriter sw = File.AppendText(filePath))
-                    {
-                        sw.WriteLine(output + "=");
-                    }
-                    // Call Controller.Calc function to calculate the result
-                    output = controller.CalculateExpression(output, true);
 
-                    if (output.Contains('.'))
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
-                        currentNumIncludesDecimal = true;
+                        sw.WriteLine(this.output + "=");
                     }
-                    numIsAvailable = true;
-                    zeroIsAvailable = true;
-                    eOrPiIsAvailable = true;
+
+                    // Call Controller.Calc function to calculate the result
+                    this.output = this.controller.CalculateExpression(this.output, true);
+
+                    if (this.output.Contains('.'))
+                    {
+                        this.currentNumIncludesDecimal = true;
+                    }
+
+                    this.numIsAvailable = true;
+                    this.zeroIsAvailable = true;
+                    this.eOrPiIsAvailable = true;
 
                     // Display the result
-                    OutputTextBlock.Text = output;
-                    using (StreamWriter sw = File.AppendText(filePath))
+                    this.OutputTextBlock.Text = this.output;
+                    using (StreamWriter sw = File.AppendText(this.filePath))
                     {
-                        sw.WriteLine(output);
+                        sw.WriteLine(this.output);
                     }
                 }
+
                 e.Handled = true;
             }
         }
 
         private void OpenParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
-            parenthesesCount++;
-            if (output == "0" || output == "0 ") { output = "("; }
+            this.parenthesesCount++;
+            if (this.output == "0" || this.output == "0 ")
+            {
+                this.output = "(";
+            }
             else
             {
-                output += "(";
-
+                this.output += "(";
             }
-            OutputTextBlock.Text = output;
+
+            this.OutputTextBlock.Text = this.output;
+
             // braket variable changes. included in both .
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
-            numIsAvailable = true;
+            this.currentNumIncludesDecimal = false;
+            this.eOrPiIsAvailable = true;
+            this.zeroIsAvailable = true;
+            this.numIsAvailable = true;
         }
 
         private void CloseParentheses_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (parenthesesCount > 0) // Ensure there are open parentheses to close
+            if (this.parenthesesCount > 0) // Ensure there are open parentheses to close
             {
-                currentNumIncludesDecimal = false;
-                eOrPiIsAvailable = true;
-                zeroIsAvailable = true;
-                numIsAvailable = true;
-                parenthesesCount--;
-                output += ")";
-                OutputTextBlock.Text = output;
+                this.currentNumIncludesDecimal = false;
+                this.eOrPiIsAvailable = true;
+                this.zeroIsAvailable = true;
+                this.numIsAvailable = true;
+                this.parenthesesCount--;
+                this.output += ")";
+                this.OutputTextBlock.Text = this.output;
             }
         }
 
         private void Sinus_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0" || output == "0 ")
+            if (this.output == "0" || this.output == "0 ")
             {
-                output = "";
+                this.output = string.Empty;
             }
+
             string buttonContent = "sin(";
 
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
-            numIsAvailable = true;
-            parenthesesCount++;
-            output += buttonContent;
-            OutputTextBlock.Text = output;
+            this.currentNumIncludesDecimal = false;
+            this.eOrPiIsAvailable = true;
+            this.zeroIsAvailable = true;
+            this.numIsAvailable = true;
+            this.parenthesesCount++;
+            this.output += buttonContent;
+            this.OutputTextBlock.Text = this.output;
         }
 
         private void Cosinus_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0" || output == "0 ")
+            if (this.output == "0" || this.output == "0 ")
             {
-                output = "";
+                this.output = string.Empty;
             }
+
             string buttonContent = "cos(";
 
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
-            numIsAvailable = true;
-            parenthesesCount++;
-            output += buttonContent;
-            OutputTextBlock.Text = output;
-
-
+            this.currentNumIncludesDecimal = false;
+            this.eOrPiIsAvailable = true;
+            this.zeroIsAvailable = true;
+            this.numIsAvailable = true;
+            this.parenthesesCount++;
+            this.output += buttonContent;
+            this.OutputTextBlock.Text = this.output;
         }
 
         private void Tanges_Btn_Click(object sender, RoutedEventArgs e)
         {
-            if (output == "0" || output == "0 ")
+            if (this.output == "0" || this.output == "0 ")
             {
-                output = "";
+                this.output = string.Empty;
             }
+
             string buttonContent = "tan(";
 
-            currentNumIncludesDecimal = false;
-            eOrPiIsAvailable = true;
-            zeroIsAvailable = true;
-            numIsAvailable = true;
-            parenthesesCount++;
-            output += buttonContent;
-            OutputTextBlock.Text = output;
-
-
-            output += buttonContent;
-            OutputTextBlock.Text = output;
-
+            this.currentNumIncludesDecimal = false;
+            this.eOrPiIsAvailable = true;
+            this.zeroIsAvailable = true;
+            this.numIsAvailable = true;
+            this.parenthesesCount++;
+            this.output += buttonContent;
+            this.OutputTextBlock.Text = this.output;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
-
-        private void save_file_protocol(object sender, RoutedEventArgs e)
+        private void SaveFileProtocol(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("notepad.exe", filePath);
+            System.Diagnostics.Process.Start("notepad.exe", this.filePath);
         }
     }
 }
 
-//Good coded 
+// Good coded

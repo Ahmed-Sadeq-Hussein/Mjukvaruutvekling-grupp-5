@@ -1,7 +1,7 @@
-﻿using Calculator_project.Model;
-
-namespace Calculator_project.nUnitTests
+﻿namespace Calculator_project.nUnitTests
 {
+    using Calculator_project.Model;
+
     public class ModelTests
     {
         [Test]
@@ -252,7 +252,7 @@ namespace Calculator_project.nUnitTests
             // Act
             double result = function.Execute(paramList);
 
-            // Assert 
+            // Assert
             Assert.That(result, Is.EqualTo(1));
 
         }
@@ -270,7 +270,6 @@ namespace Calculator_project.nUnitTests
 
 
             // Assert
-
             Assert.That(result, Is.EqualTo(-0.66627602127982399));
         }
 
@@ -297,11 +296,10 @@ namespace Calculator_project.nUnitTests
             Function function = new SineFunction();
             double[] paramList = { 0 };
 
-            // Act 
+            // Act
             double result = function.Execute(paramList);
 
-            //Assert
-
+            // Assert
             Assert.That(result, Is.EqualTo(0));
 
         }

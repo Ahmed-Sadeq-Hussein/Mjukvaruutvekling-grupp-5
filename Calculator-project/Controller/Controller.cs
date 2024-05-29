@@ -1,27 +1,27 @@
-using Calculator.Model;
-using Calculator_project.Exceptions;
-using Calculator_project.Model;
-using System;
-using System.Collections.Generic;
-using System.Windows;
 namespace Calculator_project.Controller
 {
-    // Ash pull request update
+    using System;
+    using System.Collections.Generic;
+    using System.Windows;
+    using Calculator_project.Exceptions;
+    using Calculator_project.Model;
+    using Calculator.Model;
 
+    // Ash pull request update
     public class Controller
     {
         private bool errorvar = false;
 
-        //private static Queue<Equation> equationQueue = new Queue<Equation>(10);
-        public string bracketcontroll(string exp)
+        // private static Queue<Equation> equationQueue = new Queue<Equation>(10);
+        public string BracketControl(string exp)
         {
             string expression = exp;
             string calc_exp;
             while (expression.Contains("("))
             {
-                /// step one. Find first (
-                /// second step find last )
-                /// Third step. take string between , run calculate expression, Then replace the brackets.
+                // step one. Find first (
+                // second step find last )
+                // Third step. take string between , run calculate expression, Then replace the brackets.
                 int x = 0;
                 int y = 0;
                 int b_counter = 0;
@@ -33,31 +33,55 @@ namespace Calculator_project.Controller
                 {
                     if (expression[i] == '(')
                     {
-                        if (b_counter == 0) { x = i; b_counter++; }
-                        else { b_counter++; }
+                        if (b_counter == 0)
+                        {
+                            x = i;
+                            b_counter++;
+                        }
+                        else
+                        {
+                            b_counter++;
+                        }
                     }
+
                     if (expression[i] == ')')
                     {
-                        if (b_counter == 1) { y = i; b_counter--; success = true; }
-                        else { b_counter--; }
+                        if (b_counter == 1)
+                        {
+                            y = i;
+                            b_counter--;
+                            success = true;
+                        }
+                        else
+                        {
+                            b_counter--;
+                        }
                     }
+
                     if (success)
                     {
                         // now to cut . calculate whats inside the brackets and then replace what was cut
-                        calc_exp = expression.Substring(x + 1, y - x - 1); //cuts the part of the brackets
-                        calc_exp = CalculateExpression(calc_exp, false); // calculates whats
+                        calc_exp = expression.Substring(x + 1, y - x - 1); // cuts the part of the brackets
+                        calc_exp = this.CalculateExpression(calc_exp, false); // calculates whats
 
-                        /// to better this and make it able to interprite if multiplication method is required we ask of
-                        /// if expression[x-1] isnt operator, if it isnt we add a "*" . test case first paranthesis [0].
-                        /// if expression[y+1] isnt operator, if it isnt we add a "*" test case last parenthesis [len -1]
-                        /// isnt operator is if the spot is occupied with either a (,) or a number.
+                        // to better this and make it able to interprite if multiplication method is required we ask of
+                        // if expression[x-1] isnt operator, if it isnt we add a "*" . test case first paranthesis [0].
+                        // if expression[y+1] isnt operator, if it isnt we add a "*" test case last parenthesis [len -1]
+                        // isnt operator is if the spot is occupied with either a (,) or a number.
                         if (x > 0)
                         {
-                            if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { calc_exp = "x" + calc_exp; }
+                            if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba))
+                            {
+                                calc_exp = "x" + calc_exp;
+                            }
                         }
+
                         if (y < expression.Length - 1)
                         {
-                            if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba)) { calc_exp = calc_exp + "x"; }
+                            if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba))
+                            {
+                                calc_exp = calc_exp + "x";
+                            }
                         }
 
                         expression = expression.Substring(0, x) + calc_exp + expression.Substring(y + 1);
@@ -66,26 +90,28 @@ namespace Calculator_project.Controller
                     }
                 }
             }
+
             return expression;
         }
-        public string functioncontroll(string exp)
+
+        public string FunctionControl(string exp)
         {
             string expression = exp;
-            ///first we iterate through the function list
-            ///then if we find a match we take the function string and the first number and then get the result.
-            ///then we replace that part of the string with the current.
+
+            // first we iterate through the function list
+            // then if we find a match we take the function string and the first number and then get the result.
+            // then we replace that part of the string with the current.
             FunctionList functionlist = new FunctionList();
             int x, y, z;
-            char c;
             int numba;
             string vars = ",-eπ";
             string tempexp;
-            for (int i = 0; i < functionlist.count; i++)
+            for (int i = 0; i < functionlist.Count; i++)
             {
-                while (expression.Contains(functionlist.names[i]))
+                while (expression.Contains(functionlist.Names[i]))
                 {
-                    x = expression.IndexOf(functionlist.names[i]);
-                    y = x + functionlist.names[i].Length;
+                    x = expression.IndexOf(functionlist.Names[i]);
+                    y = x + functionlist.Names[i].Length;
                     z = y;
                     while (z < expression.Length - 1) // edge cases
                     {
@@ -100,19 +126,27 @@ namespace Calculator_project.Controller
                     }
 
                     expression = expression.Replace('.', ',');
-                    //now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
+
+                    // now we know that x -> y-1 is the name and y to z is the number . we replace the x to z with the awnser
                     tempexp = functionlist.Functions[i].Execute(new double[] { Convert.ToDouble(expression.Substring(y, z - y + 1)) }).ToString();
                     tempexp = tempexp.Replace('-', '–');
-                    // write code here that restricts the size of the number.
 
+                    // write code here that restricts the size of the number.
                     if (x > 0)
                     {
-                        if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba)) { tempexp = "x" + tempexp; }
+                        if (vars.Contains(expression[x - 1]) || expression[x - 1] == ')' || int.TryParse(expression[x - 1].ToString(), out numba))
+                        {
+                            tempexp = "x" + tempexp;
+                        }
                     }
+
                     expression = expression.Substring(0, x) + tempexp + expression.Substring(z + 1, expression.Length - z - 1);
                     if (y < expression.Length - 1)
                     {
-                        if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba)) { tempexp = tempexp + "x"; }
+                        if (vars.Contains(expression[y + 1]) || expression[y + 1] == '(' || int.TryParse(expression[y + 1].ToString(), out numba))
+                        {
+                            tempexp = tempexp + "x";
+                        }
                     }
                 }
             }
@@ -120,34 +154,37 @@ namespace Calculator_project.Controller
             expression = expression.Replace(',', '.');
             return expression;
         }
+
         public string CalculateExpression(string exp, bool first)
         {
-
             List<Token> tokenList = new List<Token>();
-            string expression = bracketcontroll(exp);
-            expression = functioncontroll(expression);
+            string expression = this.BracketControl(exp);
+            expression = this.FunctionControl(expression);
             string answer;
             double doubleAnswer;
-            /// before starting calc we look at error. if there are errors we throw only one and return 0
-            if (errorvar)
+
+            // before starting calc we look at error. if there are errors we throw only one and return 0
+            if (this.errorvar)
             {
                 if (first)
                 {
-                    errorvar = false;
+                    this.errorvar = false;
                     return "0 ";
                 }
+
                 return "0";
             }
+
             try
             {
-                tokenList = SortToTokenList(expression); // Turn the expression string into a List of 
+                tokenList = this.SortToTokenList(expression); // Turn the expression string into a List of
 
                 while (tokenList.Count > 1)
                 {
-                    tokenList = Operate(tokenList);
+                    tokenList = this.Operate(tokenList);
                 }
 
-                answer = (tokenList[0].ToString()).Replace(",", ".");
+                answer = tokenList[0].ToString().Replace(",", ".");
                 doubleAnswer = 0.0;
 
                 doubleAnswer = Convert.ToDouble(answer, System.Globalization.CultureInfo.InvariantCulture);
@@ -155,16 +192,17 @@ namespace Calculator_project.Controller
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                errorvar = true;
+                this.errorvar = true;
                 return "0 ";
             }
-            if (NumberOfDecimals(answer) > 8)
+
+            if (this.NumberOfDecimals(answer) > 8)
             {
-                answer = (doubleAnswer.ToString($"F{8}")).Replace(',', '.');
+                answer = doubleAnswer.ToString($"F{8}").Replace(',', '.');
             }
             else
             {
-                answer = (doubleAnswer.ToString()).Replace(',', '.');
+                answer = doubleAnswer.ToString().Replace(',', '.');
             }
 
             answer = answer.Replace("-", "–");
@@ -175,7 +213,7 @@ namespace Calculator_project.Controller
         {
             List<Token> tokenList = new List<Token>();
 
-            string tempNumber = "";
+            string tempNumber = string.Empty;
             double doubleTempNumber;
             for (int i = 0; i < expression.Length; i++) // Loop through the expression string
             {
@@ -193,7 +231,7 @@ namespace Calculator_project.Controller
                 {
                     if (i == 0 || expression[i - 1] == '+' || expression[i - 1] == '-' || expression[i - 1] == 'x' || expression[i - 1] == '/' || expression[i - 1] == '^') // Check to see if it is the first char or if an operator preceded it, if this is the case, add it to the list
                     {
-                        tempNumber = (Math.PI.ToString()).Replace(',', '.');
+                        tempNumber = Math.PI.ToString().Replace(',', '.');
                     }
                     else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand. Also operate the newly added subexpression now, since this needs top priority
                     {
@@ -205,14 +243,15 @@ namespace Calculator_project.Controller
                         {
                             doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                         }
-                        tempNumber = ((doubleTempNumber * Math.PI).ToString()).Replace(',', '.');
+
+                        tempNumber = (doubleTempNumber * Math.PI).ToString().Replace(',', '.');
                     }
                 }
                 else if (expression[i] == 'e')
                 {
                     if (i == 0 || expression[i - 1] == '+' || expression[i - 1] == '-' || expression[i - 1] == 'x' || expression[i - 1] == '/' || expression[i - 1] == '^') // Check to see if it is the first char or if an operator preceded it, if this is the case, add it to the list
                     {
-                        tempNumber = (Math.E.ToString()).Replace(',', '.');
+                        tempNumber = Math.E.ToString().Replace(',', '.');
                     }
                     else // Else, a number precedes it, add the preceding number, a MuliplyOperator, and then the current char as an operand
                     {
@@ -224,17 +263,18 @@ namespace Calculator_project.Controller
                         {
                             doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                         }
-                        tempNumber = ((doubleTempNumber * Math.E).ToString()).Replace(',', '.');
+
+                        tempNumber = (doubleTempNumber * Math.E).ToString().Replace(',', '.');
 
                     }
                 }
                 else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list
                 {
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
-                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
+                    tempNumber = doubleTempNumber.ToString($"F{8}").Replace(',', '.');
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                     tokenList.Add(new Operand(doubleTempNumber));
-                    tempNumber = "";
+                    tempNumber = string.Empty;
 
                     switch (expression[i])
                     {
@@ -264,6 +304,7 @@ namespace Calculator_project.Controller
                     tempNumber += '-';
                 }
             }
+
             if (tempNumber.Length == 0) // We just exited the loop through the expression, and tempNumber is empty, this means that either the expression ends with an operator or the expression is empty, throw an expection
             {
                 throw new InvalidExpressionException();
@@ -273,13 +314,14 @@ namespace Calculator_project.Controller
                 if (expression.EndsWith("π"))
                 {
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
-                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
+                    tempNumber = doubleTempNumber.ToString($"F{8}").Replace(',', '.');
                 }
                 else if (expression.EndsWith("e"))
                 {
                     doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
-                    tempNumber = (doubleTempNumber.ToString($"F{8}")).Replace(',', '.');
+                    tempNumber = doubleTempNumber.ToString($"F{8}").Replace(',', '.');
                 }
+
                 doubleTempNumber = Convert.ToDouble(tempNumber, System.Globalization.CultureInfo.InvariantCulture);
                 tokenList.Add(new Operand(doubleTempNumber));
             }
@@ -290,22 +332,23 @@ namespace Calculator_project.Controller
         public List<Token> Operate(List<Token> tokenList)
         {
             int index = 0;
+
             // Handle the operators in the correct order: [^] => [/] => [*] => [+]&[-]
-            if (TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index))
+            if (this.TokenListContainsOperator<ExponentiateOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, index);
+                return this.CalculateSubexpression(tokenList, index);
             }
-            else if (TokenListContainsOperator<DivideOperator>(tokenList, ref index))
+            else if (this.TokenListContainsOperator<DivideOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, index);
+                return this.CalculateSubexpression(tokenList, index);
             }
-            else if (TokenListContainsOperator<MultiplyOperator>(tokenList, ref index))
+            else if (this.TokenListContainsOperator<MultiplyOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, index);
+                return this.CalculateSubexpression(tokenList, index);
             }
-            else if (TokenListContainsOperator<SumOperator>(tokenList, ref index) || TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
+            else if (this.TokenListContainsOperator<SumOperator>(tokenList, ref index) || this.TokenListContainsOperator<SubtractOperator>(tokenList, ref index))
             {
-                return CalculateSubexpression(tokenList, 1);
+                return this.CalculateSubexpression(tokenList, 1);
             }
             else
             {
@@ -317,8 +360,6 @@ namespace Calculator_project.Controller
         public bool TokenListContainsOperator<T>(List<Token> tokenList, ref int index)
         {
             ExponentiateOperator comparisonOperator = new ExponentiateOperator();
-
-
 
             if (comparisonOperator is T)
             {
@@ -342,6 +383,7 @@ namespace Calculator_project.Controller
                     }
                 }
             }
+
             return false;
         }
 
@@ -353,14 +395,14 @@ namespace Calculator_project.Controller
             Operand secondOperand = (Operand)tokenList[index + 1];
 
             // Compute the result
-            double result = currentOperator.Compute(firstOperand.value, secondOperand.value);
+            double result = currentOperator.Compute(firstOperand.Value, secondOperand.Value);
 
             if (result == double.PositiveInfinity || result == double.NegativeInfinity)
             {
                 throw new NumberTooLargeException();
             }
 
-            //Remove the handled tokens from the list and replace them with the result
+            // Remove the handled tokens from the list and replace them with the result
             tokenList.RemoveRange(index - 1, 3);
             tokenList.Insert(index - 1, new Operand(result));
 
@@ -376,6 +418,7 @@ namespace Calculator_project.Controller
                     return answer.Length - i - 1;
                 }
             }
+
             return 0;
         }
     }

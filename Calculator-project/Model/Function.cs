@@ -1,62 +1,60 @@
-﻿using Calculator.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq; // Needed for possible future extensions
-
-
-
-
-namespace Calculator_project.Model
+﻿namespace Calculator_project.Model
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq; // Needed for possible future extensions
+    using Calculator.Model;
+
     public class FunctionList
     {
-        // Define a list to store functions
-        public List<Function> Functions { get; private set; }
-        public int count;
-        public string[] names;
+        public int Count;
+        public string[] Names;
+
 
         // Constructor to initialize the function list
         public FunctionList()
         {
             // Initialize the list
-            Functions = new List<Function>();
-            count = 0;
+            this.Functions = new List<Function>();
+            this.Count = 0;
 
             // Add predefined functions to the list
-            AddFunction(new CosineFunction());
-            AddFunction(new SineFunction());
-            AddFunction(new TangentFunction());
-            AddFunction(new AshFunction());
+            this.AddFunction(new CosineFunction());
+            this.AddFunction(new SineFunction());
+            this.AddFunction(new TangentFunction());
+            this.AddFunction(new AshFunction());
+
             // adds names here
-            names = new string[count];
-            names[0] = "cos";
-            names[1] = "sin";
-            names[2] = "tan";
-            names[3] = "ash";
+            this.Names = new string[this.Count];
+            this.Names[0] = "cos";
+            this.Names[1] = "sin";
+            this.Names[2] = "tan";
+            this.Names[3] = "ash";
         }
+
+        // Define a list to store functions
+        public List<Function> Functions { get; private set; }
 
         // Method to add a function to the list
         public void AddFunction(Function func)
         {
-            Functions.Add(func);
-            count++;
-            
+            this.Functions.Add(func);
+            this.Count++;
         }
     }
-
-
 
     /// <summary>
     /// Represents the cosine function.
     /// </summary>
     public class CosineFunction : Function
     {
-      
         public override double Execute(double[] parameters)
         {
-            
             if (parameters.Length != 1)
+            {
                 throw new ArgumentException("Cosine function requires only one parameter.");
+            }
+
             return Math.Cos(parameters[0]);
         }
 
@@ -71,11 +69,13 @@ namespace Calculator_project.Model
     /// </summary>
     public class SineFunction : Function
     {
-      
         public override double Execute(double[] parameters)
         {
             if (parameters.Length != 1)
+            {
                 throw new ArgumentException("Sine function requires only one parameter.");
+            }
+
             return Math.Sin(parameters[0]);
         }
 
@@ -90,11 +90,13 @@ namespace Calculator_project.Model
     /// </summary>
     public class TangentFunction : Function
     {
-       
         public override double Execute(double[] parameters)
         {
             if (parameters.Length != 1)
+            {
                 throw new ArgumentException("Tangent function requires only one parameter.");
+            }
+
             return Math.Tan(parameters[0]);
         }
 
@@ -103,6 +105,7 @@ namespace Calculator_project.Model
             return "Tangent Function Token";
         }
     }
+
     public class AshFunction : Function
     {
         public override double Execute(double[] parameters)
@@ -111,11 +114,9 @@ namespace Calculator_project.Model
         }
     }
 
-
     /// <summary>
     /// A token for mathematical functions. Enables the use of various mathematical operations that require multiple parameters.
     /// </summary>
-    /// 
     public abstract class Function : Token
     {
         /// <summary>
@@ -124,6 +125,5 @@ namespace Calculator_project.Model
         /// <param name="parameters">An array of doubles as parameters for the function.</param>
         /// <returns>The result of the function as a double.</returns>
         public abstract double Execute(double[] parameters);
-        
     }
 }

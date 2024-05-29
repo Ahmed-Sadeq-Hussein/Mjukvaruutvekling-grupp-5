@@ -1,8 +1,9 @@
 ﻿namespace Calculator_project.Model
 {
-    //The substraction operator
+    // The substraction operator
+
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public class SubtractOperator : Operator
     {
@@ -13,7 +14,7 @@
 
         public override string ToString()
         {
-            return ($"[SubtractOperator]");
+            return $"[SubtractOperator]";
         }
     }
 }

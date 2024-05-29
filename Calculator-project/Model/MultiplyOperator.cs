@@ -1,6 +1,7 @@
 ﻿namespace Calculator_project.Model
 {
-    //The multiplication operator
+    // The multiplication operator
+
     /// <summary>
     /// Multiplication implementation. pretty simple .
     /// good jobb.
@@ -14,7 +15,7 @@
 
         public override string ToString()
         {
-            return ($"[MultiplyOperator]");
+            return $"[MultiplyOperator]";
         }
     }
 }
