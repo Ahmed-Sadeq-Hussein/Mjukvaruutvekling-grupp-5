@@ -265,7 +265,6 @@ namespace Calculator_project.Controller
                         }
 
                         tempNumber = (doubleTempNumber * Math.E).ToString().Replace(',', '.');
-
                     }
                 }
                 else if (expression[i] == '+' || expression[i] == '-' || expression[i] == 'x' || expression[i] == '/' || expression[i] == '^') // If the current char is an operator symbol [+|-|*|/|^], add the previous number (tempNumber) to the list and add the operator to the list

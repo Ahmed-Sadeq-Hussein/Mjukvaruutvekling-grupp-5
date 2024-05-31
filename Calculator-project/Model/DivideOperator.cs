@@ -14,8 +14,9 @@
         {
             // Error when divide with 0
             if (y == 0)
-
+            {
                 throw new DivideByZeroException();
+            }
 
             return x / y;
         }

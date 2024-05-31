@@ -241,7 +241,6 @@
             Assert.That(result, Is.EqualTo(0.25));
         }
 
-
         [Test]
         public void CosineFunction_EqualTest1()
         {
@@ -254,7 +253,6 @@
 
             // Assert
             Assert.That(result, Is.EqualTo(1));
-
         }
 
         [Test]
@@ -268,11 +266,9 @@
             // Act
             double result = function.Execute(paramList);
 
-
             // Assert
             Assert.That(result, Is.EqualTo(-0.66627602127982399));
         }
-
 
         [Test]
         public void SineFunction_EqualTest1()
@@ -288,7 +284,6 @@
             Assert.That(result, Is.EqualTo(1));
         }
 
-
         [Test]
         public void SineFunction_EqualTest2()
         {
@@ -301,7 +296,6 @@
 
             // Assert
             Assert.That(result, Is.EqualTo(0));
-
         }
 
         [Test]

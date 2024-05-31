@@ -34,7 +34,6 @@
             Assert.That(awns2, Is.EqualTo(awns1));
             Assert.That(awns3, Is.EqualTo(awns1));
             Assert.That(awns1, Is.EqualTo(69));
-
         }
 
         // Tests the different ways to use include brackets

@@ -10,7 +10,6 @@
         public int Count;
         public string[] Names;
 
-
         // Constructor to initialize the function list
         public FunctionList()
         {
